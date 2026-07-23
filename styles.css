@@ -168,6 +168,36 @@ nav.site-nav a.cta:hover { color: var(--ink); }
 .btn.ghost { color: var(--ink); border: 1px solid var(--rule); }
 .btn.ghost:hover { border-color: var(--brass); color: var(--navy); }
 
+.cred-row {
+  margin-top: 54px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 44px;
+}
+
+.cred-row span {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  position: relative;
+  padding-left: 16px;
+}
+
+.cred-row span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background: var(--brass);
+}
+
 /* ---------- section scaffolding ---------- */
 
 section.block { border-top: 1px solid var(--rule); }
