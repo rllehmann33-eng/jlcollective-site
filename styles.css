@@ -373,6 +373,31 @@ section.block { border-top: 1px solid var(--rule); }
 
 .vert-note { margin-top: 26px; font-size: 15px; color: var(--ink-soft); font-style: italic; }
 
+/* ---------- testimonial ---------- */
+
+.quote-block {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(19px, 2.1vw, 25px);
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  max-width: 30em;
+  border-left: 3px solid var(--brass);
+  padding-left: 26px;
+}
+
+.quote-attr {
+  margin-top: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-left: 29px;
+}
+
 /* ---------- band ---------- */
 
 .band { background: var(--navy); color: var(--paper); position: relative; overflow: hidden; }
