@@ -20,7 +20,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 
 body {
   background: var(--paper);
@@ -610,7 +610,7 @@ section.block { border-top: 1px solid var(--rule); position: relative; }
   font-weight: 500;
   font-size: clamp(32px, 3.6vw, 48px);
   line-height: 1;
-  color: var(--rule);
+  color: #97845C;
   letter-spacing: -0.02em;
   transition: color 240ms ease;
 }
