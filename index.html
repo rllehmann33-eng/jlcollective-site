@@ -32,16 +32,20 @@
 </head>
 <body>
 
+<a class="skip" href="#why">Skip to content</a>
+<div class="rails" aria-hidden="true"></div>
+
 <header class="site" id="siteHeader">
   <div class="wrap head-inner">
     <a class="mark" href="index.html">
       <span class="mono">JL</span>
       <span class="name">Collective</span>
     </a>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Primary">
       <a href="#why">Why we exist</a>
       <a href="#system">The system</a>
       <a href="#work">What we do</a>
+      <a href="#people">The people</a>
       <a href="#start">How it starts</a>
       <a href="#contact" class="cta">Request the audit</a>
     </nav>
@@ -140,7 +144,7 @@
   <div class="wrap numbers-inner">
     <div class="lab reveal">The platform, measured honestly</div>
     <div class="stat reveal">
-      <div class="big">1,000+</div>
+      <div class="big">1,200+</div>
       <div class="small">automated tests underpin the platform's codebase — executed before anything ships.</div>
     </div>
     <div class="stat reveal d1">
@@ -227,11 +231,39 @@
   </div>
 </section>
 
+<section class="block" id="people">
+  <div class="wrap sec">
+    <div class="sec-label reveal">
+      <span class="num">05</span>
+      <h2>The people</h2>
+    </div>
+    <div class="sec-body reveal d1">
+      <h3>Two principals. <em>Named, reachable, accountable.</em></h3>
+      <p>The firm is built deliberately around its principals: the people who pitch the work are the people who do the work. Both names below stand behind every engagement this site describes.</p>
+      <div class="people">
+        <div class="person reveal">
+          <span class="plate">LL</span>
+          <h4>Luke Lehmann</h4>
+          <div class="role">Founding principal · Systems &amp; operations</div>
+          <p>Luke built the firm's infrastructure — the platform, the approval gates, the audit record — and leads the marketing practice that runs on it. "Systems we built ourselves" is his job description.</p>
+        </div>
+        <div class="person reveal d1">
+          <span class="plate">JT</span>
+          <h4>Jack Tusa</h4>
+          <div class="role">Founding principal · Partnerships &amp; creative</div>
+          <p>Jack leads partnerships and the creative standard. He is the first conversation a new partner has with the firm, and the standing voice for that partner's outcome in every decision after it.</p>
+        </div>
+      </div>
+      <p class="people-note">There is no rotating account team behind this page. The people named here are the people accountable for the work.</p>
+    </div>
+  </div>
+</section>
+
 <section class="band">
   <div class="wrap band-inner">
     <div class="kicker reveal">The principle</div>
     <blockquote class="reveal d1">We only win when <em>our partners win.</em></blockquote>
-    <p class="attr reveal d2">It governs how we price, how we build, and what we choose to own: measured fees, upside tied to performance — and the conviction that a partner who outgrows us is a better outcome than a client who never should have engaged us.</p>
+    <p class="attr reveal d2">It governs how we price, how we build, and what we choose to own: measured fees, upside tied to performance — and the conviction that a partner who outgrows us is a better outcome than a client who never should have engaged us. <strong>We count success in relationships that hold for years. Service, done properly, is the entire growth strategy.</strong></p>
   </div>
 </section>
 
@@ -250,7 +282,7 @@
 <section class="block" id="start">
   <div class="wrap sec">
     <div class="sec-label reveal">
-      <span class="num">05</span>
+      <span class="num">06</span>
       <h2>How it starts</h2>
     </div>
     <div class="sec-body reveal d1">
@@ -287,7 +319,7 @@
 <section class="block" id="principles">
   <div class="wrap sec">
     <div class="sec-label reveal">
-      <span class="num">06</span>
+      <span class="num">07</span>
       <h2>Principles</h2>
     </div>
     <div class="sec-body reveal d1">
@@ -337,7 +369,7 @@
 <section class="block" id="faq">
   <div class="wrap sec">
     <div class="sec-label reveal">
-      <span class="num">07</span>
+      <span class="num">08</span>
       <h2>Fair questions</h2>
     </div>
     <div class="sec-body reveal d1">
@@ -399,7 +431,7 @@
 <section class="block" id="contact">
   <div class="wrap sec">
     <div class="sec-label reveal">
-      <span class="num">08</span>
+      <span class="num">09</span>
       <h2>Contact</h2>
     </div>
     <div class="sec-body reveal d1">
@@ -418,9 +450,14 @@
       </a>
       <p class="foot-tag">A marketing operations firm and software studio. Named operators, systems built in-house, every action on the record.</p>
     </div>
+    <div class="foot-contact">
+      <div class="f-lab">Correspondence</div>
+      <a href="mailto:hello@thejlcollective.com">hello@thejlcollective.com</a>
+      <p>Every message is read.</p>
+    </div>
   </div>
   <div class="wrap foot-inner">
-    <span>&copy; 2026 JL Collective LLC. All rights reserved.</span>
+    <span>&copy; 2026 JL Collective LLC &middot; a Texas limited liability company</span>
     <div class="foot-links">
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
@@ -452,6 +489,20 @@ if (reduced || !('IntersectionObserver' in window)) {
     });
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
   targets.forEach(function (el) { io.observe(el); });
+}
+
+if ('IntersectionObserver' in window) {
+  var navLinks = document.querySelectorAll('nav.site-nav a[href^="#"]:not(.cta)');
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        navLinks.forEach(function (l) {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-35% 0px -55% 0px' });
+  document.querySelectorAll('section.block[id]').forEach(function (s) { spy.observe(s); });
 }
 </script>
 
