@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1200px; height:630px; }
+  body {
+    background:#122038;
+    background-image: radial-gradient(120% 100% at 88% 12%, #1B2E4C 0%, #122038 55%, #0C1626 100%);
+    font-family:"Archivo", system-ui, sans-serif;
+    color:#F6F2EA;
+    position:relative;
+    overflow:hidden;
+  }
+  .pad { position:absolute; inset:60px 74px; display:flex; flex-direction:column; }
+
+  .brandrow { display:flex; align-items:center; gap:22px; }
+  .plate {
+    width:56px; height:56px; flex:none;
+    background:#F6F2EA; color:#122038;
+    font-family:"Fraunces", Georgia, serif; font-weight:500; font-size:26px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 1px rgba(200,169,106,.55), 0 0 0 5px rgba(18,32,56,1), 0 0 0 6px rgba(200,169,106,.28);
+  }
+  .brandtext .n { font-size:19px; font-weight:600; letter-spacing:.20em; text-transform:uppercase; }
+  .brandtext .s { margin-top:6px; font-size:12.5px; font-weight:500; letter-spacing:.20em; text-transform:uppercase; color:#9FB0C6; }
+
+  h1 {
+    margin-top:auto;
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:500;
+    font-size:76px;
+    line-height:1.02;
+    letter-spacing:-.022em;
+    max-width:19ch;
+  }
+
+  .rule { margin-top:auto; height:1px; background:linear-gradient(90deg, rgba(200,169,106,.55), rgba(246,242,234,.16) 40%, rgba(246,242,234,.06)); }
+
+  .foot { margin-top:26px; display:flex; align-items:flex-end; justify-content:space-between; gap:40px; }
+  .sub { font-size:17.5px; line-height:1.6; color:#C6D0DC; max-width:52ch; }
+  .url { font-size:14px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#C8A96A; white-space:nowrap; }
+</style>
+</head>
+<body>
+  <div class="pad">
+    <div class="brandrow">
+      <div class="plate">JL</div>
+      <div class="brandtext">
+        <div class="n">JL Collective</div>
+        <div class="s">Marketing Operations &middot; Texas</div>
+      </div>
+    </div>
+
+    <h1>Nothing changes in your account unless one of us decides it.</h1>
+
+    <div class="rule"></div>
+    <div class="foot">
+      <div class="sub">We take the accounts over, run them week to week, and tell you what happened.</div>
+      <div class="url">thejlcollective.com</div>
+    </div>
+  </div>
+</body>
+</html>
