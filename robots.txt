@@ -1,0 +1,5 @@
+# thejlcollective.com
+User-agent: *
+Allow: /
+
+Sitemap: https://thejlcollective.com/sitemap.xml
