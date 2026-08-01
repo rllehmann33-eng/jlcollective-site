@@ -9,8 +9,15 @@
   --paper-deep: #EDE7DA;
   --ink: #191612;
   --ink-soft: #524C42;
+  /* --navy is a SURFACE (fills, the mark, the band). As text on paper it sits
+     1.11:1 from --ink, which no eye reads as an accent, so navy-as-text and
+     navy-as-hover both use --navy-lift instead. */
   --navy: #122038;
+  --navy-lift: #1D3153;
   --navy-deep: #0C1626;
+  /* --rule is decorative hairline only, 1.37:1. Anything that is the visible
+     edge of a CONTROL uses --edge (3.50:1) to satisfy WCAG 1.4.11. */
+  --edge: #8A806A;
   /* --brass sets hairlines, ticks, discs, borders and focus rings only.
      It computes to 4.459:1 on paper, under the AA floor, so any brass that
      sets running text uses --brass-ink (5.67:1) instead. */
@@ -168,7 +175,7 @@ nav.site-nav a.cta {
   padding: 10px 18px 9px;
   transition: background 180ms ease;
 }
-nav.site-nav a.cta:hover { background: var(--navy-deep); color: var(--paper); }
+nav.site-nav a.cta:hover { background: var(--navy-lift); color: var(--paper); }
 
 /* ---------- hero — the title block ---------- */
 
@@ -213,7 +220,7 @@ nav.site-nav a.cta:hover { background: var(--navy-deep); color: var(--paper); }
   text-wrap: balance;
 }
 
-.hero h1 em { font-style: italic; font-weight: 400; color: var(--navy); }
+.hero h1 em { font-style: italic; font-weight: 400; color: var(--navy-lift); }
 
 .hero .stand {
   margin-top: 46px;
@@ -241,10 +248,10 @@ nav.site-nav a.cta:hover { background: var(--navy-deep); color: var(--paper); }
 .btn:hover::after { transform: translateX(4px); }
 
 .btn.primary { background: var(--navy); color: var(--paper); border: 1px solid var(--navy); }
-.btn.primary:hover { background: var(--navy-deep); }
+.btn.primary:hover { background: var(--navy-lift); }
 
-.btn.ghost { color: var(--ink); border: 1px solid var(--rule); background: transparent; }
-.btn.ghost:hover { border-color: var(--brass); color: var(--navy); }
+.btn.ghost { color: var(--ink); border: 1px solid var(--edge); background: transparent; }
+.btn.ghost:hover { border-color: var(--brass); color: var(--navy-lift); }
 
 /* the title-block strip closing the hero — corner-ticked, like a sheet legend */
 .cred-row {
@@ -309,7 +316,9 @@ section.block { border-top: 1px solid var(--rule); position: relative; }
 .sec-label .num {
   font-family: "Fraunces", Georgia, serif;
   font-size: 15px;
-  font-variant-numeric: tabular-nums lining-nums;
+  /* lining, but NOT tabular: tabular side bearings indent a two-digit marker
+     off the left edge of the label beneath it. Nothing here is columnar. */
+  font-variant-numeric: lining-nums;
   color: var(--brass-ink);
   display: block; margin-bottom: 12px;
 }
@@ -339,7 +348,7 @@ section.block { border-top: 1px solid var(--rule); position: relative; }
   text-wrap: balance;
 }
 
-.sec-body h3 em { font-style: italic; font-weight: 400; color: var(--navy); }
+.sec-body h3 em { font-style: italic; font-weight: 400; color: var(--navy-lift); }
 
 .sec-body > p { max-width: 64ch; color: var(--ink-soft); margin-bottom: 18px; }
 .sec-body p strong { color: var(--ink); font-weight: 600; }
@@ -450,7 +459,7 @@ section.block { border-top: 1px solid var(--rule); position: relative; }
 .vert h4 {
   font-family: "Fraunces", Georgia, serif;
   font-weight: 500; font-style: italic;
-  font-size: 21px; color: var(--navy);
+  font-size: 21px; color: var(--navy-lift);
   letter-spacing: -0.005em;
 }
 
@@ -673,7 +682,7 @@ section.block { border-top: 1px solid var(--rule); position: relative; }
 }
 
 .faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
-.faq summary:hover { color: var(--navy); }
+.faq summary:hover { color: var(--navy-lift); }
 
 .faq .a { padding: 0 0 26px; max-width: 62ch; color: var(--ink-soft); font-size: 16px; }
 .faq .a p { margin-bottom: 12px; }
@@ -690,13 +699,13 @@ section.block { border-top: 1px solid var(--rule); position: relative; }
 }
 
 .contact-line a {
-  color: var(--navy);
+  color: var(--navy-lift);
   text-decoration: none;
   border-bottom: 2px solid var(--brass);
   transition: border-color 160ms ease, color 160ms ease;
 }
 
-.contact-line a:hover { border-color: var(--navy); }
+.contact-line a:hover { border-color: var(--navy-lift); }
 
 .contact-note { margin-top: 26px; font-size: 15.5px; color: var(--ink-soft); max-width: 54ch; line-height: 1.7; }
 .contact-note strong { color: var(--ink); }
@@ -783,7 +792,7 @@ footer.site {
 .legal h2 { font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 22px; margin: 40px 0 12px; }
 .legal p, .legal li { color: var(--ink-soft); margin-bottom: 14px; font-size: 16px; }
 .legal ul { padding-left: 22px; margin-bottom: 14px; }
-.legal a { color: var(--navy); }
+.legal a { color: var(--navy-lift); }
 
 /* legacy header/nav on legal pages */
 header:not(.site) { border-bottom: 1px solid var(--rule); }
