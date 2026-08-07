@@ -820,3 +820,116 @@ header:not(.site) nav a:hover { color: var(--ink); border-color: var(--brass); }
   nav.site-nav a:not(.cta) { display: none; }
   nav.site-nav a.cta { padding: 9px 14px 8px; }
 }
+
+/* ================================================================
+   ELEVATION PASS — depth, motion, and the Trine woven through.
+   Palette and copy untouched; everything below is craft.
+   ================================================================ */
+
+/* scroll progress — a brass hairline across the very top */
+.progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px;
+  z-index: 90; pointer-events: none;
+}
+.progress span {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--brass), var(--brass-bright));
+  transform: scaleX(0); transform-origin: 0 50%;
+}
+
+/* hero: ambient trine watermark, drifting slowly behind the headline */
+.hero { position: relative; }
+.hero-wm {
+  position: absolute; right: -140px; top: 40px;
+  width: 560px; height: 560px;
+  color: var(--navy-lift);
+  opacity: .12;
+  pointer-events: none;
+  will-change: transform;
+}
+.hero-wm svg { width: 100%; height: 100%; animation: wm-spin 240s linear infinite; }
+@keyframes wm-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .hero-wm svg { animation: none; } }
+@media (max-width: 900px) { .hero-wm { width: 380px; height: 380px; right: -160px; opacity: .09; } }
+
+/* hero glow behind the headline — depth without an image */
+.hero::after {
+  content: ""; position: absolute; left: -10%; top: -20%;
+  width: 70%; height: 90%;
+  background: radial-gradient(closest-side, rgba(200,169,106,.10), transparent 70%);
+  pointer-events: none;
+}
+
+/* cards: real elevation behavior */
+.vert, .step, .person {
+  transition: transform 260ms cubic-bezier(.2,.6,.2,1), box-shadow 260ms ease, border-color 260ms ease;
+}
+.vert:hover, .person:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px -18px rgba(18,32,56,.35);
+}
+.step:hover { transform: translateX(4px); }
+
+/* nav links: animated brass underline instead of static border */
+nav.site-nav a:not(.cta) { position: relative; border-bottom: 0; }
+nav.site-nav a:not(.cta)::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 1px;
+  background: var(--brass);
+  transform: scaleX(0); transform-origin: 0 50%;
+  transition: transform 240ms cubic-bezier(.2,.6,.2,1);
+}
+nav.site-nav a:not(.cta):hover::after,
+nav.site-nav a:not(.cta).active::after { transform: scaleX(1); }
+
+/* primary CTA: brass sweep on hover */
+.btn.primary { position: relative; overflow: hidden; }
+.btn.primary::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(200,169,106,.22) 50%, transparent 70%);
+  transform: translateX(-110%);
+  transition: transform 600ms cubic-bezier(.2,.6,.2,1);
+}
+.btn.primary:hover::before { transform: translateX(110%); }
+
+/* band: retire the letterpress JL, seat the trine geometry */
+.band::before { content: none; }
+.band-deco {
+  position: absolute; right: -60px; bottom: -80px;
+  width: 420px; height: 420px;
+  pointer-events: none;
+}
+@media (max-width: 900px) { .band-deco { width: 280px; height: 280px; right: -90px; } }
+
+/* section numbers: brass rule that draws itself in */
+.sec-label .num { position: relative; padding-top: 10px; }
+.sec-label .num::before {
+  content: ""; position: absolute; top: 0; left: 0;
+  width: 34px; height: 2px; background: var(--brass);
+}
+
+/* reveal: slightly richer entrance (blur settles) */
+.js .reveal { filter: blur(6px); }
+.js .reveal.in { filter: blur(0); transition-property: opacity, transform, filter; }
+@media (prefers-reduced-motion: reduce) { .js .reveal { filter: none; } }
+
+/* FAQ: affordance + smooth open (JS animates max-height) */
+.faq details { transition: background 200ms ease; }
+.faq details[open] { background: rgba(200,169,106,.05); }
+.faq .a { overflow: hidden; }
+.faq summary::marker { content: ""; }
+.faq summary { position: relative; padding-right: 34px; }
+.faq summary::after {
+  content: ""; position: absolute; right: 8px; top: 50%;
+  width: 10px; height: 10px; margin-top: -5px;
+  border-right: 2px solid var(--brass); border-bottom: 2px solid var(--brass);
+  transform: rotate(45deg);
+  transition: transform 240ms cubic-bezier(.2,.6,.2,1);
+}
+.faq details[open] summary::after { transform: rotate(225deg); margin-top: -1px; }
+
+/* footer: gradient hairline instead of hard border */
+footer.site { border-top: 0; position: relative; }
+footer.site::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brass) 25%, var(--brass) 75%, transparent);
+}
