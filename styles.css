@@ -933,3 +933,54 @@ footer.site::before {
   content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(90deg, transparent, var(--brass) 25%, var(--brass) 75%, transparent);
 }
+
+/* ================================================================
+   ELEVATION II — the draw-on mark, brand glyphs, magnetic CTAs,
+   and a footer with structure. Copy untouched.
+   ================================================================ */
+
+/* hero mark draws itself on first load, then keeps its slow drift */
+.js .wm-ring, .js .wm-arm {
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+  animation: wm-draw 1400ms cubic-bezier(.4,.1,.2,1) forwards;
+}
+.js .wm-ring { animation-delay: 200ms; animation-duration: 1800ms; }
+.js .wm-arm.a1 { animation-delay: 900ms; }
+.js .wm-arm.a2 { animation-delay: 1100ms; }
+.js .wm-arm.a3 { animation-delay: 1300ms; }
+.js .wm-tri { opacity: 0; animation: wm-fade 900ms ease 2100ms forwards; }
+@keyframes wm-draw { to { stroke-dashoffset: 0; } }
+@keyframes wm-fade { to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .js .wm-ring, .js .wm-arm { animation: none; stroke-dashoffset: 0; }
+  .js .wm-tri { animation: none; opacity: 1; }
+}
+
+/* service-card brand glyphs */
+.vert h4 { display: flex; align-items: center; gap: 10px; }
+.vert-glyph { width: 14px; height: 19px; flex: none; }
+
+/* magnetic CTAs — transform set by JS, transition smooths it */
+.btn.primary, nav.site-nav a.cta { transition: transform 180ms cubic-bezier(.2,.6,.2,1), background 180ms ease; }
+
+/* contact email — underline grows on hover */
+.contact-line a { position: relative; border-bottom: 0; }
+.contact-line a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px;
+  background: var(--brass);
+  transform: scaleX(.35); transform-origin: 0 50%;
+  transition: transform 320ms cubic-bezier(.2,.6,.2,1);
+}
+.contact-line a:hover::after { transform: scaleX(1); }
+
+/* footer nav column */
+.foot-top { display: grid; grid-template-columns: 1.4fr .8fr 1fr; gap: clamp(28px, 5vw, 80px); }
+.foot-nav { display: flex; flex-direction: column; gap: 9px; }
+.foot-nav .f-lab { margin-bottom: 4px; }
+.foot-nav a {
+  color: #A9B4CC; text-decoration: none; font-size: 14px;
+  width: fit-content; border-bottom: 1px solid transparent;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+.foot-nav a:hover { color: var(--paper); border-color: var(--brass-bright); }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; gap: 30px; } }

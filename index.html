@@ -26,6 +26,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Archivo:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<meta name="theme-color" content="#122038">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","name":"JL Collective","url":"https://thejlcollective.com/","logo":"https://thejlcollective.com/logo.png","email":"hello@thejlcollective.com","address":{"@type":"PostalAddress","addressRegion":"TX","addressCountry":"US"}},
+ {"@type":"WebSite","name":"JL Collective","url":"https://thejlcollective.com/"}]}
+</script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -52,7 +59,9 @@
 
 <main id="main" tabindex="-1">
 <div class="hero">
-  <div class="hero-wm" aria-hidden="true"><svg viewBox="0 0 240 240"><circle cx="120" cy="120" r="90" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="120,54 177.2,153 62.8,153" fill="none" stroke="currentColor" stroke-width="1"/><g transform="rotate(0 120 120)"><path d="M138,108 L120,108 L120,54 L115.5,61.8" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(120 120 120)"><path d="M138,108 L120,108 L120,54 L115.5,61.8" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(240 120 120)"><path d="M138,108 L120,108 L120,54 L115.5,61.8" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>
+  <div class="hero-wm" aria-hidden="true"><svg viewBox="0 0 240 240">
+<circle class="wm-ring" cx="120" cy="120" r="90" fill="none" stroke="currentColor" stroke-width="2" pathLength="1"/>
+<polygon class="wm-tri" points="120,54 177.2,153 62.8,153" fill="none" stroke="currentColor" stroke-width="1" pathLength="1"/><g transform="rotate(0 120 120)"><path class="wm-arm a1" pathLength="1" d="M138,108 L120,108 L120,54 L115.5,61.8" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(120 120 120)"><path class="wm-arm a2" pathLength="1" d="M138,108 L120,108 L120,54 L115.5,61.8" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(240 120 120)"><path class="wm-arm a3" pathLength="1" d="M138,108 L120,108 L120,54 L115.5,61.8" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>
   <div class="wrap">
     <div class="kicker reveal">Marketing &amp; software</div>
     <h1 class="serif reveal d1">We run marketing on an AI engine we built ourselves.</h1>
@@ -93,15 +102,15 @@
       <h3>Paid media, creative, and the systems underneath.</h3>
       <div class="vert-list">
         <div class="vert reveal">
-          <h4>Paid media</h4>
+          <h4><svg class="vert-glyph" viewBox="96 40 60 80" aria-hidden="true"><path d="M138,108 L120,108 L120,54 L115.5,61.8" stroke="#8C6A2F" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Paid media</h4>
           <p>Planning, launch, and week-to-week management of your campaigns &mdash; Meta and beyond. The engine watches the account; one of us answers for it.</p>
         </div>
         <div class="vert reveal">
-          <h4>Creative</h4>
+          <h4><svg class="vert-glyph" viewBox="96 40 60 80" aria-hidden="true"><path d="M138,108 L120,108 L120,54 L115.5,61.8" stroke="#8C6A2F" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Creative</h4>
           <p>Every ad, offer, and headline is built for one purpose: to be tested. The engine amplifies winners. The data eliminates losers.</p>
         </div>
         <div class="vert reveal">
-          <h4>Custom software</h4>
+          <h4><svg class="vert-glyph" viewBox="96 40 60 80" aria-hidden="true"><path d="M138,108 L120,108 L120,54 L115.5,61.8" stroke="#8C6A2F" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom software</h4>
           <p>If the system your business needs doesn't exist, we build it &mdash; review intelligence, booking flows, internal tools. Scoped and priced per project, and we'll tell you upfront if it isn't worth building.</p>
         </div>
       </div>
@@ -259,6 +268,14 @@
       </a>
       <p class="foot-tag">Marketing execution and management, and the custom software behind it. Founded by Luke Lehmann and Jack Tusa.</p>
     </div>
+    <nav class="foot-nav" aria-label="Footer">
+      <div class="f-lab">The site</div>
+      <a href="#engine">The engine</a>
+      <a href="#services">What we run</a>
+      <a href="#start">Start free</a>
+      <a href="#people">The people</a>
+      <a href="#contact">Contact</a>
+    </nav>
     <div class="foot-contact">
       <div class="f-lab">Write to us</div>
       <a href="mailto:hello@thejlcollective.com">hello@thejlcollective.com</a>
@@ -333,6 +350,18 @@ if (!reduced) {
       if (y < 1200) wm.style.transform = 'translateY(' + (y * 0.12) + 'px) rotate(' + (y * 0.02) + 'deg)';
     }, { passive: true });
   }
+}
+
+if (!reduced) {
+  document.querySelectorAll('.btn.primary, nav.site-nav a.cta').forEach(function (b) {
+    b.addEventListener('mousemove', function (e) {
+      var r = b.getBoundingClientRect();
+      var dx = (e.clientX - r.left - r.width / 2) / r.width;
+      var dy = (e.clientY - r.top - r.height / 2) / r.height;
+      b.style.transform = 'translate(' + (dx * 5) + 'px,' + (dy * 4) + 'px)';
+    });
+    b.addEventListener('mouseleave', function () { b.style.transform = ''; });
+  });
 }
 
 document.querySelectorAll('.faq details').forEach(function (d) {
