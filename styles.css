@@ -135,24 +135,9 @@ header.site.scrolled { border-bottom-color: var(--rule); }
 .mark { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); }
 
 .mark .mono {
-  font-family: "Fraunces", Georgia, serif;
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: 0.02em;
-  color: var(--paper);
-  background: var(--navy);
   width: 40px; height: 40px;
   display: flex; align-items: center; justify-content: center;
-  position: relative;
   flex: none;
-}
-
-.mark .mono::after {
-  content: "";
-  position: absolute;
-  inset: 3px;
-  border: 1px solid rgba(246, 242, 234, 0.28);
-  pointer-events: none;
 }
 
 .mark .name { font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; }
@@ -729,8 +714,8 @@ footer.site {
 }
 
 .foot-top .mark { color: var(--paper); }
-.foot-top .mark .mono { width: 46px; height: 46px; font-size: 20px; background: var(--paper); color: var(--navy); }
-.foot-top .mark .mono::after { border-color: rgba(18, 32, 56, 0.3); }
+.foot-top .mark .mono { width: 46px; height: 46px; }
+
 
 .foot-tag { margin-top: 18px; font-size: 14.5px; max-width: 44ch; line-height: 1.65; }
 
@@ -847,9 +832,10 @@ header:not(.site) nav a:hover { color: var(--ink); border-color: var(--brass); }
   pointer-events: none;
   will-change: transform;
 }
-.hero-wm svg { width: 100%; height: 100%; animation: wm-spin 240s linear infinite; }
+.hero-wm svg { width: 100%; height: 100%; }
+.hero-wm .wm-turn { animation: wm-spin 240s linear infinite; transform-origin: 120px 120px; }
 @keyframes wm-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .hero-wm svg { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hero-wm .wm-turn { animation: none; } }
 @media (max-width: 900px) { .hero-wm { width: 380px; height: 380px; right: -160px; opacity: .09; } }
 
 /* hero glow behind the headline — depth without an image */
@@ -940,25 +926,24 @@ footer.site::before {
    ================================================================ */
 
 /* hero mark draws itself on first load, then keeps its slow drift */
-.js .wm-ring, .js .wm-arm {
+.js .wm-ring {
   stroke-dasharray: 1; stroke-dashoffset: 1;
-  animation: wm-draw 1400ms cubic-bezier(.4,.1,.2,1) forwards;
+  animation: wm-draw 1800ms cubic-bezier(.4,.1,.2,1) 200ms forwards;
 }
-.js .wm-ring { animation-delay: 200ms; animation-duration: 1800ms; }
-.js .wm-arm.a1 { animation-delay: 900ms; }
-.js .wm-arm.a2 { animation-delay: 1100ms; }
-.js .wm-arm.a3 { animation-delay: 1300ms; }
-.js .wm-tri { opacity: 0; animation: wm-fade 900ms ease 2100ms forwards; }
+.js .wm-let { opacity: 0; animation: wm-fade 900ms ease forwards; }
+.js .wm-let.l1 { animation-delay: 1200ms; }
+.js .wm-let.l2 { animation-delay: 1400ms; }
+.js .wm-tick { opacity: 0; animation: wm-fade 900ms ease 1900ms forwards; }
 @keyframes wm-draw { to { stroke-dashoffset: 0; } }
 @keyframes wm-fade { to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
-  .js .wm-ring, .js .wm-arm { animation: none; stroke-dashoffset: 0; }
-  .js .wm-tri { animation: none; opacity: 1; }
+  .js .wm-ring { animation: none; stroke-dashoffset: 0; }
+  .js .wm-let, .js .wm-tick { animation: none; opacity: 1; }
 }
 
 /* service-card brand glyphs */
 .vert h4 { display: flex; align-items: center; gap: 10px; }
-.vert-glyph { width: 14px; height: 19px; flex: none; }
+.vert-glyph { width: 15px; height: 15px; flex: none; }
 
 /* magnetic CTAs — transform set by JS, transition smooths it */
 .btn.primary, nav.site-nav a.cta { transition: transform 180ms cubic-bezier(.2,.6,.2,1), background 180ms ease; }
