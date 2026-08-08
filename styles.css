@@ -806,7 +806,22 @@ header:not(.site) nav a:hover { color: var(--ink); border-color: var(--brass); }
   .people { grid-template-columns: 1fr; gap: 38px; }
   .foot-top { grid-template-columns: 1fr; gap: 34px; }
   nav.site-nav a:not(.cta) { display: none; }
-  nav.site-nav a.cta { padding: 9px 14px 8px; }
+  /* the lockup and the only CTA must each hold one line on a portrait phone */
+  .mark { gap: 10px; }
+  .mark .name { white-space: nowrap; font-size: 12px; letter-spacing: 0.14em; }
+  nav.site-nav a.cta {
+    padding: 9px 12px 8px; letter-spacing: 0.12em;
+    white-space: nowrap; flex: none;
+  }
+  /* footer nav is the only section nav on phones — give the links a real hit area */
+  .foot-nav { gap: 0; }
+  .foot-nav a { width: 100%; padding-block: 10px; }
+  .foot-inner a { display: inline-block; padding-block: 8px; }
+}
+
+/* SE-class widths: the seal carries the identity on its own */
+@media (max-width: 349px) {
+  .mark .name { display: none; }
 }
 
 /* ================================================================
