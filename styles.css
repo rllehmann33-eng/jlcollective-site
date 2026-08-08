@@ -833,9 +833,6 @@ header:not(.site) nav a:hover { color: var(--ink); border-color: var(--brass); }
   will-change: transform;
 }
 .hero-wm svg { width: 100%; height: 100%; }
-.hero-wm .wm-turn { animation: wm-spin 240s linear infinite; transform-origin: 120px 120px; }
-@keyframes wm-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .hero-wm .wm-turn { animation: none; } }
 @media (max-width: 900px) { .hero-wm { width: 380px; height: 380px; right: -160px; opacity: .09; } }
 
 /* hero glow behind the headline — depth without an image */
@@ -933,13 +930,11 @@ footer.site::before {
 .js .wm-let { opacity: 0; animation: wm-fade 900ms ease forwards; }
 .js .wm-let.l1 { animation-delay: 1200ms; }
 .js .wm-let.l2 { animation-delay: 1400ms; }
-.js .wm-tick { opacity: 0; animation: wm-fade 900ms ease 1900ms forwards; }
 @keyframes wm-draw { to { stroke-dashoffset: 0; } }
 @keyframes wm-fade { to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
   .js .wm-ring { animation: none; stroke-dashoffset: 0; }
-  .js .wm-let, .js .wm-tick { animation: none; opacity: 1; }
-}
+  .js .wm-let, }
 
 /* service-card brand glyphs */
 .vert h4 { display: flex; align-items: center; gap: 10px; }
