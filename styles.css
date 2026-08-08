@@ -807,7 +807,7 @@ header:not(.site) nav a:hover { color: var(--ink); border-color: var(--brass); }
 }
 
 /* ================================================================
-   ELEVATION PASS — depth, motion, and the Trine woven through.
+   ELEVATION PASS — depth, motion, and the seal woven through.
    Palette and copy untouched; everything below is craft.
    ================================================================ */
 
@@ -822,7 +822,7 @@ header:not(.site) nav a:hover { color: var(--ink); border-color: var(--brass); }
   transform: scaleX(0); transform-origin: 0 50%;
 }
 
-/* hero: ambient trine watermark, drifting slowly behind the headline */
+/* hero: ambient seal watermark, drifting slowly behind the headline */
 .hero { position: relative; }
 .hero-wm {
   position: absolute; right: -140px; top: 40px;
@@ -877,7 +877,7 @@ nav.site-nav a:not(.cta).active::after { transform: scaleX(1); }
 }
 .btn.primary:hover::before { transform: translateX(110%); }
 
-/* band: retire the letterpress JL, seat the trine geometry */
+/* band: retire the letterpress JL, seat the seal's ring and ticks */
 .band::before { content: none; }
 .band-deco {
   position: absolute; right: -60px; bottom: -80px;
