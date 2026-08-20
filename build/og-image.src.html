@@ -1,68 +1,37 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../fonts.css">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html, body { width:1200px; height:630px; }
-  body {
-    background:#122038;
-    background-image: radial-gradient(120% 100% at 88% 12%, #1B2E4C 0%, #122038 55%, #0C1626 100%);
-    font-family:"Archivo", system-ui, sans-serif;
-    color:#F6F2EA;
-    position:relative;
-    overflow:hidden;
-  }
-  .pad { position:absolute; inset:60px 74px; display:flex; flex-direction:column; }
-
-  .brandrow { display:flex; align-items:center; gap:22px; }
-  .plate {
-    width:56px; height:56px; flex:none;
-    background:#F6F2EA; color:#122038;
-    font-family:"Fraunces", Georgia, serif; font-weight:500; font-size:26px;
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 0 0 1px rgba(200,169,106,.55), 0 0 0 5px rgba(18,32,56,1), 0 0 0 6px rgba(200,169,106,.28);
-  }
-  .brandtext .n { font-size:19px; font-weight:600; letter-spacing:.20em; text-transform:uppercase; }
-  .brandtext .s { margin-top:6px; font-size:12.5px; font-weight:500; letter-spacing:.20em; text-transform:uppercase; color:#9FB0C6; }
-
-  h1 {
-    margin-top:auto;
-    font-family:"Fraunces", Georgia, serif;
-    font-weight:500;
-    font-size:64px;
-    line-height:1.06;
-    letter-spacing:-.022em;
-    max-width:18ch;
-  }
-
-  .rule { margin-top:auto; height:1px; background:linear-gradient(90deg, rgba(200,169,106,.55), rgba(246,242,234,.16) 40%, rgba(246,242,234,.06)); }
-
-  .foot { margin-top:26px; display:flex; align-items:flex-end; justify-content:space-between; gap:40px; }
-  .sub { font-size:17.5px; line-height:1.6; color:#C6D0DC; max-width:52ch; }
-  .url { font-size:14px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#C8A96A; white-space:nowrap; }
-</style>
-</head>
-<body>
-  <div class="pad">
-    <div class="brandrow">
-      <div class="plate"><svg viewBox="0 0 240 240" width="44" height="44" aria-hidden="true"><circle cx="120" cy="120" r="90" fill="none" stroke="#0E1828" stroke-width="6"/><path d="M76.84 83.65 H107.75 V84.99 H97.09 V140.66 C97.09 156.66 92.09 158.66 82.09 158.66 C72.49 158.66 65.49 155.06 65.49 150.30 H67.49 C67.49 155.30 80.09 153.66 82.09 153.66 C88.09 153.66 87.49 152.26 87.49 140.66 V84.99 H76.84 Z" fill="#7A5A24"/><path d="M116.00 150.66H126.66V84.99H116.00V83.65H146.91V84.99H136.26V150.66H153.34Q161.79 150.66 166.59 145.38Q171.39 140.10 173.60 130.98H174.66V152.00H116.00Z" fill="#0E1828"/></svg></div>
-      <div class="brandtext">
-        <div class="n">JL Collective</div>
-        <div class="s">Marketing &amp; Software</div>
-      </div>
-    </div>
-
-    <h1>We run marketing on an AI engine we built ourselves.</h1>
-
-    <div class="rule"></div>
-    <div class="foot">
-      <div class="sub">The engine drafts the next move. A named person approves every change. Free audit, then a free two-week test.</div>
-      <div class="url">thejlcollective.com</div>
-    </div>
-  </div>
-</body>
-</html>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:630px;background:#080D14;position:relative;overflow:hidden;
+  font-family:"Archivo",sans-serif}
+body::after{content:"";position:absolute;inset:0;opacity:.11;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.rail{position:absolute;left:64px;top:0;bottom:0;width:1px;background:rgba(200,169,106,.18)}
+.tick{position:absolute;left:57px;top:96px;width:15px;height:2px;background:#C8A96A}
+.top{position:absolute;left:0;right:0;top:64px;height:1px;background:rgba(200,169,106,.4)}
+.clerk{position:absolute;left:128px;top:96px;font-family:"JetBrains Mono",monospace;font-weight:500;
+  font-size:17px;letter-spacing:.18em;color:#8E8878;text-transform:uppercase}
+.clerk b{color:#C8A96A;font-weight:500;margin-right:34px}
+.h1{position:absolute;left:128px;top:170px;width:640px;font-family:"Bodoni Moda",serif;font-weight:500;
+  font-size:64px;line-height:1.12;color:#F6F2EA;
+  text-shadow:0 2px 0 rgba(246,242,234,.06),0 -2px 2px rgba(0,0,0,.85)}
+.rule{position:absolute;left:128px;top:472px;width:560px;height:1px;background:rgba(246,242,234,.14)}
+.sub{position:absolute;left:128px;top:496px;font-family:"JetBrains Mono",monospace;font-weight:500;
+  font-size:15px;letter-spacing:.16em;color:#8E8878;text-transform:uppercase}
+.sub i{font-style:normal;color:#C6C0B3}
+.dom{position:absolute;right:64px;bottom:44px;font-family:"JetBrains Mono",monospace;font-weight:500;
+  font-size:15px;letter-spacing:.2em;color:#8E8878;text-transform:uppercase}
+.seal{position:absolute;right:96px;top:115px;width:340px;height:340px}
+.total{position:absolute;left:128px;right:340px;bottom:52px}
+.total i{display:block;height:1px;background:rgba(200,169,106,.45)}
+.total i+i{margin-top:4px;background:rgba(200,169,106,.22)}
+</style></head><body>
+<div class="top"></div><div class="rail"></div><div class="tick"></div>
+<div class="clerk"><b>Entry 001</b>Marketing &amp; software — recorded</div>
+<div class="h1">We run marketing on an AI engine we built ourselves.</div>
+<div class="rule"></div>
+<div class="sub">The audit — <i>free</i> &nbsp;·&nbsp; the two-week test — <i>free</i> &nbsp;·&nbsp; the engagement</div>
+<svg class="seal" viewBox="0 0 240 240"><circle cx="120" cy="120" r="90" fill="none" stroke="#F6F2EA" stroke-width="6"/><g stroke="#C8A96A" stroke-width="3" stroke-linecap="round"><line x1="120" y1="36" x2="120" y2="24"/><line x1="192.7" y1="162" x2="203.1" y2="168"/><line x1="47.3" y1="162" x2="36.9" y2="168"/></g><path d="M76.84 83.65 H107.75 V84.99 H97.09 V140.66 C97.09 156.66 92.09 158.66 82.09 158.66 C72.49 158.66 65.49 155.06 65.49 150.30 H67.49 C67.49 155.30 80.09 153.66 82.09 153.66 C88.09 153.66 87.49 152.26 87.49 140.66 V84.99 H76.84 Z" fill="#C8A96A"/><path d="M116.00 150.66H126.66V84.99H116.00V83.65H146.91V84.99H136.26V150.66H153.34Q161.79 150.66 166.59 145.38Q171.39 140.10 173.60 130.98H174.66V152.00H116.00Z" fill="#F6F2EA"/></svg>
+<div class="total"><i></i><i></i></div>
+<div class="dom">thejlcollective.com</div>
+</body></html>
