@@ -1,5 +1,6 @@
-// The jewel of the Standing Record: the inscribed seal becomes machined metal.
-// Progressive enhancement — no WebGL, no JS, or reduced motion keep the engraved SVG seal.
+// The jewel of the Standing Record: the inscribed seal becomes machined metal
+// on the firm's own drafting bench — shadow on the ruled paper, dust in the lamp.
+// Progressive enhancement: no WebGL, no JS, or reduced motion keep the engraved seal.
 import * as THREE from 'three';
 import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
@@ -103,7 +104,7 @@ function sealPolylines() {
 }
 
 /** Renderer + pointer + loop scaffold bound to the hero canvas. */
-function setup({ antialias = true, maxDpr = 2 } = {}) {
+function setup({ antialias = true, maxDpr = 1.75 } = {}) {
   const hero = document.querySelector('.hero');
   const canvas = document.getElementById('heroGL');
   if (!hero || !canvas) return null;
@@ -183,10 +184,12 @@ const ease = {
 };
 const clamp01 = x => Math.max(0, Math.min(1, x));
 
-/* ---- the scene: the inscribed drawing becomes metal ---- */
+/* ================= the scene =================
+   A machined seal hovering over the firm's own drafting bench:
+   brass-gridded paper receding into fog, the seal's shadow on it,
+   dust drifting in the lamp. The inscribed SVG hands off to this. */
 const app = setup();
 const svgSeal = document.querySelector('.hero-seal svg');
-const foilEl = document.querySelector('.hero-seal .foil');
 if (app && svgSeal) {
   const { renderer, hero, pointer, size, onResize, start } = app;
   renderer.shadowMap.enabled = true;
@@ -195,6 +198,7 @@ if (app && svgSeal) {
   renderer.toneMappingExposure = 1.0;
 
   const scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0x080D14, 8.5, 14.5);
   const camera = new THREE.PerspectiveCamera(26, 1, 0.1, 50);
   camera.position.set(0, 0, 6);
   camera.lookAt(0, 0, 0);
@@ -204,6 +208,7 @@ if (app && svgSeal) {
   scene.environmentIntensity = 0.42;
   scene.environmentRotation.set(0, Math.PI * 0.35, 0);
 
+  /* -- materials: two metals -- */
   const matBrass = new THREE.MeshPhysicalMaterial({
     color: 0xC9A768, metalness: 1, roughness: 0.34,
     anisotropy: 0.55, anisotropyRotation: Math.PI / 2, clearcoat: 0.12, clearcoatRoughness: 0.5,
@@ -218,18 +223,74 @@ if (app && svgSeal) {
   const tilt = new THREE.Group();
   tilt.add(seal); rig.add(tilt); scene.add(rig);
 
-  /* the seal's shadow falls onto the ledger paper behind it */
-  const catcher = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: 0.5, color: 0x000000 }));
-  catcher.receiveShadow = true; catcher.position.z = -0.35; scene.add(catcher);
+  /* -- the bench: the firm's paper, ruled in brass, fading out into the dark -- */
+  function benchTexture() {
+    const c = document.createElement('canvas'); c.width = c.height = 1024;
+    const g = c.getContext('2d');
+    g.clearRect(0, 0, 1024, 1024);
+    for (let i = 0; i <= 1024; i += 64) {
+      const major = (i % 256 === 0);
+      g.strokeStyle = major ? 'rgba(200,169,106,0.36)' : 'rgba(200,169,106,0.17)';
+      g.lineWidth = major ? 1.6 : 1;
+      g.beginPath(); g.moveTo(i, 0); g.lineTo(i, 1024); g.stroke();
+      g.beginPath(); g.moveTo(0, i); g.lineTo(1024, i); g.stroke();
+    }
+    /* radial falloff so the sheet dissolves at its edges */
+    const grad = g.createRadialGradient(512, 512, 90, 512, 512, 400);
+    grad.addColorStop(0, 'rgba(255,255,255,1)');
+    grad.addColorStop(0.55, 'rgba(255,255,255,0.42)');
+    grad.addColorStop(1, 'rgba(255,255,255,0)');
+    g.globalCompositeOperation = 'destination-in';
+    g.fillStyle = grad; g.fillRect(0, 0, 1024, 1024);
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+    return t;
+  }
+  const bench = new THREE.Mesh(
+    new THREE.PlaneGeometry(5, 5),
+    new THREE.MeshStandardMaterial({ map: benchTexture(), transparent: true, depthWrite: false, roughness: 0.95, metalness: 0 })
+  );
+  bench.rotation.x = -Math.PI / 2 + 0.14;   /* tipped toward the viewer so the ruling reads */
+  bench.position.set(0, -(RING_R + 0.12), -0.55);
+  bench.receiveShadow = true;
+  rig.add(bench);
 
+  /* -- dust in the lamp -- */
+  const N_DUST = isNarrow() ? 130 : 460;
+  const dp = new Float32Array(N_DUST * 3), dv = new Float32Array(N_DUST);
+  for (let i = 0; i < N_DUST; i++) {
+    const nw = isNarrow();
+    dp[i * 3] = (Math.random() - 0.5) * (nw ? 2.0 : 3.4);
+    dp[i * 3 + 1] = -(RING_R + 0.12) + Math.random() * (nw ? 1.7 : 2.6);
+    dp[i * 3 + 2] = (Math.random() - 0.5) * 2.2;
+    dv[i] = 0.02 + Math.random() * 0.05;
+  }
+  const dustGeo = new THREE.BufferGeometry();
+  dustGeo.setAttribute('position', new THREE.BufferAttribute(dp, 3));
+  const dustTex = (() => {
+    const c = document.createElement('canvas'); c.width = c.height = 64;
+    const g = c.getContext('2d');
+    const r = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+    r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(0.4, 'rgba(255,255,255,.3)'); r.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = r; g.fillRect(0, 0, 64, 64);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+  })();
+  const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({
+    size: 0.022, map: dustTex, transparent: true, opacity: isNarrow() ? 0.32 : 0.5, depthWrite: false,
+    blending: THREE.AdditiveBlending, color: 0xE8DCC2, sizeAttenuation: true,
+  }));
+  dust.frustumCulled = false;
+  rig.add(dust);
+
+  /* -- lights -- */
   const lamp = new THREE.SpotLight(0xFFF0D2, 0, 12, 0.62, 0.9, 1.6);
   lamp.castShadow = true;
   lamp.shadow.mapSize.set(2048, 2048);
-  lamp.shadow.bias = -0.00035; lamp.shadow.normalBias = 0.02; lamp.shadow.radius = 4;
+  lamp.shadow.bias = -0.00035; lamp.shadow.normalBias = 0.02; lamp.shadow.radius = 5;
   lamp.shadow.camera.near = 0.5; lamp.shadow.camera.far = 14;
   scene.add(lamp); scene.add(lamp.target);
   const rim = new THREE.DirectionalLight(0xB9C9E8, 0.55); rim.position.set(-3, 3, 1.5); scene.add(rim);
-  const fill = new THREE.HemisphereLight(0x8A94A8, 0x080D14, 0.35); scene.add(fill);
+  const fill = new THREE.HemisphereLight(0x8A94A8, 0x080D14, 0.32); scene.add(fill);
 
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
@@ -237,7 +298,7 @@ if (app && svgSeal) {
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
 
-  /* placement: the metal takes the exact spot of the inscribed drawing */
+  /* -- placement: the metal takes the exact spot of the inscribed drawing -- */
   const anchor = new THREE.Vector3();
   function place() {
     camera.aspect = size.w / size.h; camera.updateProjectionMatrix();
@@ -250,37 +311,48 @@ if (app && svgSeal) {
     const ndcX = (cx / size.w) * 2 - 1, ndcY = 1 - (cy / size.h) * 2;
     worldAtNDC(camera, ndcX, ndcY, new THREE.Vector3(0, 0, 0), anchor);
     rig.position.copy(anchor);
-    const diamPx = r.width * 0.8;           /* svg box 240 <-> world 2.0; the object spans 1.6 */
+    const diamPx = r.width * 0.8;
     const s = diamPx / (1.6 * pxPerUnit(camera, anchor, size.h));
     rig.scale.setScalar(s);
-    catcher.position.z = -0.35 * s;
     if (!canHover || reduced) {
       pointer.tx = pointer.x = ndcX - 0.5; pointer.ty = pointer.y = ndcY + 0.5;
     }
   }
   onResize(place);
 
-  /* handoff: wait for the SVG to finish inscribing itself, then the drawing becomes metal */
+  /* -- handoff + life -- */
   const T0 = performance.now() / 1000;
   const holdoff = reduced ? 0 : Math.max(0, 3.3 - T0);
   const introLen = reduced ? 0 : 0.9;
-  let began = false;
   const lampWorld = new THREE.Vector3();
+  const posAttr = dustGeo.getAttribute('position');
+  const floorY = -(RING_R + 0.12);
 
   setTimeout(function () {
     document.documentElement.classList.add('gl-seal');
-    start(function (t) {
-      if (!began) { began = true; }
+    start(function (t, dt) {
       const k = introLen ? clamp01((performance.now() / 1000 - T0 - holdoff) / introLen) : 1;
       const e = ease.outCubic(k);
       const s = rig.scale.x;
       tilt.scale.setScalar(0.96 + 0.04 * e);
       tilt.rotation.z = (1 - e) * 0.04;
-      lamp.intensity = 9 * (s * s) / (1.21) * e;
+      lamp.intensity = 9 * (s * s) / 1.21 * e;
+      /* scroll: the bench sinks and the seal leans as the entry scrolls past */
+      const hr = hero.getBoundingClientRect();
+      const scrolled = clamp01(-hr.top / Math.max(hr.height, 1));
       if (k >= 1 && !reduced) {
-        tilt.rotation.x += ((-pointer.y * 0.16 + Math.sin(t * 0.55) * 0.02) - tilt.rotation.x) * 0.06;
+        tilt.rotation.x += ((-pointer.y * 0.16 + scrolled * 0.35 + Math.sin(t * 0.55) * 0.02) - tilt.rotation.x) * 0.06;
         tilt.rotation.y += ((pointer.x * 0.22 + Math.cos(t * 0.42) * 0.02) - tilt.rotation.y) * 0.06;
-        tilt.position.y = Math.sin(t * 0.7) * 0.012;
+        tilt.position.y = Math.sin(t * 0.7) * 0.014 + scrolled * 0.5;
+      }
+      /* dust drifts up through the lamp, wraps */
+      if (!reduced) {
+        for (let i = 0; i < N_DUST; i++) {
+          let y = posAttr.getY(i) + dv[i] * dt;
+          if (y > floorY + (isNarrow() ? 1.7 : 2.6)) { y = floorY; }
+          posAttr.setY(i, y);
+        }
+        posAttr.needsUpdate = true;
       }
       worldAtNDC(camera, pointer.x, pointer.y, anchor, lampWorld);
       lampWorld.z += 3.7 * rig.scale.x;
