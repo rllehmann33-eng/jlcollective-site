@@ -238,8 +238,6 @@ nav.site-nav a.cta:hover{ background:rgba(200,169,106,.07); transform:translateY
           mask:var(--seal-mask) center/contain no-repeat;
   transition:opacity .3s ease;
 }
-.hero-seal .below{ margin-top:18px; text-align:center; font-family:var(--mono); font-size:10px;
-  letter-spacing:.2em; color:var(--mono-dim); text-transform:uppercase }
 
 /* ---------- sections as entries ---------- */
 section.block{ position:relative; padding:clamp(64px,9vh,110px) 0 0 }
