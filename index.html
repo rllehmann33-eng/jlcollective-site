@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<script>document.documentElement.classList.add('js');</script>
 <title>JL Collective &middot; Marketing run on a proprietary AI engine</title>
 <meta name="description" content="JL Collective runs marketing execution and management on an AI engine we built ourselves, with a named person approving every move. Free audit, then a free two-week test.">
 <link rel="canonical" href="https://thejlcollective.com/">
@@ -298,10 +299,10 @@
 
       <form class="entry-form" id="entryForm" novalidate>
         <div class="ef-grid">
-          <label><span class="lab">Name</span><input type="text" id="efName" name="name" autocomplete="name" required></label>
-          <label><span class="lab">What you sell</span><input type="text" id="efSell" name="sell"></label>
-          <label><span class="lab">Where you're spending</span><input type="text" id="efWhere" name="where"></label>
-          <label><span class="lab">Roughly how much</span><input type="text" id="efMuch" name="much"></label>
+          <label><span class="lab">Name</span><input type="text" id="efName" name="name" autocomplete="name" maxlength="80" required></label>
+          <label><span class="lab">What you sell</span><input type="text" id="efSell" name="sell" maxlength="120"></label>
+          <label><span class="lab">Where you're spending</span><input type="text" id="efWhere" name="where" maxlength="120"></label>
+          <label><span class="lab">Roughly how much</span><input type="text" id="efMuch" name="much" maxlength="60"></label>
         </div>
         <button type="submit">Record entry</button>
         <p class="ef-note">Recording opens your mail app with the entry prefilled &mdash; nothing is stored on this page.</p>
@@ -309,11 +310,12 @@
 
       <div class="posting" id="posting" aria-live="polite">
         <div class="prow">
-          <div class="pline"><span id="postedName"></span><span class="pstate"><time id="postedTime" datetime=""></time> &middot; Entry &mdash; received</span></div>
+          <div class="pline"><span id="postedName"></span><span class="pstate"><time id="postedTime" datetime=""></time> &middot; Entry &mdash; recorded</span></div>
           <div class="pseal" aria-hidden="true"><svg viewBox="0 0 240 240" width="40" height="40"><circle cx="120" cy="120" r="90" fill="none" stroke="#F6F2EA" stroke-width="10"/><path d="M76.84 83.65 H107.75 V84.99 H97.09 V140.66 C97.09 156.66 92.09 158.66 82.09 158.66 C72.49 158.66 65.49 155.06 65.49 150.30 H67.49 C67.49 155.30 80.09 153.66 82.09 153.66 C88.09 153.66 87.49 152.26 87.49 140.66 V84.99 H76.84 Z" fill="#C8A96A"/><path d="M116.00 150.66H126.66V84.99H116.00V83.65H146.91V84.99H136.26V150.66H153.34Q161.79 150.66 166.59 145.38Q171.39 140.10 173.60 130.98H174.66V152.00H116.00Z" fill="#F6F2EA"/></svg></div>
         </div>
         <div class="ptotal" aria-hidden="true"></div>
         <p class="pnote">Append-only &mdash; your mail app is opening with this entry. Nothing is stored on this page.</p>
+        <p class="pactions"><a id="postMail" href="mailto:hello@thejlcollective.com?subject=Audit">If your mail app didn't open, send the entry yourself</a> &middot; <a id="postEdit" href="#contact">edit the entry</a></p>
       </div>
     </div>
   </div>
@@ -416,7 +418,11 @@ if (stampEl) {
     stampEl.setAttribute('datetime', d.toISOString());
   };
   tickClock();
-  setInterval(tickClock, 1000);
+  var clockTimer = setInterval(tickClock, 1000);
+  document.addEventListener('visibilitychange', function () {
+    clearInterval(clockTimer);
+    if (!document.hidden) { tickClock(); clockTimer = setInterval(tickClock, 1000); }
+  });
 }
 
 /* the spine: rail tick tracks scroll, rail numbers navigate */
@@ -486,11 +492,11 @@ var entryForm = document.getElementById('entryForm');
 if (entryForm) {
   entryForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = document.getElementById('efName').value.trim();
+    var name = document.getElementById('efName').value.trim().slice(0, 80);
     if (!name) { document.getElementById('efName').focus(); return; }
-    var sell = document.getElementById('efSell').value.trim();
-    var where = document.getElementById('efWhere').value.trim();
-    var much = document.getElementById('efMuch').value.trim();
+    var sell = document.getElementById('efSell').value.trim().slice(0, 120);
+    var where = document.getElementById('efWhere').value.trim().slice(0, 120);
+    var much = document.getElementById('efMuch').value.trim().slice(0, 60);
     var d = new Date();
     document.getElementById('postedName').textContent = name + ' \u2014 inquiry';
     var pt = document.getElementById('postedTime');
@@ -503,10 +509,16 @@ if (entryForm) {
       (where ? "Where we're spending: " + where + '\r\n' : '') +
       (much ? 'Roughly how much: ' + much + '\r\n' : '') +
       '\r\nSent from the entry form on thejlcollective.com';
-    setTimeout(function () {
-      location.href = 'mailto:hello@thejlcollective.com?subject=' + encodeURIComponent('Audit') +
-        '&body=' + encodeURIComponent(body);
-    }, reduced ? 150 : 1100);
+    var mailUrl = 'mailto:hello@thejlcollective.com?subject=' + encodeURIComponent('Audit') +
+      '&body=' + encodeURIComponent(body);
+    document.getElementById('postMail').setAttribute('href', mailUrl);
+    setTimeout(function () { location.href = mailUrl; }, reduced ? 150 : 1100);
+  });
+  document.getElementById('postEdit').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('posting').classList.remove('show');
+    entryForm.style.display = '';
+    document.getElementById('efName').focus();
   });
 }
 
@@ -526,9 +538,11 @@ if (btn && nav) {
 document.querySelectorAll('.faq details').forEach(function (d) {
   var body = d.querySelector('.a');
   if (!body) return;
+  var settle = null;
   d.querySelector('summary').addEventListener('click', function (e) {
     if (reduced) return;
     if (!d.open) {
+      if (settle) { clearTimeout(settle); settle = null; }
       requestAnimationFrame(function () {
         body.style.maxHeight = '0px';
         body.style.opacity = '0';
@@ -536,7 +550,7 @@ document.querySelectorAll('.faq details').forEach(function (d) {
           body.style.transition = 'max-height 320ms cubic-bezier(.2,.6,.2,1), opacity 320ms ease';
           body.style.maxHeight = body.scrollHeight + 'px';
           body.style.opacity = '1';
-          setTimeout(function () { body.style.maxHeight = ''; body.style.transition = ''; }, 340);
+          settle = setTimeout(function () { body.style.maxHeight = ''; body.style.transition = ''; body.style.opacity = ''; settle = null; }, 340);
         });
       });
     }
