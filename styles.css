@@ -276,7 +276,9 @@ section.block.last .wrap.sec::after{ display:none }
   margin-left:auto; font-family:var(--mono); font-size:10px; letter-spacing:.18em;
   color:var(--mono-dim); font-variant-numeric:tabular-nums;
 }
-.sec-body h3{ font-size:clamp(24px,2.8vw,34px); line-height:1.18; max-width:24ch; margin-bottom:22px }
+.sec-body h3{ font-size:clamp(24px,2.8vw,34px); line-height:1.18; max-width:24ch; margin-bottom:22px; text-wrap:balance }
+.step h4,.person h4,.vert h4{ text-wrap:balance }
+.stand,.sec-body>p,.band .attr,.contact-note{ text-wrap:pretty }
 .sec-body>p{ max-width:62ch; margin-bottom:16px }
 
 /* entrance: quiet settle, hairlines draw */
@@ -484,8 +486,8 @@ section.block.deep .wrap.sec::after{ display:none }
 @keyframes waxStamp{ 0%{ transform:scale(1.12) } 100%{ transform:scale(1) } }
 .posting .ptotal{ margin-top:16px; border-top:1px solid var(--rule-hi); border-bottom:1px solid var(--rule); height:4px; transform-origin:left center }
 .js .posting.show .ptotal{ animation:ruleDraw .5s cubic-bezier(.16,1,.3,1) .2s backwards }
-.posting .pnote{ margin-top:12px; font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--mono-dim) }
-.posting .pactions{ margin-top:8px; font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; color:var(--mono-dim) }
+.posting .pnote{ margin-top:12px; font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; color:var(--mono-ink) }
+.posting .pactions{ margin-top:8px; font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; color:var(--mono-ink) }
 .posting .pactions a{ color:var(--brass); text-decoration:none; border-bottom:1px solid var(--rule-hi) }
 .posting .pactions a:hover{ border-bottom-color:var(--brass) }
 
@@ -499,7 +501,7 @@ footer.site{ background:var(--ink-1); border-top:1px solid var(--rule); position
 .colophon{ margin-top:14px; font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; color:var(--mono-ink); max-width:44ch }
 .f-lab{
   font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:.2em;
-  text-transform:uppercase; color:var(--mono-dim); margin-bottom:14px;
+  text-transform:uppercase; color:var(--mono-ink); margin-bottom:14px;
 }
 .foot-nav{ display:flex; flex-direction:column; gap:9px }
 .foot-nav a,.foot-contact a{ overflow-wrap:anywhere; color:var(--body); text-decoration:none; font-size:14px; border-bottom:1px solid transparent; width:fit-content }
@@ -547,6 +549,10 @@ header:not(.site) nav a:hover{ color:var(--body) }
 .skip:focus{ left:12px; top:12px }
 
 /* ---------- small screens ---------- */
+@media (max-width:1060px){
+  .hero-seal{ position:static; transform:none; width:172px; height:172px; margin:48px 0 0 }
+  .hero-seal .foil{ display:none }
+}
 @media (max-width:880px){
   .foot-top{ grid-template-columns:1fr; gap:30px }
   .people{ grid-template-columns:1fr }
@@ -556,7 +562,7 @@ header:not(.site) nav a:hover{ color:var(--body) }
   .vert p{ grid-column:2 }
   .ship-flow li{ grid-template-columns:1fr; gap:3px }
 }
-@media (max-width:720px){
+@media (max-width:1000px){
   nav.site-nav{
     display:none; position:absolute; left:0; right:0; top:100%;
     background:var(--ink-1); border-bottom:1px solid var(--rule);
@@ -569,6 +575,13 @@ header:not(.site) nav a:hover{ color:var(--body) }
   .sec-label{ flex-wrap:wrap; gap:8px 14px }
   .sec-label .folio{ display:none }
   .band-deco{ opacity:.4 }
+}
+@media (max-width:520px){
+  .step h4 span{ display:block; margin-top:2px; line-height:1.4 }
+}
+@media (max-width:480px){
+  .cred-row span::after{ min-width:0 }
+  .cred-row span{ letter-spacing:.1em }
 }
 
 /* ---------- reduced motion: the page arrives settled ---------- */
