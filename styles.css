@@ -459,13 +459,20 @@ section.block.last .wrap.sec::after{ display:none }
 .faq summary{
   list-style:none; cursor:pointer; counter-increment:faq;
   display:flex; align-items:baseline; gap:14px;
-  padding:17px 2px; font-weight:500; font-size:16.5px; color:var(--body);
+  padding:20px 30px 20px 2px;
+  font-family:var(--serif); font-weight:500; font-size:clamp(19px,1.8vw,22px); line-height:1.3;
+  color:var(--body); text-wrap:balance;
   transition:color .15s ease;
+  /* the brass plus: two hairlines drawn as backgrounds (no DOM, nothing read aloud) */
+  background:
+    linear-gradient(var(--brass),var(--brass)) no-repeat right 2px center / 11px 1px,
+    linear-gradient(var(--brass),var(--brass)) no-repeat right 7px center / 1px 11px;
 }
+.faq details[open] > summary{ background-size:11px 1px, 1px 0 }
 .faq summary::-webkit-details-marker{ display:none }
 .faq summary::before{
   content:counter(faq,decimal-leading-zero);
-  font-family:var(--mono); font-size:10.5px; font-weight:500; letter-spacing:.12em;
+  font-family:var(--mono); font-size:var(--fs-label); font-weight:500; letter-spacing:.12em;
   color:var(--mono-dim); font-variant-numeric:tabular-nums;
   transition:color .15s ease;
 }
@@ -477,19 +484,23 @@ section.block.last .wrap.sec::after{ display:none }
 .faq details[open] summary{ color:var(--cream) }
 .faq details[open] summary::before{ color:var(--brass) }
 .faq .a{ overflow:hidden }
-.faq .a p{
-  padding:2px 0 20px 34px; font-size:15px; max-width:60ch;
-  border-left:1px solid var(--rule-hi); margin-left:5px; padding-left:28px;
-}
+.faq .a p{ padding:2px 0 20px 28px; max-width:60ch; border-left:1px solid var(--rule-hi); margin-left:5px }
 .faq .a a{ color:var(--brass); text-decoration:none; border-bottom:1px solid var(--rule-hi) }
 .faq .a a:hover{ border-bottom-color:var(--brass) }
+.faq .a .fig{ color:var(--cream); font-weight:500; font-variant-numeric:lining-nums tabular-nums; white-space:nowrap }
 
 /* ---------- 06: contact — the signature page ---------- */
-section.block.deep{ background:var(--ink-1); border-top:1px solid var(--rule); margin-top:clamp(64px,9vh,110px); padding-top:clamp(56px,8vh,88px) }
+section.block.deep{
+  margin-top:0; padding-top:clamp(56px,8vh,88px);
+  background:
+    radial-gradient(900px 480px at 78% 0%, rgba(200,169,106,.05), transparent 65%),
+    linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%);
+  border-top:1px solid var(--rule-hi);
+}
 section.block.deep .wrap.sec::after{ display:none }
 .contact-line{ list-style:none; display:grid; gap:22px }
 .contact-line li{ display:flex; flex-direction:column; gap:6px }
-.cp-who{ font-family:var(--mono); font-size:10.5px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--mono-ink) }
+.cp-who{ font-family:var(--mono); font-size:var(--fs-label); font-weight:500; letter-spacing:var(--tr-label); text-transform:uppercase; color:var(--mono-ink) }
 .contact-line a{
   width:fit-content;
   overflow-wrap:anywhere;
@@ -498,32 +509,31 @@ section.block.deep .wrap.sec::after{ display:none }
   text-shadow:var(--deboss);
 }
 .contact-line a:hover{ border-bottom-color:var(--brass) }
-.contact-note{ margin-top:18px; max-width:58ch; font-size:15px }
+.contact-note{ margin-top:18px; max-width:58ch }
 
 /* the entry form: ledger lines, not boxes (JS-only path; the email link above serves everyone else) */
 .entry-form{ display:none }
-.js .entry-form{ display:block; margin-top:40px; max-width:640px }
-.entry-form .ef-grid{ display:grid; gap:26px }
+.js .entry-form{
+  display:block; position:relative; margin-top:40px; max-width:640px;
+  padding:clamp(22px,3vw,36px);
+  background:linear-gradient(180deg,rgba(246,242,234,.02),rgba(246,242,234,.008));
+  border:1px solid var(--rule); outline:1px solid var(--rule-quiet); outline-offset:6px;
+  box-shadow:0 40px 80px -40px rgba(0,0,0,.9);
+}
+.entry-form .ef-grid{ display:grid; gap:22px }
 .entry-form label{ display:block }
 .entry-form .lab{
-  display:block; font-family:var(--mono); font-size:10px; font-weight:500;
-  letter-spacing:.2em; text-transform:uppercase; color:var(--mono-ink); margin-bottom:6px;
+  display:block; font-family:var(--mono); font-size:var(--fs-label); font-weight:500;
+  letter-spacing:var(--tr-label); text-transform:uppercase; color:var(--mono-ink); margin-bottom:6px;
 }
 .entry-form input{
-  width:100%; background:none; border:0; border-bottom:1px solid var(--rule-quiet);
-  color:var(--cream); font-family:var(--sans); font-size:16px; padding:6px 2px 8px;
-  border-radius:0; transition:border-color .2s ease;
+  width:100%; min-height:44px; background:none; border:0; border-bottom:1px solid var(--brass-deep);
+  color:var(--cream); font-family:var(--sans); font-size:17px; padding:10px 2px;
+  border-radius:0; transition:border-color .2s ease, box-shadow .2s ease;
 }
-.entry-form input:focus{ border-bottom-color:var(--rule-hi); outline:none }
-.entry-form button{
-  margin-top:30px; cursor:pointer; background:none;
-  border:1px solid var(--brass); color:var(--brass); border-radius:2px;
-  font-family:var(--mono); font-size:11.5px; font-weight:500; letter-spacing:.16em;
-  text-transform:uppercase; padding:14px 24px;
-  transition:transform .12s ease, background .12s ease;
-}
-.entry-form button:hover{ background:rgba(200,169,106,.08); transform:translateY(1px) }
-.ef-note{ margin-top:14px; font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; color:var(--mono-ink) }
+.entry-form input:focus{ border-bottom-color:var(--brass); box-shadow:0 1px 0 var(--brass); outline:none }
+.entry-form button{ width:100%; justify-content:center; margin-top:30px; cursor:pointer }
+.ef-note{ margin-top:14px; font-family:var(--sans); font-size:14px; letter-spacing:0; line-height:1.55; color:var(--mono-ink) }
 
 /* the posting: your inquiry becomes an entry */
 .posting{ margin-top:34px; max-width:640px; display:none }
@@ -550,8 +560,8 @@ section.block.deep .wrap.sec::after{ display:none }
 @keyframes waxStamp{ 0%{ transform:scale(1.12) } 100%{ transform:scale(1) } }
 .posting .ptotal{ margin-top:16px; border-top:1px solid var(--rule-hi); border-bottom:1px solid var(--rule); height:4px; transform-origin:left center }
 .js .posting.show .ptotal{ animation:ruleDraw .5s cubic-bezier(.16,1,.3,1) .2s backwards }
-.posting .pnote{ margin-top:12px; font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; color:var(--mono-ink) }
-.posting .pactions{ margin-top:8px; font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; color:var(--mono-ink) }
+.posting .pnote{ margin-top:12px; font-family:var(--sans); font-size:14px; letter-spacing:0; line-height:1.55; color:var(--mono-ink) }
+.posting .pactions{ margin-top:8px; font-family:var(--sans); font-size:14px; letter-spacing:0; line-height:1.55; color:var(--mono-ink) }
 .posting .pactions a{ color:var(--brass); text-decoration:none; border-bottom:1px solid var(--rule-hi) }
 .posting .pactions a:hover{ border-bottom-color:var(--brass) }
 
@@ -562,28 +572,29 @@ footer.site{ background:var(--ink-1); border-top:1px solid var(--rule); position
   padding-top:56px; padding-bottom:44px;
 }
 .foot-tag{ margin-top:16px; font-size:14px; max-width:38ch }
-.colophon{ margin-top:14px; font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; color:var(--mono-ink); max-width:44ch }
+.colophon{ margin-top:14px; font-family:var(--sans); font-size:14px; letter-spacing:0; line-height:1.55; color:var(--mono-ink); max-width:48ch }
 .f-lab{
-  font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:.2em;
+  font-family:var(--mono); font-size:var(--fs-label); font-weight:500; letter-spacing:var(--tr-label);
   text-transform:uppercase; color:var(--mono-ink); margin-bottom:14px;
 }
 .foot-nav{ display:flex; flex-direction:column; gap:9px }
 .foot-nav a,.foot-contact a{ overflow-wrap:anywhere; color:var(--body); text-decoration:none; font-size:14px; border-bottom:1px solid transparent; width:fit-content }
 .foot-nav a:hover,.foot-contact a:hover{ border-bottom-color:var(--rule-hi) }
 .foot-contact{ display:flex; flex-direction:column; gap:9px }
-.foot-contact p{ margin-top:4px; font-size:13.5px; color:var(--mono-ink) }
+.foot-contact p{ margin-top:4px; font-size:14px; color:var(--mono-ink) }
 .foot-inner{
   display:flex; flex-wrap:wrap; gap:10px 26px; justify-content:space-between;
-  border-top:1px solid var(--rule-quiet);
   padding-top:20px; padding-bottom:26px;
   font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--mono-ink);
 }
+.foot-inner::before{ content:""; position:absolute; top:0; left:var(--gutter); right:var(--gutter); height:1px; background:var(--rule-quiet) }
 .foot-links{ display:flex; gap:18px }
 .foot-links a{ color:var(--mono-ink); text-decoration:none }
 .foot-links a:hover{ color:var(--body) }
 
 /* ---------- legal pages ---------- */
-header:not(.site) .head-inner{ border-bottom:1px solid var(--rule) }
+header:not(.site) .head-inner{ border-bottom:0 }
+header:not(.site) .head-inner::after{ content:""; position:absolute; bottom:0; left:var(--gutter); right:var(--gutter); height:1px; background:var(--rule) }
 header:not(.site) nav{ margin-left:auto; display:flex; gap:20px }
 header:not(.site) nav a{
   font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.14em;
@@ -593,14 +604,14 @@ header:not(.site) nav a:hover{ color:var(--body) }
 .legal{ padding-top:64px; padding-bottom:80px; max-width:840px }
 .legal h1{ font-size:clamp(30px,4vw,42px); margin-bottom:10px }
 .legal .updated{
-  font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  font-family:var(--mono); font-size:11px; letter-spacing:var(--tr-label); text-transform:uppercase;
   color:var(--brass); margin-bottom:36px;
 }
 .legal h2{
-  font-size:15px; letter-spacing:.14em; text-transform:uppercase; font-weight:500;
+  font-size:15px; letter-spacing:.24em; text-transform:uppercase; font-weight:500;
   margin:38px 0 14px; padding-top:18px; border-top:1px solid var(--rule);
 }
-.legal p,.legal li{ font-size:15px; max-width:66ch; margin-bottom:14px }
+.legal p,.legal li{ font-size:16px; line-height:1.65; max-width:68ch; margin-bottom:14px }
 .legal ul{ padding-left:22px }
 .legal a{ color:var(--brass); text-decoration:none; border-bottom:1px solid var(--rule-hi) }
 .legal a:hover{ border-bottom-color:var(--brass) }
@@ -656,6 +667,7 @@ header:not(.site) nav a:hover{ color:var(--body) }
   nav.site-nav a.cta{ transition:none }
   .menu-btn{ transition:none }
   .vert::before{ transition:none }
+  .entry-form input{ transition:none }
   .js .posting.show .pseal,.js .posting.show .ptotal{ animation:none }
 }
 
@@ -791,4 +803,50 @@ html.gl-seal .hero-seal .foil{ animation:none; opacity:0 }
 @media (max-width:560px){
   .person{ grid-template-columns:44px 1fr; column-gap:16px; padding:24px 20px 22px }
   .plate{ width:44px; height:44px; font-size:16px }
+}
+
+/* ---------- Region C — FAQ, contact, footer, legal ---------- */
+/* C1: the index on phones — no leader stub, tighter rows */
+@media (max-width:560px){
+  .faq summary{ padding:16px 30px 16px 0; gap:12px }
+  .faq summary::after{ display:none }
+}
+/* C2: at ≥1120 the headline stays pinned beside the index */
+@media (min-width:1120px){
+  #faq .sec-body{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); column-gap:clamp(40px,5vw,72px); align-items:start }
+  #faq .sec-body > h3{ position:sticky; top:120px; margin-bottom:0; font-size:var(--fs-h3-split) }
+  #faq .faq{ margin-top:0 }
+}
+@media (max-width:560px){ .faq .a p{ margin-left:3px; padding-left:16px } }
+
+/* C5: the submit matches the stacked hero CTA on phones and never wraps at 320 */
+@media (max-width:560px){ .entry-form button{ padding:17px 14px; gap:10px; white-space:nowrap } }
+
+/* C4: the signature room — addresses left, the form right on desktop */
+@media (max-width:1060px){ section.block.deep{ padding-top:clamp(44px, 4vw + 28px, 80px) } }
+@media (min-width:1120px){
+  #contact .sec-body{
+    display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+    grid-template-rows:auto auto 1fr; column-gap:clamp(48px,6vw,96px); align-items:start;
+  }
+  #contact .sec-body > *{ grid-column:1 }
+  /* must follow the rule above: equal specificity, source order decides */
+  .js #contact .entry-form, #contact .posting{ grid-column:2; grid-row:1 / span 3; margin-top:0; max-width:none }
+}
+
+/* C6: footer on tablets and phones; touch targets */
+@media (min-width:600px) and (max-width:880px){
+  .foot-top{ grid-template-columns:1fr 1fr; gap:36px 40px }
+  .foot-top > div:first-child{ grid-column:1 / -1 }
+}
+@media (max-width:599px){
+  .foot-nav{ display:grid; grid-template-columns:1fr 1fr; column-gap:16px; row-gap:0 }
+  .foot-nav .f-lab{ grid-column:1 / -1 }
+}
+/* rows land at 44px: 14px × 1.65 line + 2 × 10px (+1px underline); links 11px × 1.65 + 2 × 13px */
+@media (pointer:coarse){
+  .foot-nav a, .foot-contact a{ padding:10px 0 }
+  .foot-nav, .foot-contact{ gap:0 }
+  .foot-links a{ padding:13px 0; display:inline-block }
+  .foot-links{ gap:24px }
 }

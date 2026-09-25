@@ -253,8 +253,8 @@
           <summary>What does it cost?</summary>
           <div class="a">
             <p>The audit is free, and the write-up is yours whether or not we go further.</p>
-            <p>If we do, the monthly fee is a flat number set by the ad budget you approve &mdash; never a percentage of it. With a monthly ad budget of $1,000 to $2,499 the fee is $900 a month; $2,500 to $5,999, $1,250; $6,000 to $14,999, $1,750; $15,000 to $24,999, $2,500; $25,000 to $49,999, $4,000. Above that we quote a flat number in the proposal. Every band includes the same things: the engine reading your account and drafting changes, a named person approving each one before it reaches your account, the record of every approval, weekly and monthly reports, and ad-health monitoring. Your band only changes when you approve a budget that moves it, and the change takes effect the following month &mdash; up or down. Under about $1,000 a month in ad spend we'll usually tell you to keep it in-house.</p>
-            <p>There is a one-time setup fee, sized by what the audit finds. If your account passes the checklist in the audit, it's $500 to connect it &mdash; the approval record, your named approvers, the budget cap. If it needs building or rebuilding &mdash; tracking, conversion events, structure, first campaigns &mdash; it's $1,500, or $2,500 when there are two or more ad accounts or locations. Nothing is due when you sign: half when you're holding the written setup plan at the end of week one, half when the first approved campaign is live. These are our list prices, and the proposal repeats them for your account before you owe anything. The monthly fee starts the month something is live, runs three months, then month to month on thirty days' notice, and if you leave you keep the account, the pixel, the creative, and the record.</p>
+            <p>If we do, the monthly fee is a flat number set by the ad budget you approve &mdash; never a percentage of it. With a monthly ad budget of <span class="fig">$1,000</span> to <span class="fig">$2,499</span> the fee is <span class="fig">$900</span> a month; <span class="fig">$2,500</span> to <span class="fig">$5,999</span>, <span class="fig">$1,250</span>; <span class="fig">$6,000</span> to <span class="fig">$14,999</span>, <span class="fig">$1,750</span>; <span class="fig">$15,000</span> to <span class="fig">$24,999</span>, <span class="fig">$2,500</span>; <span class="fig">$25,000</span> to <span class="fig">$49,999</span>, <span class="fig">$4,000</span>. Above that we quote a flat number in the proposal. Every band includes the same things: the engine reading your account and drafting changes, a named person approving each one before it reaches your account, the record of every approval, weekly and monthly reports, and ad-health monitoring. Your band only changes when you approve a budget that moves it, and the change takes effect the following month &mdash; up or down. Under about $1,000 a month in ad spend we'll usually tell you to keep it in-house.</p>
+            <p>There is a one-time setup fee, sized by what the audit finds. If your account passes the checklist in the audit, it's <span class="fig">$500</span> to connect it &mdash; the approval record, your named approvers, the budget cap. If it needs building or rebuilding &mdash; tracking, conversion events, structure, first campaigns &mdash; it's <span class="fig">$1,500</span>, or <span class="fig">$2,500</span> when there are two or more ad accounts or locations. Nothing is due when you sign: half when you're holding the written setup plan at the end of week one, half when the first approved campaign is live. These are our list prices, and the proposal repeats them for your account before you owe anything. The monthly fee starts the month something is live, runs three months, then month to month on thirty days' notice, and if you leave you keep the account, the pixel, the creative, and the record.</p>
             <p>Three things we never charge: a percentage of your ad spend; a markup on media &mdash; you pay Meta directly from your own account, and ad dollars never appear on an invoice from us; and any fee tied to a lead, a call, a booking, or a sale.</p>
           </div>
         </details>
@@ -309,7 +309,7 @@
           <label><span class="lab">Where you're spending</span><input type="text" id="efWhere" name="where" maxlength="120"></label>
           <label><span class="lab">Roughly how much</span><input type="text" id="efMuch" name="much" maxlength="60"></label>
         </div>
-        <button type="submit">Request the audit</button>
+        <button type="submit" class="btn primary">Request the audit</button>
         <p class="ef-note">This opens your mail app with the request prefilled &mdash; nothing is stored on this page.</p>
       </form>
 
@@ -377,11 +377,20 @@ var onScroll = function () {
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 var heroCta = document.querySelector('.hero .cta-row');
+var formCta = document.querySelector('#entryForm button');
 if (heroCta && 'IntersectionObserver' in window) {
-  new IntersectionObserver(function (es) {
-    var e = es[0];
-    header.classList.toggle('cta-live', !e.isIntersecting && e.boundingClientRect.top < 0);
-  }).observe(heroCta);
+  /* the header CTA fills once the hero CTA has scrolled away, and steps back
+     while the filled submit is on screen: one filled brass button at a time */
+  var heroGone = false, submitSeen = false;
+  var ctaIo = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.target === heroCta) heroGone = !e.isIntersecting && e.boundingClientRect.top < 0;
+      else submitSeen = e.isIntersecting;
+    });
+    header.classList.toggle('cta-live', heroGone && !submitSeen);
+  });
+  ctaIo.observe(heroCta);
+  if (formCta) ctaIo.observe(formCta);
 }
 
 var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
