@@ -488,7 +488,8 @@ section.block.last .wrap.sec::after{ display:none }
 .faq .a p{ padding:2px 0 20px 28px; max-width:60ch; border-left:1px solid var(--rule-hi); margin-left:5px }
 .faq .a a{ color:var(--brass); text-decoration:none; border-bottom:1px solid var(--rule-hi) }
 .faq .a a:hover{ border-bottom-color:var(--brass) }
-.faq .a .fig{ color:var(--cream); font-weight:500; font-variant-numeric:lining-nums tabular-nums; white-space:nowrap }
+.faq .a .fig{ font-variant-numeric:lining-nums tabular-nums; white-space:nowrap }
+.faq .a .fig.fee{ color:var(--cream); font-weight:500 }   /* only what the client pays is lit; budget thresholds stay body ink */
 
 /* ---------- 06: contact — the signature page ---------- */
 section.block.deep{
