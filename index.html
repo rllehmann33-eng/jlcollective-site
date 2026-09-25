@@ -31,7 +31,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
- {"@type":"Organization","name":"JL Collective","url":"https://thejlcollective.com/","logo":"https://thejlcollective.com/logo.png","email":"hello@thejlcollective.com","founder":[{"@type":"Person","name":"Jack Tusa","jobTitle":"Founding Principal"},{"@type":"Person","name":"Luke Lehmann","jobTitle":"Founding Principal"}],"address":{"@type":"PostalAddress","addressRegion":"TX","addressCountry":"US"}},
+ {"@type":"Organization","name":"JL Collective","url":"https://thejlcollective.com/","logo":"https://thejlcollective.com/logo.png","email":"jack@thejlcollective.com","founder":[{"@type":"Person","name":"Jack Tusa","jobTitle":"Founding Principal","email":"jack@thejlcollective.com"},{"@type":"Person","name":"Luke Lehmann","jobTitle":"Founding Principal","email":"luke@thejlcollective.com"}],"address":{"@type":"PostalAddress","addressRegion":"TX","addressCountry":"US"}},
  {"@type":"WebSite","name":"JL Collective","url":"https://thejlcollective.com/"}]}
 </script>
 <script type="importmap">{"imports":{"three":"/vendor/three/three.module.min.js","three/addons/":"/vendor/three/addons/"}}</script>
@@ -225,7 +225,7 @@
           <span class="plate">LL</span>
           <h4>Luke Lehmann</h4>
           <div class="role">Founding Principal &middot; Systems &amp; engineering</div>
-          <p>Luke is the engineering half of the firm. He wrote the engine end to end &mdash; planning, creative, judging, spend circuit-breakers, reporting &mdash; and the rules it can't break: nothing spends without a named human approval, and the record of those approvals can't be edited, not even by us. He also builds the firm's other software, including this site.</p>
+          <p>Luke is the engineering half of the firm. He wrote the engine end to end &mdash; planning, creative, judging, spend circuit-breakers, reporting &mdash; and the rules it can't break: nothing spends without a named human approval, and the record of those approvals can't be edited, not even by us. He also builds the firm's other software.</p>
         </div>
       </div>
       <p class="vert-note">We build alongside Kosign Media.</p>
@@ -296,9 +296,10 @@
     </div>
     <div class="sec-body reveal d1">
       <h3>Get the audit.</h3>
-      <p class="contact-line">
-        <a href="mailto:hello@thejlcollective.com?subject=Audit">hello@thejlcollective.com</a>
-      </p>
+      <ul class="contact-line">
+        <li><span class="cp-who">Jack Tusa &middot; Growth &amp; partnerships</span><a href="mailto:jack@thejlcollective.com?subject=Audit">jack@thejlcollective.com</a></li>
+        <li><span class="cp-who">Luke Lehmann &middot; Systems &amp; engineering</span><a href="mailto:luke@thejlcollective.com?subject=Audit">luke@thejlcollective.com</a></li>
+      </ul>
       <p class="contact-note">Tell us what you sell, where you're spending, and roughly how much. We'll reply with what we'd need to see and how fast the write-up comes back. No deck and no sales call required &mdash; email is enough.</p>
 
       <form class="entry-form" id="entryForm" novalidate>
@@ -319,7 +320,7 @@
         </div>
         <div class="ptotal" aria-hidden="true"></div>
         <p class="pnote">Your mail app is opening with this request. Nothing is stored on this page.</p>
-        <p class="pactions"><a id="postMail" href="mailto:hello@thejlcollective.com?subject=Audit">If your mail app didn't open, send the request yourself</a> &middot; <a id="postEdit" href="#contact">edit the request</a></p>
+        <p class="pactions"><a id="postMail" href="mailto:jack@thejlcollective.com,luke@thejlcollective.com?subject=Audit">If your mail app didn't open, send the request yourself</a> &middot; <a id="postEdit" href="#contact">edit the request</a></p>
       </div>
     </div>
   </div>
@@ -347,12 +348,13 @@
     </nav>
     <div class="foot-contact">
       <div class="f-lab">Write to us</div>
-      <a href="mailto:hello@thejlcollective.com">hello@thejlcollective.com</a>
+      <a href="mailto:jack@thejlcollective.com">jack@thejlcollective.com</a>
+      <a href="mailto:luke@thejlcollective.com">luke@thejlcollective.com</a>
       <p>We read every message.</p>
     </div>
   </div>
   <div class="wrap foot-inner">
-    <span>&copy; 2026 JL Collective LLC &middot; <span class="revised">this page was last revised 15 September 2026</span></span>
+    <span>&copy; 2026 JL Collective LLC &middot; <span class="revised">this page was last revised 24 September 2026</span></span>
     <div class="foot-links">
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
@@ -363,7 +365,7 @@
 <script>
 document.documentElement.classList.add('js');
 
-console.log('%cJL COLLECTIVE%c\n\nHand-written HTML and CSS. No frameworks, no trackers \u2014 the privacy page means it.\nIf you read source for fun, we should talk: hello@thejlcollective.com',
+console.log('%cJL COLLECTIVE%c\n\nHand-written HTML and CSS. No frameworks, no trackers \u2014 the privacy page means it.\nIf you read source for fun, we should talk: luke@thejlcollective.com',
   'font-family:JetBrains Mono,ui-monospace,monospace;color:#C8A96A;letter-spacing:.3em;font-size:12px',
   'font-family:ui-monospace,monospace;color:#8E99AD;font-size:11px');
 
@@ -497,7 +499,7 @@ if (entryForm) {
       (where ? "Where we're spending: " + where + '\r\n' : '') +
       (much ? 'Roughly how much: ' + much + '\r\n' : '') +
       '\r\nSent from the audit form on thejlcollective.com';
-    var mailUrl = 'mailto:hello@thejlcollective.com?subject=' + encodeURIComponent('Audit') +
+    var mailUrl = 'mailto:jack@thejlcollective.com,luke@thejlcollective.com?subject=' + encodeURIComponent('Audit') +
       '&body=' + encodeURIComponent(body);
     document.getElementById('postMail').setAttribute('href', mailUrl);
     setTimeout(function () { location.href = mailUrl; }, reduced ? 150 : 1100);
