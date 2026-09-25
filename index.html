@@ -78,7 +78,7 @@
   <div class="toprule" aria-hidden="true"></div>
   <div class="wrap">
     <div class="kicker">Marketing &amp; software</div>
-    <h1 class="serif">Our AI engine. A name on every change.</h1>
+    <h1 class="serif"><span class="ln">Our AI engine.</span> <span class="ln ln-2">A name on every change.</span></h1>
     <div class="ledger-rule" aria-hidden="true"></div>
     <p class="stand">Strategy, execution, and management under one roof, on software we built ourselves. The engine watches your accounts, drafts the next move, and writes the audits and reports. It can't push a change to your account on its own. A named person approves every change &mdash; one of ours, or one of yours &mdash; and every approval is written to a record the platform can't alter. Software does the relentless part. People make the calls.</p>
     <div class="cta-row">
@@ -376,6 +376,13 @@ var onScroll = function () {
 };
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
+var heroCta = document.querySelector('.hero .cta-row');
+if (heroCta && 'IntersectionObserver' in window) {
+  new IntersectionObserver(function (es) {
+    var e = es[0];
+    header.classList.toggle('cta-live', !e.isIntersecting && e.boundingClientRect.top < 0);
+  }).observe(heroCta);
+}
 
 var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var targets = document.querySelectorAll('.reveal');
