@@ -509,7 +509,10 @@ if (entryForm) {
     pt.textContent = utc(d);
     pt.setAttribute('datetime', d.toISOString());
     entryForm.style.display = 'none';
-    document.getElementById('posting').classList.add('show');
+    var posting = document.getElementById('posting');
+    posting.classList.add('show');
+    /* the form's column can collapse under the scroll position: bring the confirmation into view */
+    posting.scrollIntoView({ block: 'nearest' });
     var body = 'Name: ' + name + '\r\n' +
       (sell ? 'What we sell: ' + sell + '\r\n' : '') +
       (where ? "Where we're spending: " + where + '\r\n' : '') +
@@ -532,13 +535,33 @@ if (entryForm) {
 var btn = document.getElementById('menuBtn');
 var nav = document.getElementById('siteNav');
 if (btn && nav) {
-  btn.addEventListener('click', function () {
-    var open = nav.classList.toggle('open');
+  var setMenu = function (open) {
+    nav.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
+  };
+  var menuOpen = function () { return nav.classList.contains('open') && btn.offsetWidth > 0; };
+  btn.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
   nav.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') { nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+    if (e.target.tagName === 'A') { setMenu(false); }
   });
+  /* the dimmed page reads as a modal, so it behaves like one:
+     Escape, a tap on the dim, or tabbing out of the header closes the menu */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menuOpen()) { setMenu(false); btn.focus(); }
+  });
+  header.addEventListener('focusout', function (e) {
+    if (menuOpen() && e.relatedTarget && !header.contains(e.relatedTarget)) { setMenu(false); }
+  });
+  /* a tap on the dim only closes the menu; it never reaches (or focuses) what lies beneath */
+  var swallowClick = false;
+  document.addEventListener('pointerdown', function (e) {
+    swallowClick = menuOpen() && !header.contains(e.target);
+    if (swallowClick) { e.preventDefault(); setMenu(false); }
+  }, true);
+  document.addEventListener('keydown', function () { swallowClick = false; }, true);
+  document.addEventListener('click', function (e) {
+    if (swallowClick) { swallowClick = false; e.preventDefault(); e.stopPropagation(); }
+  }, true);
 }
 
 document.querySelectorAll('.faq details').forEach(function (d) {

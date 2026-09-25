@@ -57,6 +57,8 @@
 
 *{ margin:0; padding:0; box-sizing:border-box }
 html{ background:var(--ink-0); -webkit-text-size-adjust:100%; scrollbar-color:#39414F transparent }
+/* anchors, the skip link and keyboard focus all land clear of the sticky header */
+html:has(header.site){ scroll-padding-top:72px }
 @media (prefers-reduced-motion:no-preference){ html{ scroll-behavior:smooth } }
 
 body{
@@ -201,7 +203,7 @@ header.site.cta-live nav.site-nav a.cta:hover{ background:var(--brass-bright) }
   display:inline-flex; align-items:center; gap:14px;
   font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.16em;
   text-transform:uppercase; text-decoration:none; border-radius:1px;
-  padding:17px 28px;
+  padding:17px 28px; line-height:1.65;
   transition:background-color .2s ease, border-color .2s ease, color .2s ease, filter .2s ease;
 }
 /* the one filled brass object: brushed metal, ink letters */
@@ -271,7 +273,6 @@ header.site.cta-live nav.site-nav a.cta:hover{ background:var(--brass-bright) }
 
 /* ---------- sections as entries ---------- */
 section.block{ position:relative; padding:clamp(64px,9vh,110px) 0 0 }
-section.block[id]{ scroll-margin-top:72px }
 section.block .wrap.sec{ padding-bottom:clamp(56px,8vh,96px) }
 /* every entry closes with the double total-rule */
 section.block .wrap.sec::after{
@@ -314,7 +315,7 @@ section.block.last .wrap.sec::after{ display:none }
 }
 .sec-body h3{ font-size:var(--fs-h3); line-height:1.08; letter-spacing:-.006em; max-width:20ch; margin-bottom:28px; text-wrap:balance }
 .step h4,.person h4,.vert h4{ text-wrap:balance }
-.stand,.sec-body>p,.band .attr,.contact-note{ text-wrap:pretty }
+.stand,.sec-body>p,.band .attr,.contact-note,.person p{ text-wrap:pretty }
 .sec-body>p{ max-width:62ch; margin-bottom:16px }
 
 /* entrance: quiet settle, hairlines draw */
@@ -353,7 +354,7 @@ section.block.last .wrap.sec::after{ display:none }
   text-transform:uppercase; color:var(--mono-ink);
 }
 .ship-flow strong{ font-family:var(--serif); font-weight:500; font-size:22px; line-height:1.2; color:var(--cream); text-shadow:var(--deboss) }
-.ship-flow em{ font-style:normal; font-size:15px; color:var(--body) }
+.ship-flow em{ font-style:normal; font-size:15px; color:var(--body); text-wrap:balance }
 .ship-flow li:nth-child(2) strong{ color:var(--brass); font-style:italic }
 
 /* ---------- 02: the tariff page ---------- */
@@ -432,7 +433,7 @@ section.block.last .wrap.sec::after{ display:none }
   background:linear-gradient(180deg,var(--panel) 0%,var(--navy-deep) 100%);
   border:1px solid var(--rule); padding:30px 30px 28px;
   box-shadow:inset 0 1px 0 rgba(246,242,234,.05), 0 30px 60px -40px rgba(0,0,0,.9);
-  transition:border-color .25s ease, box-shadow .25s ease;
+  transition:border-color .25s ease;
 }
 .person::before{ content:""; position:absolute; left:-1px; right:30%; top:-1px; height:1px; background:linear-gradient(90deg,var(--brass),rgba(200,169,106,0)) }
 .person:hover{ border-color:var(--rule-hi) }
@@ -447,7 +448,7 @@ section.block.last .wrap.sec::after{ display:none }
 .person .role{
   grid-column:2; align-self:start;
   font-family:var(--mono); font-size:var(--fs-label); font-weight:500; letter-spacing:var(--tr-label); line-height:1.55;
-  text-transform:uppercase; color:var(--mono-ink); margin-bottom:0;
+  text-transform:uppercase; color:var(--mono-ink); margin-bottom:0; text-wrap:balance;
 }
 .person p{ grid-column:1 / -1; margin-top:20px }
 .vert-note{ margin-top:24px; font-family:var(--sans); font-size:14px; letter-spacing:0; line-height:1.55; color:var(--mono-ink) }
@@ -498,6 +499,8 @@ section.block.deep{
   border-top:1px solid var(--rule-hi);
 }
 section.block.deep .wrap.sec::after{ display:none }
+/* the room's brass glow lifts the navy behind the folio: use the brighter mono ink to keep ≥4.5:1 */
+section.block.deep .sec-label .folio{ color:var(--mono-ink) }
 .contact-line{ list-style:none; display:grid; gap:22px }
 .contact-line li{ display:flex; flex-direction:column; gap:6px }
 .cp-who{ font-family:var(--mono); font-size:var(--fs-label); font-weight:500; letter-spacing:var(--tr-label); text-transform:uppercase; color:var(--mono-ink) }
@@ -536,7 +539,7 @@ section.block.deep .wrap.sec::after{ display:none }
 .ef-note{ margin-top:14px; font-family:var(--sans); font-size:14px; letter-spacing:0; line-height:1.55; color:var(--mono-ink) }
 
 /* the posting: your inquiry becomes an entry */
-.posting{ margin-top:34px; max-width:640px; display:none }
+.posting{ margin-top:34px; max-width:640px; display:none; scroll-margin-top:16px; scroll-margin-bottom:16px }
 .posting.show{ display:block }
 .posting .prow{
   display:flex; align-items:center; gap:18px;
@@ -652,6 +655,13 @@ header:not(.site) nav a:hover{ color:var(--body) }
   .cred-row span{ letter-spacing:.1em }
 }
 
+/* the reveal transition would otherwise swallow the cards' and rows' hover fades */
+@media (prefers-reduced-motion:no-preference){
+  .js .person.reveal{ transition-property:opacity, transform, border-color; transition-duration:.5s, .5s, .25s }
+  .js .vert.reveal{ transition-property:opacity, transform, border-color, background-color; transition-duration:.5s, .5s, .2s, .2s }
+}
+main:focus{ outline:none }  /* the skip-link target is never a Tab stop */
+
 /* ---------- reduced motion: the page arrives settled ---------- */
 @media (prefers-reduced-motion:reduce){
   .js .hero-seal .foil{ animation:none; opacity:.9 }
@@ -665,7 +675,7 @@ header:not(.site) nav a:hover{ color:var(--body) }
   .btn,.person,.entry-form button{ transition:none }
   .btn.primary::after{ transition:none }
   nav.site-nav a.cta{ transition:none }
-  .menu-btn{ transition:none }
+  header .menu-btn{ transition:none }  /* beats the equal-specificity ≤1000 rule below */
   .vert::before{ transition:none }
   .entry-form input{ transition:none }
   .js .posting.show .pseal,.js .posting.show .ptotal{ animation:none }
@@ -687,7 +697,7 @@ html.gl-seal .hero-seal .foil{ animation:none; opacity:0 }
 
 /* ---------- refresh: responsive ---------- */
 /* Region A — frame, hero, header, rail. New media blocks live here so they
-   follow (and win ties against) the 1060/880/1000/520 blocks above. */
+   follow (and win ties against) the 880/1000/520 blocks above. */
 
 /* A4: at ≥1120 the seal locks to the grid — its right edge meets the column's */
 @media (min-width:1120px){
@@ -711,7 +721,7 @@ html.gl-seal .hero-seal .foil{ animation:none; opacity:0 }
 @media (max-width:880px){ .hero-seal .foil{ display:none } }
 /* portrait tablets — bottom-right, beside the CTA row and cred-row */
 @media (min-width:721px) and (max-width:880px){
-  .hero-seal{ position:absolute; top:auto; bottom:clamp(28px,4vw,48px); right:calc(var(--gutter) - 20px); width:clamp(140px,42.5vw - 166px,212px); height:auto; margin:0; transform:none }
+  .hero-seal{ position:absolute; top:auto; bottom:clamp(20px,3vw,40px); right:calc(var(--gutter) - 20px); width:clamp(132px,42.5vw - 184px,212px); height:auto; margin:0; transform:none }
   .hero .cred-row{ max-width:min(560px, calc(100% - 230px)) }
 }
 /* phones — a centred closing medallion (kept in the hero's lower part so the lamp doesn't bloom it) */
@@ -735,7 +745,17 @@ html.gl-seal .hero-seal .foil{ animation:none; opacity:0 }
   nav.site-nav a{ font-family:var(--serif); font-size:24px; font-weight:500; letter-spacing:.01em; text-transform:none; color:var(--cream); padding:13px 2px; border-bottom:1px solid var(--rule-quiet); line-height:1.25; width:100% }
   nav.site-nav a.active{ color:var(--brass) }
   nav.site-nav a.cta{ margin-top:18px; border:1px solid var(--brass); border-radius:1px; text-align:center; font-family:var(--mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-0); background:var(--brass); padding:16px 18px }
+  /* the filled menu button stays filled on hover (outranks the desktop outline hover) */
+  nav.site-nav a.cta:hover{ background:var(--brass-bright); border-color:var(--brass-bright); color:var(--ink-0) }
 }
+/* landscape phones: the whole table of contents, button included, fits above the fold */
+@media (max-width:1000px) and (max-height:500px){
+  nav.site-nav{ padding-bottom:14px }
+  nav.site-nav a{ font-size:19px; padding:9px 2px }
+  nav.site-nav a.cta{ margin-top:10px; padding:12px 18px }
+}
+/* without JS the menu can't open: hide the button (the footer repeats every section link) */
+html:not(.js) .menu-btn{ display:none }
 
 /* ---------- Region B — sections 01–04 ---------- */
 /* B1: below 1061 the section rhythm is width-based (desktop padding unchanged) */
@@ -764,6 +784,8 @@ html.gl-seal .hero-seal .foil{ animation:none; opacity:0 }
   #engine .ship-flow .k{ grid-area:k }
   #engine .ship-flow strong{ grid-area:v; font-size:24px }
   #engine .ship-flow em{ grid-area:d }
+  /* the frame (outline + corner brackets) sits 7px outside the box: keep it on the column edge */
+  #engine .cert{ margin-right:7px }
 }
 
 /* B3: tariff rows with offering weight */
@@ -786,6 +808,11 @@ html.gl-seal .hero-seal .foil{ animation:none; opacity:0 }
   .step{ flex-direction:column; gap:22px; padding:0 }
   .step h4 span{ display:block; margin-top:4px; line-height:1.4 }
   .step p{ max-width:none }
+  /* numeral, heading and paragraph share rows across the three steps, so the copy starts level */
+  .steps{ grid-template-rows:auto auto 1fr }
+  .step{ display:grid; grid-row:span 3; grid-template-rows:subgrid; row-gap:0 }
+  .step > div{ display:grid; grid-row:span 2; grid-template-rows:subgrid; row-gap:0 }
+  .step .s-num{ margin-bottom:22px }
 }
 @media (max-width:560px){ .step{ gap:18px } }
 
@@ -804,6 +831,8 @@ html.gl-seal .hero-seal .foil{ animation:none; opacity:0 }
   .person{ grid-template-columns:44px 1fr; column-gap:16px; padding:24px 20px 22px }
   .plate{ width:44px; height:44px; font-size:16px }
 }
+/* the narrowest phones: a touch less tracking keeps the role on two lines */
+@media (max-width:359px){ .person .role{ letter-spacing:.12em } }
 
 /* ---------- Region C — FAQ, contact, footer, legal ---------- */
 /* C1: the index on phones — no leader stub, tighter rows */
@@ -832,6 +861,7 @@ html.gl-seal .hero-seal .foil{ animation:none; opacity:0 }
   #contact .sec-body > *{ grid-column:1 }
   /* must follow the rule above: equal specificity, source order decides */
   .js #contact .entry-form, #contact .posting{ grid-column:2; grid-row:1 / span 3; margin-top:0; max-width:none }
+  .js #contact .entry-form{ margin-right:7px }
 }
 
 /* C6: footer on tablets and phones; touch targets */
@@ -849,4 +879,6 @@ html.gl-seal .hero-seal .foil{ animation:none; opacity:0 }
   .foot-nav, .foot-contact{ gap:0 }
   .foot-links a{ padding:13px 0; display:inline-block }
   .foot-links{ gap:24px }
+  .contact-line a{ padding-top:5px; margin-top:-5px }
+  header:not(.site) nav a{ display:inline-block; padding:13px 0; margin:-13px 0 }
 }
