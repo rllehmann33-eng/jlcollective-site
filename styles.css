@@ -576,7 +576,6 @@ footer.site{ background:var(--ink-1); border-top:1px solid var(--rule); position
   padding-top:56px; padding-bottom:44px;
 }
 .foot-tag{ margin-top:16px; font-size:14px; max-width:38ch }
-.colophon{ margin-top:14px; font-family:var(--sans); font-size:14px; letter-spacing:0; line-height:1.55; color:var(--mono-ink); max-width:48ch }
 .f-lab{
   font-family:var(--mono); font-size:var(--fs-label); font-weight:500; letter-spacing:var(--tr-label);
   text-transform:uppercase; color:var(--mono-ink); margin-bottom:14px;
