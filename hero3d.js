@@ -207,6 +207,9 @@ if (app && svgSeal) {
   scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
   scene.environmentIntensity = 0.42;
   scene.environmentRotation.set(0, Math.PI * 0.35, 0);
+  /* a restored context comes back without the room the metals reflect: build it again on the next frame */
+  let envLost = false;
+  app.canvas.addEventListener('webglcontextrestored', () => { envLost = true; });
 
   /* -- materials: two metals -- */
   const matBrass = new THREE.MeshPhysicalMaterial({
@@ -300,6 +303,7 @@ if (app && svgSeal) {
 
   /* -- placement: the metal takes the exact spot of the inscribed drawing -- */
   const anchor = new THREE.Vector3();
+  const face = { x: 0, y: 0 };   /* where the seal looks from when it turns to the lamp: the hero's centre, unless place() says otherwise */
   function place() {
     camera.aspect = size.w / size.h; camera.updateProjectionMatrix();
     composer.setSize(size.w, size.h);
@@ -314,8 +318,18 @@ if (app && svgSeal) {
     const diamPx = r.width * 0.8;
     const s = diamPx / (1.6 * pxPerUnit(camera, anchor, size.h));
     rig.scale.setScalar(s);
+    face.x = face.y = 0;
     if (!canHover || reduced) {
-      pointer.tx = pointer.x = ndcX - 0.5; pointer.ty = pointer.y = ndcY + 0.5;
+      if (isNarrow()) { pointer.tx = pointer.x = ndcX - 0.5; pointer.ty = pointer.y = ndcY + 0.5; }
+      else {
+        /* wider layouts: the still lamp keeps its distance in seal diameters, not hero halves,
+           so a small seal in a short hero is lit like the large one */
+        const off = 0.6 * diamPx;
+        pointer.tx = pointer.x = ndcX - off / (size.w / 2);
+        pointer.ty = pointer.y = ndcY + off / (size.h / 2);
+        /* and the seal turns toward that lamp from where it sits, wherever in the hero that is */
+        face.x = ndcX; face.y = ndcY;
+      }
     }
   }
   onResize(place);
@@ -331,6 +345,10 @@ if (app && svgSeal) {
   setTimeout(function () {
     document.documentElement.classList.add('gl-seal');
     start(function (t, dt) {
+      if (envLost) {
+        envLost = false;
+        scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+      }
       const k = introLen ? clamp01((performance.now() / 1000 - T0 - holdoff) / introLen) : 1;
       const e = ease.outCubic(k);
       const s = rig.scale.x;
@@ -341,8 +359,8 @@ if (app && svgSeal) {
       const hr = hero.getBoundingClientRect();
       const scrolled = clamp01(-hr.top / Math.max(hr.height, 1));
       if (k >= 1 && !reduced) {
-        tilt.rotation.x += ((-pointer.y * 0.16 + scrolled * 0.35 + Math.sin(t * 0.55) * 0.02) - tilt.rotation.x) * 0.06;
-        tilt.rotation.y += ((pointer.x * 0.22 + Math.cos(t * 0.42) * 0.02) - tilt.rotation.y) * 0.06;
+        tilt.rotation.x += ((-(pointer.y - face.y) * 0.16 + scrolled * 0.35 + Math.sin(t * 0.55) * 0.02) - tilt.rotation.x) * 0.06;
+        tilt.rotation.y += (((pointer.x - face.x) * 0.22 + Math.cos(t * 0.42) * 0.02) - tilt.rotation.y) * 0.06;
         tilt.position.y = Math.sin(t * 0.7) * 0.014 + scrolled * 0.5;
       }
       /* dust drifts up through the lamp, wraps */
