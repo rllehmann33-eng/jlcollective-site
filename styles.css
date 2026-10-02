@@ -883,3 +883,32 @@ html:not(.js) .menu-btn{ display:none }
   .contact-line a{ padding-top:5px; margin-top:-5px }
   header:not(.site) nav a{ display:inline-block; padding:13px 0; margin:-13px 0 }
 }
+
+
+/* ---------- the ruled sheet ---------- */
+/* sheet.js engraves the page's ruling into the paper and carries the lamp over it.
+   The canvas lies over every section ground and under every column. It is a window
+   only as big as the light, placed on the paper under the lamp (sheet.js sizes and
+   moves it), so a scroll can never make the ruling swim against the text.
+   Nothing here applies until it runs. */
+.sheet-gl{ display:none }
+html.sheet .sheet-gl{
+  display:block; position:absolute; left:0; top:0; z-index:1;
+  pointer-events:none; will-change:transform;
+}
+html.sheet main .wrap{ z-index:2 }
+html.sheet .hero .wrap{ z-index:1 }      /* the hero keeps its order: copy, then the seal's metal */
+html.sheet .band-deco{ z-index:2 }
+html.sheet footer.site{ z-index:2 }      /* opaque: the footer covers the sheet */
+/* while the sheet carries the lamp, the glow keeps its look but travels on the compositor:
+   the same gradient on a box of its own size, moved instead of repainted every frame */
+@media (hover:hover){
+  html.sheet:not(.sheet-still) .lamp{
+    inset:auto; left:0; top:0; width:1300px; height:930px; margin:-465px 0 0 -650px;
+    background:radial-gradient(900px 640px at 50% 50%,
+      rgba(200,169,106,.05), rgba(200,169,106,.015) 55%, transparent 72%);
+    transform:translate3d(var(--lx,62vw),var(--ly,32vh),0); will-change:transform;
+  }
+}
+/* reduced motion: one still frame on the first page, and the lamp rests there with it */
+html.sheet-still .lamp{ position:absolute }

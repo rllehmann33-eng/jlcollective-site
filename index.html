@@ -42,6 +42,7 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="lamp" aria-hidden="true"></div>
+<canvas class="sheet-gl" id="sheetGL" aria-hidden="true"></canvas>
 <nav class="rail" aria-label="Entries">
   <span class="rail-tick" aria-hidden="true"></span>
   <div class="rail-index">
@@ -354,7 +355,7 @@
     </div>
   </div>
   <div class="wrap foot-inner">
-    <span>&copy; 2026 JL Collective LLC &middot; <span class="revised">this page was last revised 24 September 2026</span></span>
+    <span>&copy; 2026 JL Collective LLC &middot; <span class="revised">this page was last revised 1 October 2026</span></span>
     <div class="foot-links">
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
@@ -449,10 +450,13 @@ if (rail && railTick) {
 /* one lamp for the whole building: it travels to what you touch */
 var lampEl = document.querySelector('.lamp');
 var canHover = window.matchMedia('(hover: hover)').matches;
+/* while the ruled sheet runs (html.sheet) it carries the lamp; if it stops, this takes it back */
+var lampHeld = function () { return document.documentElement.classList.contains('sheet'); };
 if (lampEl && canHover && !reduced) {
   var lx = innerWidth * 0.62, ly = innerHeight * 0.32;
   var tx = lx, ty = ly, lampRaf = null;
   var lampStep = function () {
+    if (lampHeld()) { lampRaf = null; return; }
     lx += (tx - lx) * 0.06; ly += (ty - ly) * 0.06;
     lampEl.style.setProperty('--lx', lx.toFixed(1) + 'px');
     lampEl.style.setProperty('--ly', ly.toFixed(1) + 'px');
@@ -461,7 +465,7 @@ if (lampEl && canHover && !reduced) {
   };
   var carryLamp = function (x, y) {
     tx = x; ty = y;
-    if (!lampRaf) { lampRaf = requestAnimationFrame(lampStep); }
+    if (!lampRaf && !lampHeld()) { lampRaf = requestAnimationFrame(lampStep); }
   };
   var lampTargets = 'a, summary, button, input, .vert, .person, .step, .cert';
   document.addEventListener('pointerover', function (e) {
@@ -587,6 +591,7 @@ document.querySelectorAll('.faq details').forEach(function (d) {
 });
 </script>
 <script type="module" src="hero3d.js"></script>
+<script type="module" src="sheet.js"></script>
 
 </body>
 </html>
