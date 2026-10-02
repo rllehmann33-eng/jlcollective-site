@@ -226,6 +226,8 @@ function boot() {
   const renderer = new THREE.WebGLRenderer({ canvas, context: gl, alpha: true, premultipliedAlpha: true, antialias: false, depth: false, stencil: false });
   renderer.autoClear = false;
   renderer.setClearColor(0x000000, 0);
+  /* a GPU that rejects the shaders: hand the lamp back, log nothing */
+  renderer.debug.onShaderError = () => shutdown();
 
   const tri = new THREE.BufferGeometry();
   tri.setAttribute('position', new THREE.BufferAttribute(new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]), 3));
@@ -273,10 +275,11 @@ function boot() {
   function measure() {
     const sy = scrollY;
     const wr = wrapEl.getBoundingClientRect(), ws = getComputedStyle(wrapEl);
-    /* the column's rules are painted on the device pixels that enclose its box: register to those */
+    /* the column's rules are painted where the browser snaps its box, each edge to the nearest
+       device pixel: register to those */
     const k = window.devicePixelRatio || 1;
-    S.colL = Math.floor((wr.left + parseFloat(ws.paddingLeft)) * k + 0.01) / k;
-    S.colR = Math.ceil((wr.right - parseFloat(ws.paddingRight)) * k - 0.01) / k;
+    S.colL = Math.round((wr.left + parseFloat(ws.paddingLeft)) * k) / k;
+    S.colR = Math.round((wr.right - parseFloat(ws.paddingRight)) * k) / k;
     /* the column's two edges land on heavy lines: whole heavy cells across it, ~100px each */
     const span = S.colR - S.colL - 1;
     const heavy = Math.max(2, Math.round(span / 100));
@@ -526,13 +529,19 @@ function boot() {
     if (raf) cancelAnimationFrame(raf);
     raf = 0;
     root.classList.remove('sheet', 'sheet-still');   /* the inline lamp takes the light back */
+    /* where no inline script will carry it (touch, reduced motion) it returns to its place in the stylesheet */
+    if (reduced || !matchMedia('(hover: hover)').matches) {
+      lampEl.style.removeProperty('--lx'); lampEl.style.removeProperty('--ly');
+    }
   }
   canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); shutdown(); }, false);
   canvas.addEventListener('webglcontextrestored', () => {
     try {
       rtA = rtB = null;   /* their GL objects went with the old context: let them go, don't delete them */
       S.cssW = 0; lost = false; hasPainted = false;
+      wroteX = wroteY = -1e9;
       root.classList.add('sheet');
+      measure();   /* the page may have changed while the context was gone */
       if (reduced) root.classList.add('sheet-still');
       kick();
     } catch (e) { shutdown(); }

@@ -895,6 +895,7 @@ html:not(.js) .menu-btn{ display:none }
 html.sheet .sheet-gl{
   display:block; position:absolute; left:0; top:0; z-index:1;
   pointer-events:none; will-change:transform;
+  overflow-anchor:none;                   /* it never moves with the layout: not a scroll anchor */
 }
 html.sheet main .wrap{ z-index:2 }
 html.sheet .hero .wrap{ z-index:1 }      /* the hero keeps its order: copy, then the seal's metal */
@@ -911,4 +912,4 @@ html.sheet footer.site{ z-index:2 }      /* opaque: the footer covers the sheet 
   }
 }
 /* reduced motion: one still frame on the first page, and the lamp rests there with it */
-html.sheet-still .lamp{ position:absolute }
+html.sheet-still .lamp{ position:absolute; bottom:auto; height:max(100vh,1200px) }   /* tall enough that the glow never meets the box's edge */
