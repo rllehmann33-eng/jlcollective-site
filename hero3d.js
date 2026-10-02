@@ -320,7 +320,8 @@ if (app && svgSeal) {
     rig.scale.setScalar(s);
     face.x = face.y = 0;
     if (!canHover || reduced) {
-      if (isNarrow()) { pointer.tx = pointer.x = ndcX - 0.5; pointer.ty = pointer.y = ndcY + 0.5; }
+      /* the phone layout, by the stylesheet's own breakpoint */
+      if (matchMedia('(max-width: 720px)').matches) { pointer.tx = pointer.x = ndcX - 0.5; pointer.ty = pointer.y = ndcY + 0.5; }
       else {
         /* wider layouts: the still lamp keeps its distance in seal diameters, not hero halves,
            so a small seal in a short hero is lit like the large one */
