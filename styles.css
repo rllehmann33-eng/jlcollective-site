@@ -773,19 +773,19 @@ html:not(.js) .menu-btn{ display:none }
 /* B2: at ≥1120 the argument sits left and the certificate is the exhibit on the right
    (the grid assumes the h3 plus 3 paragraphs — update the span/rows if one is added) */
 @media (min-width:1120px){
-  #engine .sec-body{
+  #rules .sec-body{
     display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.8fr);
     grid-template-rows:auto auto auto 1fr; column-gap:clamp(48px,5vw,80px);
   }
-  #engine .sec-body > *{ grid-column:1 }
-  #engine .sec-body > h3{ font-size:var(--fs-h3-split) }
-  #engine .cert{ grid-column:2; grid-row:1 / span 4; align-self:center; margin-top:0; max-width:none }
-  #engine .ship-flow li{ grid-template-columns:auto 1fr; grid-template-areas:"k k" "v d"; gap:4px 18px; padding:16px 2px 15px }
-  #engine .ship-flow .k{ grid-area:k }
-  #engine .ship-flow strong{ grid-area:v; font-size:24px }
-  #engine .ship-flow em{ grid-area:d }
+  #rules .sec-body > *{ grid-column:1 }
+  #rules .sec-body > h3{ font-size:var(--fs-h3-split) }
+  #rules .cert{ grid-column:2; grid-row:1 / span 4; align-self:center; margin-top:0; max-width:none }
+  #rules .ship-flow li{ grid-template-columns:auto 1fr; grid-template-areas:"k k" "v d"; gap:4px 18px; padding:16px 2px 15px }
+  #rules .ship-flow .k{ grid-area:k }
+  #rules .ship-flow strong{ grid-area:v; font-size:24px }
+  #rules .ship-flow em{ grid-area:d }
   /* the frame (outline + corner brackets) sits 7px outside the box: keep it on the column edge */
-  #engine .cert{ margin-right:7px }
+  #rules .cert{ margin-right:7px }
 }
 
 /* B3: tariff rows with offering weight */
