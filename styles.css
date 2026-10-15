@@ -167,12 +167,26 @@ html:not(.js) .menu-btn{ display:none }
   .hero-figure{ display:block; grid-column:8 / span 5; justify-self:center; align-self:center; width:360px; max-width:100% }
 }
 .hero-seal{ position:relative; width:360px; height:360px; max-width:100%; aspect-ratio:1; outline-offset:12px; border-radius:50% }
+html.gl .hero-seal{ cursor:default }
 .hero-seal > svg{ width:100%; height:100%; overflow:visible; transition:opacity 400ms var(--ease) }
 html.gl-seal .hero-seal > svg{ opacity:0 }
-.hero-gl{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; opacity:0; transition:opacity 400ms var(--ease) }
-html.gl .hero-gl{ opacity:1 }
-.press-note{ margin:var(--s2) auto 0; max-width:360px; text-align:center; font-size:var(--fs-small); line-height:var(--lh-small); color:var(--mute-on-navy); opacity:0; transition:opacity var(--t-row) var(--ease) }
-.press-note.show{ opacity:1 }
+/* the seal's canvas: a small fixed window that rides the object from the cover down onto the paper */
+.seal-gl{ position:fixed; left:0; top:0; pointer-events:none; z-index:10; opacity:0; will-change:transform }
+html.gl .seal-gl{ transition:opacity 400ms var(--ease) }
+
+/* where the seal lands: an embossed impression in the paper, with the one caption beneath it */
+.impression-strip{ padding:var(--s3) 0 0 }
+.impression-strip .wrap{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:var(--gap); align-items:center }
+.impression-cap{ grid-column:1 / span 7; font-size:var(--fs-small); line-height:var(--lh-small); color:var(--ink-3); max-width:46ch }
+.impression{ grid-column:8 / span 5; justify-self:center; position:relative; width:128px; height:128px }
+.impression::before{ content:""; position:absolute; inset:-16%; border-radius:50%; background:radial-gradient(closest-side, rgba(14,24,40,.16), rgba(14,24,40,0) 72%) }
+.impression svg{ position:relative; width:100%; height:100% }
+html.stamp .impression svg{ opacity:var(--imp,0) }
+html.stamp .impression::before{ opacity:var(--press,0) }
+@media (max-width:959px){
+  .impression-strip .wrap{ display:flex; flex-direction:column-reverse; align-items:flex-start; gap:var(--s2) }
+  .impression{ width:104px; height:104px }
+}
 
 /* ---------- paper sections ---------- */
 .paper{ background:var(--paper); color:var(--ink) }
@@ -376,6 +390,6 @@ footer .mark .name{ color:var(--cream) }
   *,*::before,*::after{ transition:none !important; animation:none !important }
 }
 @media print{
-  header.site,.hero-gl,.menu-btn,.skip,.entry-form{ display:none }
+  header.site,.seal-gl,.menu-btn,.skip,.entry-form,.impression-strip{ display:none }
   body,.paper{ background:#fff; color:#000 }
 }

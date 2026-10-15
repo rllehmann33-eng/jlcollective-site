@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(d){d.classList.add('js');if(matchMedia('(min-width: 960px)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('stamp');setTimeout(function(){if(!d.classList.contains('gl'))d.classList.remove('stamp')},15000)}})(document.documentElement);</script>
 <title>JL Collective · Paid media with a name on every change</title>
 <meta name="description" content="JL Collective runs paid media, Meta first. Nothing reaches the account until a named person approves it, and that approval stays in a record you can read. Flat fees, published. Free audit first.">
 <link rel="canonical" href="https://thejlcollective.com/">
@@ -69,13 +69,18 @@
       </div>
     </div>
     <div class="hero-figure">
-      <div class="hero-seal" id="heroSeal" role="img" aria-label="The JL Collective seal"><svg viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="90" fill="none" stroke="#F6F2EA" stroke-width="6"/><g stroke="#C8A96A" stroke-width="3" stroke-linecap="round"><line x1="120" y1="36" x2="120" y2="24"/><line x1="192.7" y1="162" x2="203.1" y2="168"/><line x1="47.3" y1="162" x2="36.9" y2="168"/></g><path d="M76.84 83.65 H107.75 V84.99 H97.09 V140.66 C97.09 156.66 92.09 158.66 82.09 158.66 C72.49 158.66 65.49 155.06 65.49 150.30 H67.49 C67.49 155.30 80.09 153.66 82.09 153.66 C88.09 153.66 87.49 152.26 87.49 140.66 V84.99 H76.84 Z" fill="#C8A96A"/><path d="M116.00 150.66H126.66V84.99H116.00V83.65H146.91V84.99H136.26V150.66H153.34Q161.79 150.66 166.59 145.38Q171.39 140.10 173.60 130.98H174.66V152.00H116.00Z" fill="#F6F2EA"/></svg><canvas class="hero-gl" id="heroGL" aria-hidden="true"></canvas></div>
-      <p class="press-note" id="pressNote">A named person approves it. The approval is written to the record.</p>
+      <div class="hero-seal" id="heroSeal" role="img" aria-label="The JL Collective seal"><svg viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="90" fill="none" stroke="#F6F2EA" stroke-width="6"/><g stroke="#C8A96A" stroke-width="3" stroke-linecap="round"><line x1="120" y1="36" x2="120" y2="24"/><line x1="192.7" y1="162" x2="203.1" y2="168"/><line x1="47.3" y1="162" x2="36.9" y2="168"/></g><path d="M76.84 83.65 H107.75 V84.99 H97.09 V140.66 C97.09 156.66 92.09 158.66 82.09 158.66 C72.49 158.66 65.49 155.06 65.49 150.30 H67.49 C67.49 155.30 80.09 153.66 82.09 153.66 C88.09 153.66 87.49 152.26 87.49 140.66 V84.99 H76.84 Z" fill="#C8A96A"/><path d="M116.00 150.66H126.66V84.99H116.00V83.65H146.91V84.99H136.26V150.66H153.34Q161.79 150.66 166.59 145.38Q171.39 140.10 173.60 130.98H174.66V152.00H116.00Z" fill="#F6F2EA"/></svg></div>
     </div>
   </div>
 </section>
 
 <div class="paper">
+<div class="impression-strip">
+  <div class="wrap">
+    <p class="impression-cap">A named person approves it. The approval is written to the record.</p>
+    <div class="impression" id="impression"><svg class="emboss" viewBox="0 0 240 240" aria-hidden="true"><defs><g id="sealForm" stroke-width="6" stroke-linecap="round"><circle cx="120" cy="120" r="90" fill="none"/><path d="M76.84 83.65 H107.75 V84.99 H97.09 V140.66 C97.09 156.66 92.09 158.66 82.09 158.66 C72.49 158.66 65.49 155.06 65.49 150.30 H67.49 C67.49 155.30 80.09 153.66 82.09 153.66 C88.09 153.66 87.49 152.26 87.49 140.66 V84.99 H76.84 Z" stroke="none"/><path d="M116.00 150.66H126.66V84.99H116.00V83.65H146.91V84.99H136.26V150.66H153.34Q161.79 150.66 166.59 145.38Q171.39 140.10 173.60 130.98H174.66V152.00H116.00Z" stroke="none"/><g stroke-width="3"><line x1="120" y1="36" x2="120" y2="24"/><line x1="192.7" y1="162" x2="203.1" y2="168"/><line x1="47.3" y1="162" x2="36.9" y2="168"/></g></g></defs><use href="#sealForm" transform="translate(-1.4 -1.4)" fill="#C6BDAC" stroke="#C6BDAC"/><use href="#sealForm" transform="translate(1.4 1.4)" fill="#FFFDF8" stroke="#FFFDF8"/><use href="#sealForm" fill="#ECE6D9" stroke="#ECE6D9"/></svg></div>
+  </div>
+</div>
 <section class="block" id="rule">
   <div class="wrap">
     <div class="eyebrow"><span class="num">01</span><span class="label">The rule</span></div>
