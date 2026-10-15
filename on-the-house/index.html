@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<script>(function(d){d.classList.add('js');if(matchMedia('(min-width: 960px)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('stamp');setTimeout(function(){if(!d.classList.contains('gl'))d.classList.remove('stamp')},15000)}})(document.documentElement);</script>
+<script>document.documentElement.classList.add('js');</script>
 <title>On the House · Built by JL Collective</title>
 <meta name="description" content="Review intelligence and silent recognition for independent restaurant groups, built and run by JL Collective. Nothing reaches a guest until a person says yes.">
 <link rel="canonical" href="https://thejlcollective.com/on-the-house/">
@@ -26,7 +26,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=2">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-<meta name="theme-color" content="#122038">
+<meta name="theme-color" content="#F6F2EA">
 <link rel="preload" href="/fonts/Newsreader-450-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/Inter-text-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts.css?v=3">
@@ -36,11 +36,11 @@
  {"@type":"Organization","name":"JL Collective","legalName":"JL Collective LLC","url":"https://thejlcollective.com/","logo":"https://thejlcollective.com/logo.png","email":"jack@thejlcollective.com","founder":[{"@type":"Person","name":"Jack Tusa","jobTitle":"Founding Principal","email":"jack@thejlcollective.com"},{"@type":"Person","name":"Luke Lehmann","jobTitle":"Founding Principal","email":"luke@thejlcollective.com"}],"address":{"@type":"PostalAddress","addressRegion":"TX","addressCountry":"US"}},
  {"@type":"WebSite","name":"JL Collective","url":"https://thejlcollective.com/"}]}
 </script>
-<script type="importmap">{"imports":{"three":"/vendor/three/three.module.min.js","three/addons/":"/vendor/three/addons/"}}</script>
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
+<div class="topline" aria-hidden="true"></div>
 <header class="site" id="siteHeader">
   <div class="wrap head-inner">
     <a class="mark" href="/">
@@ -49,85 +49,102 @@
     </a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
     <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <a href="/paid-media/">Paid media</a>
+      <a href="/on-the-house/">On the House</a>
       <a href="/pricing/">Pricing</a>
-      <a href="/#record">The record</a>
-      <a href="/#people">People</a>
-      <a href="/#contact" class="cta">Request the audit</a>
+      <a href="/trust/">Trust</a>
+      <a href="/paid-media/#contact" class="cta">Request the audit</a>
     </nav>
   </div>
 </header>
 
 <main id="main" tabindex="-1">
-<section class="cover" id="top">
+<header class="page-head">
   <div class="wrap">
-    <div>
-      <div class="status">Built and run by JL Collective</div>
-      <h1>Make every host your <em>best host.</em></h1>
-      <p class="stand">On the House is review intelligence and silent recognition for independent restaurant groups with more than one location. It reads the group’s reviews, briefs the host before service, and proposes a specific kindness for a specific guest. Nothing reaches a guest until a named person says yes.</p>
-      <div class="cta-row">
-        <a class="btn primary" href="mailto:luke@thejlcollective.com?subject=On%20the%20House">Write to us</a>
-        <a class="btn ghost" href="https://onthehouse.ai/">Sign in</a>
-      </div>
+    <span class="label">Built and run by JL Collective</span>
+    <h1>Make every host your best host.</h1>
+    <p class="deck">On the House is review intelligence and silent recognition for independent restaurant groups with more than one location. It reads the group’s reviews, briefs the host before service, and proposes a specific kindness for a specific guest. Nothing reaches a guest until a named person says yes.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:luke@thejlcollective.com?subject=On%20the%20House">Write to us</a>
+      <a class="btn ghost" href="https://onthehouse.ai/">Sign in</a>
     </div>
     <div class="aside">
       <b>Access is arranged directly.</b>
       There is no public sign-up. To talk about On the House, write to <a href="mailto:luke@thejlcollective.com?subject=On%20the%20House">luke@thejlcollective.com</a>.
     </div>
+    <nav class="onpage" aria-label="On this page">
+      <a href="#parts">What it does</a>
+      <a href="#rule">The rule</a>
+      <a href="#access">Access</a>
+    </nav>
   </div>
-</section>
+</header>
 
-<div class="paper">
-<section class="block" id="parts">
+<section class="sec" id="parts">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">01</span><span class="label">What it does</span></div>
-    <h2>Three parts, one rule.</h2>
-    <div class="parts">
-      <div class="piece">
-        <span class="k">01 &middot; Review Room</span>
-        <h3>Reviews, read together</h3>
-        <p>A group’s reviews sit in one place instead of scattered across sites. Each is credited to the staff member it names, grouped into themes worth passing to the kitchen, and flagged when it looks gamed.</p>
-      </div>
-      <div class="piece">
-        <span class="k">02 &middot; The briefing</span>
-        <h3>A page before service</h3>
-        <p>Guest profiles are built from reservations and checks, and the host gets a one-page briefing before the doors open. For a specific guest, the software proposes a specific kindness, unannounced, and a manager approves it in one tap. No discounts. No points.</p>
-      </div>
-      <div class="piece">
-        <span class="k">03 &middot; The Save</span>
-        <h3>The visit behind a bad review</h3>
-        <p>A bad review is matched to the visit that caused it, and an apology is drafted. A person reads the draft and decides whether it goes. The software does not send it.</p>
+    <div class="sec-aside">
+      <span class="num">01</span>
+      <span class="label">What it does</span>
+    </div>
+    <div class="sec-main">
+      <h2>Three parts, one rule.</h2>
+      <div class="parts">
+        <div class="piece">
+          <span class="k">01 &middot; Review Room</span>
+          <h3>Reviews, read together</h3>
+          <p>A group’s reviews sit in one place instead of scattered across sites. Each is credited to the staff member it names, grouped into themes worth passing to the kitchen, and flagged when it looks gamed.</p>
+        </div>
+        <div class="piece">
+          <span class="k">02 &middot; The briefing</span>
+          <h3>A page before service</h3>
+          <p>Guest profiles are built from reservations and checks, and the host gets a one-page briefing before the doors open. For a specific guest, the software proposes a specific kindness, unannounced, and a manager approves it in one tap. No discounts. No points.</p>
+        </div>
+        <div class="piece">
+          <span class="k">03 &middot; The Save</span>
+          <h3>The visit behind a bad review</h3>
+          <p>A bad review is matched to the visit that caused it, and an apology is drafted. A person reads the draft and decides whether it goes. The software does not send it.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="block" id="rule">
+<section class="sec" id="rule">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">02</span><span class="label">The rule</span></div>
-    <h2>Nothing reaches a guest without a person saying yes.</h2>
-    <ul class="rule-list">
-      <li><b>Software proposes</b><span>A kindness for a guest and an apology for a reviewer both start as drafts. Until someone acts on one, it stays a draft.</span></li>
-      <li><b>A named person approves</b><span>Each proposal is approved or declined by a named person, and the decision carries their name. The rule is enforced where the data is kept, not only on the screen.</span></li>
-      <li><b>The record only grows</b><span>Who approved what is written to a record that can only be added to, and the owner can read all of it.</span></li>
-      <li><b>Guests hear from people</b><span>The software never sends anything to a guest on its own. Reviews, reservation and point-of-sale data arrive as exports from the restaurant’s own systems, and no channel to guests is connected.</span></li>
-    </ul>
+    <div class="sec-aside">
+      <span class="num">02</span>
+      <span class="label">The rule</span>
+    </div>
+    <div class="sec-main">
+      <h2>Nothing reaches a guest without a person saying yes.</h2>
+      <ul class="rule-list">
+        <li><b>Software proposes</b><span>A kindness for a guest and an apology for a reviewer both start as drafts. Until someone acts on one, it stays a draft.</span></li>
+        <li><b>A named person approves</b><span>Each proposal is approved or declined by a named person, and the decision carries their name. The rule is enforced where the data is kept, not only on the screen.</span></li>
+        <li><b>The record only grows</b><span>Who approved what is written to a record that can only be added to, and the owner can read all of it.</span></li>
+        <li><b>Guests hear from people</b><span>The software never sends anything to a guest on its own. Reviews, reservation and point-of-sale data arrive as exports from the restaurant’s own systems, and no channel to guests is connected.</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<section class="block" id="access">
+<section class="sec last" id="access">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">03</span><span class="label">Access</span></div>
-    <h2>Built and run by JL Collective.</h2>
-    <div class="prose">
-      <p>The app lives at onthehouse.ai and opens to a sign-in screen. Access is arranged with us directly.</p>
+    <div class="sec-aside">
+      <span class="num">03</span>
+      <span class="label">Access</span>
     </div>
-    <div class="cta-row">
-      <a class="btn primary" href="mailto:luke@thejlcollective.com?subject=On%20the%20House">Write to us</a>
-      <a class="btn ghost" href="https://onthehouse.ai/">Sign in</a>
+    <div class="sec-main">
+      <h2>Built and run by JL Collective.</h2>
+      <div class="prose">
+        <p>The app lives at onthehouse.ai and opens to a sign-in screen. Access is arranged with us directly.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:luke@thejlcollective.com?subject=On%20the%20House">Write to us</a>
+        <a class="btn ghost" href="https://onthehouse.ai/">Sign in</a>
+      </div>
     </div>
   </div>
 </section>
-</div>
 </main>
 
 <footer class="site">
@@ -141,15 +158,15 @@
     </div>
     <div class="foot-col">
       <div class="f-lab">The firm</div>
-      <a href="/pricing/">Pricing</a>
-      <a href="/#record">The record</a>
-      <a href="/#people">People</a>
-      <a href="/#faq">FAQ</a>
+      <a href="/paid-media/">Paid media</a>
       <a href="/on-the-house/">On the House</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/#people">People</a>
+      <a href="/paid-media/#questions">Questions</a>
+      <a href="/trust/">Trust</a>
     </div>
     <div class="foot-col">
       <div class="f-lab">Documents</div>
-      <a href="/trust/">Trust</a>
       <a href="/privacy.html">Privacy <small>Effective 1&nbsp;October&nbsp;2026</small></a>
       <a href="/terms.html">Terms <small>Effective 1&nbsp;October&nbsp;2026</small></a>
       <a href="/accessibility/">Accessibility</a>
@@ -168,30 +185,13 @@
   </div>
 </footer>
 <script>
-/* shared chrome: header surface, menu, scroll-spy. hand-written; no framework */
+/* shared chrome: current-page marking and the phone menu. hand-written; no framework */
 (function () {
   var header = document.getElementById('siteHeader');
-  var cover = document.querySelector('.hero, .cover');
-  var onScroll = function () {
-    if (!header) return;
-    var onPaper = true;
-    if (cover) { onPaper = cover.getBoundingClientRect().bottom <= header.offsetHeight + 1; }
-    header.classList.toggle('on-paper', onPaper);
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
 
-  if ('IntersectionObserver' in window && location.pathname === '/') {
-    var navLinks = document.querySelectorAll('nav.site-nav a[href^="/#"]:not(.cta)');
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '/#' + entry.target.id); });
-      });
-    }, { rootMargin: '-35% 0px -55% 0px' });
-    document.querySelectorAll('section[id]').forEach(function (s) { spy.observe(s); });
-  }
+  document.querySelectorAll('nav.site-nav a:not(.cta)').forEach(function (l) {
+    if (l.getAttribute('href') === location.pathname) { l.classList.add('active'); l.setAttribute('aria-current', 'page'); }
+  });
 
   var btn = document.getElementById('menuBtn');
   var nav = document.getElementById('siteNav');
@@ -205,7 +205,6 @@
     nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menuOpen()) { setMenu(false); btn.focus(); } });
     header.addEventListener('focusout', function (e) { if (menuOpen() && e.relatedTarget && !header.contains(e.relatedTarget)) setMenu(false); });
-    document.addEventListener('pointerdown', function (e) { if (menuOpen() && !header.contains(e.target)) { e.preventDefault(); setMenu(false); } }, true);
   }
 })();
 </script>

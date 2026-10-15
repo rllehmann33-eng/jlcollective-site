@@ -5,28 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<script>(function(d){d.classList.add('js');if(matchMedia('(min-width: 960px)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('stamp');setTimeout(function(){if(!d.classList.contains('gl'))d.classList.remove('stamp')},15000)}})(document.documentElement);</script>
-<title>JL Collective · Paid media with a name on every change</title>
-<meta name="description" content="JL Collective runs paid media, Meta first. Nothing reaches the account until a named person approves it, and that approval stays in a record you can read. Flat fees, published. Free audit first.">
+<script>document.documentElement.classList.add('js');</script>
+<title>JL Collective · A name on every change</title>
+<meta name="description" content="JL Collective runs paid media under one rule and builds the software that enforces it: nothing reaches an ad account, or a guest, until a named person has approved it. Texas. Flat fees, published.">
 <link rel="canonical" href="https://thejlcollective.com/">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="JL Collective">
 <meta property="og:url" content="https://thejlcollective.com/">
-<meta property="og:title" content="JL Collective · Paid media with a name on every change">
-<meta property="og:description" content="JL Collective runs paid media, Meta first. Nothing reaches the account until a named person approves it, and that approval stays in a record you can read. Flat fees, published. Free audit first.">
+<meta property="og:title" content="JL Collective · A name on every change">
+<meta property="og:description" content="JL Collective runs paid media under one rule and builds the software that enforces it: nothing reaches an ad account, or a guest, until a named person has approved it. Texas. Flat fees, published.">
 <meta property="og:image" content="https://thejlcollective.com/og-image.png?v=15">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="JL Collective. Paid media management. A name on every change.">
+<meta property="og:image:alt" content="JL Collective. A name on every change.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="JL Collective · Paid media with a name on every change">
-<meta name="twitter:description" content="JL Collective runs paid media, Meta first. Nothing reaches the account until a named person approves it, and that approval stays in a record you can read. Flat fees, published. Free audit first.">
+<meta name="twitter:title" content="JL Collective · A name on every change">
+<meta name="twitter:description" content="JL Collective runs paid media under one rule and builds the software that enforces it: nothing reaches an ad account, or a guest, until a named person has approved it. Texas. Flat fees, published.">
 <meta name="twitter:image" content="https://thejlcollective.com/og-image.png?v=15">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=2">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-<meta name="theme-color" content="#122038">
+<meta name="theme-color" content="#F6F2EA">
 <link rel="preload" href="/fonts/Newsreader-450-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/Inter-text-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts.css?v=3">
@@ -36,10 +36,10 @@
  {"@type":"Organization","name":"JL Collective","legalName":"JL Collective LLC","url":"https://thejlcollective.com/","logo":"https://thejlcollective.com/logo.png","email":"jack@thejlcollective.com","founder":[{"@type":"Person","name":"Jack Tusa","jobTitle":"Founding Principal","email":"jack@thejlcollective.com"},{"@type":"Person","name":"Luke Lehmann","jobTitle":"Founding Principal","email":"luke@thejlcollective.com"}],"address":{"@type":"PostalAddress","addressRegion":"TX","addressCountry":"US"}},
  {"@type":"WebSite","name":"JL Collective","url":"https://thejlcollective.com/"}]}
 </script>
-<script type="importmap">{"imports":{"three":"/vendor/three/three.module.min.js","three/addons/":"/vendor/three/addons/"}}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="topline" aria-hidden="true"></div>
 <header class="site" id="siteHeader">
   <div class="wrap head-inner">
     <a class="mark" href="/">
@@ -48,203 +48,127 @@
     </a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
     <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <a href="/paid-media/">Paid media</a>
+      <a href="/on-the-house/">On the House</a>
       <a href="/pricing/">Pricing</a>
-      <a href="/#record">The record</a>
-      <a href="/#people">People</a>
-      <a href="/#contact" class="cta">Request the audit</a>
+      <a href="/trust/">Trust</a>
+      <a href="/paid-media/#contact" class="cta">Request the audit</a>
     </nav>
   </div>
 </header>
 
 <main id="main" tabindex="-1">
-<section class="hero" id="top">
-  <div class="wrap grid">
-    <div class="copy">
-      <div class="kicker">Paid media management</div>
-      <h1>A name on<br>every change.</h1>
-      <p class="stand">Paid media, Meta first. Nothing reaches the account until a named person approves it. That approval stays in a record you can read.</p>
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1 id="h1">A name on every change.</h1>
+      <p class="deck">JL Collective runs paid media under one rule and builds the software that enforces it: nothing reaches an ad account, or a guest, until a named person has approved it.</p>
       <div class="cta-row">
-        <a class="btn primary" href="#contact">Request the audit</a>
-        <a class="btn ghost" href="/pricing/">Read the fees</a>
+        <a class="btn primary" href="/paid-media/">Paid media</a>
+        <a class="btn ghost" href="/on-the-house/">On the House</a>
       </div>
     </div>
-    <div class="hero-figure">
-      <div class="hero-seal" id="heroSeal" role="img" aria-label="The JL Collective seal"><svg viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="90" fill="none" stroke="#F6F2EA" stroke-width="6"/><g stroke="#C8A96A" stroke-width="3" stroke-linecap="round"><line x1="120" y1="36" x2="120" y2="24"/><line x1="192.7" y1="162" x2="203.1" y2="168"/><line x1="47.3" y1="162" x2="36.9" y2="168"/></g><path d="M76.84 83.65 H107.75 V84.99 H97.09 V140.66 C97.09 156.66 92.09 158.66 82.09 158.66 C72.49 158.66 65.49 155.06 65.49 150.30 H67.49 C67.49 155.30 80.09 153.66 82.09 153.66 C88.09 153.66 87.49 152.26 87.49 140.66 V84.99 H76.84 Z" fill="#C8A96A"/><path d="M116.00 150.66H126.66V84.99H116.00V83.65H146.91V84.99H136.26V150.66H153.34Q161.79 150.66 166.59 145.38Q171.39 140.10 173.60 130.98H174.66V152.00H116.00Z" fill="#F6F2EA"/></svg></div>
+    <dl class="facts">
+      <div><dt>The firm</dt><dd>JL Collective LLC, Texas</dd></div>
+      <div><dt>Principals</dt><dd>Jack Tusa and Luke Lehmann</dd></div>
+      <div><dt>Monthly fee</dt><dd>Flat, from $900. Never a percentage</dd></div>
+      <div><dt>At signing</dt><dd>Nothing is due</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band doors" aria-label="What we do">
+  <div class="wrap">
+    <a class="door" href="/paid-media/">
+      <span class="k">Paid media</span>
+      <h2>Run under one rule.</h2>
+      <p>Meta first. Every change is paused until a named person approves it, every approval is written to a record you can read, and the fee is a flat number set by the budget you approve.</p>
+      <span class="more">How we run an account</span>
+    </a>
+    <a class="door" href="/on-the-house/">
+      <span class="k">On the House</span>
+      <h2>A person approves every gesture.</h2>
+      <p>Guest and review intelligence for independent restaurant groups. The host gets a briefing before service, a manager approves every kindness a guest ever sees, and the record only grows. Built and run by JL Collective, live at onthehouse.ai.</p>
+      <span class="more">About On the House</span>
+    </a>
+  </div>
+</section>
+
+<section class="sec" id="rule">
+  <div class="wrap">
+    <div class="sec-aside">
+      <span class="num">01</span>
+      <span class="label">The rule</span>
+      <p>The same rule governs an ad account and a dining room.</p>
     </div>
-  </div>
-</section>
-
-<div class="paper">
-<div class="impression-strip">
-  <div class="wrap">
-    <p class="impression-cap">A named person approves it.<br>The approval is written to the record.</p>
-    <div class="impression" id="impression"><svg class="emboss" viewBox="0 0 240 240" aria-hidden="true"><defs><g id="sealForm" stroke-width="6" stroke-linecap="round"><circle cx="120" cy="120" r="90" fill="none"/><path d="M76.84 83.65 H107.75 V84.99 H97.09 V140.66 C97.09 156.66 92.09 158.66 82.09 158.66 C72.49 158.66 65.49 155.06 65.49 150.30 H67.49 C67.49 155.30 80.09 153.66 82.09 153.66 C88.09 153.66 87.49 152.26 87.49 140.66 V84.99 H76.84 Z" stroke="none"/><path d="M116.00 150.66H126.66V84.99H116.00V83.65H146.91V84.99H136.26V150.66H153.34Q161.79 150.66 166.59 145.38Q171.39 140.10 173.60 130.98H174.66V152.00H116.00Z" stroke="none"/><g stroke-width="3"><line x1="120" y1="36" x2="120" y2="24"/><line x1="192.7" y1="162" x2="203.1" y2="168"/><line x1="47.3" y1="162" x2="36.9" y2="168"/></g></g></defs><use href="#sealForm" transform="translate(-1.4 -1.4)" fill="#C6BDAC" stroke="#C6BDAC"/><use href="#sealForm" transform="translate(1.4 1.4)" fill="#FFFDF8" stroke="#FFFDF8"/><use href="#sealForm" fill="#ECE6D9" stroke="#ECE6D9"/></svg></div>
-  </div>
-</div>
-<section class="block" id="rule">
-  <div class="wrap">
-    <div class="eyebrow"><span class="num">01</span><span class="label">The rule</span></div>
-    <h2>Every change waits for a name.</h2>
-    <div class="prose">
-      <p>We run paid media on one rule: nothing reaches your ad account until a named person has approved it. A budget change, an ad paused or revived, a new campaign, a fresh piece of creative &mdash; each one is drafted with its reason attached and held, paused, until one of our principals or one of your people signs off on it by name.</p>
-      <p>Every approval is written to a record you can read at any time. Nothing in it can be edited or removed afterward, by you or by us.</p>
-      <p>Behind the approvals sits a budget cap you set in writing, and behind the cap a circuit breaker you authorize in advance, by name. It can do exactly one thing: pause spend. It can’t raise a budget, launch anything, or move money. Our software watches the account and drafts the paperwork; it has no other way to touch your account. The calls are made by people.</p>
-    </div>
-  </div>
-</section>
-
-<section class="block" id="record">
-  <div class="wrap">
-    <div class="eyebrow"><span class="num">02</span><span class="label">The record</span></div>
-    <h2>One row for every decision.</h2>
-    <div class="prose" style="margin-bottom:var(--s4)"><p>If you ever ask who changed what, and why, and when, the answer is already there.</p></div>
-    <div class="specimen">
-      <div class="label brass-label">In our own record, a decision is one of three things.</div>
-      <div class="states"><span>approved</span><span>rejected</span><span>withdrawn</span></div>
-    </div>
-    <ul class="rows">
-      <li><b>The approval gate</b><span>A proposed change is held, with its reason, until a named person approves it.</span></li>
-      <li><b>The record</b><span>Every decision is written once, with a name on it, and is never edited.</span></li>
-      <li><b>The breaker</b><span>Authorized in advance, behind your written cap. It can only pause spend.</span></li>
-      <li><b>The numbers link</b><span>The month’s figures on one page, opened from a link, no login required.</span></li>
-      <li><b>On the House</b><span>Guest and review intelligence for independent restaurant groups, built and run here. <a class="nb" href="/on-the-house/">About On the House</a></span></li>
-    </ul>
-    <p class="note">What the record refuses, and what the breaker cannot do, are set out on the <a href="/trust/">trust page</a>.</p>
-    <p class="note">Custom systems are scoped and priced per project. Write to <a href="mailto:luke@thejlcollective.com?subject=Software">luke@thejlcollective.com</a>.</p>
-  </div>
-</section>
-
-<section class="block" id="start">
-  <div class="wrap">
-    <div class="eyebrow"><span class="num">03</span><span class="label">How it works</span></div>
-    <h2>A free audit, then a priced engagement.</h2>
-    <ol class="steps">
-      <li>
-        <h3><small>1</small>The audit <span>&mdash; free</span></h3>
-        <p>Email us and grant read access. We’ll write up what your spend is actually doing and what we’d test first. The write-up is yours to keep either way.</p>
-      </li>
-      <li>
-        <h3><small>2</small>The proposal <span>&mdash; on paper</span></h3>
-        <p>From the audit we propose the shape &mdash; what we’d run, what needs setting up, and what it costs. The monthly fee is a flat number set by the ad budget you approve, from the published bands; the proposal says which band your account is in, why, and what the one-time setup will be. Every number is on paper before you owe anything.</p>
-      </li>
-      <li>
-        <h3><small>3</small>The engagement <span>&mdash; a name on every change</span></h3>
-        <p>We run the account. Every change is paused until a named person &mdash; one of ours, or one of yours &mdash; approves it, every approval goes on the record you can read, and your budget cap and its pause-only circuit breaker are in force from the first day.</p>
-      </li>
-    </ol>
-    <div class="prose" style="margin-top:var(--s3)"><p>If the audit says your ads are fine, we’ll say so, and that’s the end of it. The write-up is yours to keep, even if you use it to run things without us.</p></div>
-  </div>
-</section>
-
-<section class="block" id="pricing">
-  <div class="wrap">
-    <div class="eyebrow"><span class="num">04</span><span class="label">Pricing</span></div>
-    <h2>One flat number, set by the budget you approve.</h2>
-    <div class="two">
+    <div class="sec-main">
+      <h2>Every change waits for a name.</h2>
       <div class="prose">
-        <p>The monthly fee is a flat number set by the ad budget you approve, never a percentage of it. Your band only changes when you approve a budget that moves it, and the change takes effect the following month, up or down. Under about $1,000&nbsp;a&nbsp;month in ad spend we’ll usually tell you to keep it in-house.</p>
-        <p>Nothing is due when you sign.</p>
-        <p><a href="/pricing/">Read the full fee schedule</a>, including the one-time setup and the three things we never charge.</p>
+        <p>Everything we run shares one rule: nothing changes until a named person has approved it. In a client’s ad account, that means every budget move, every paused ad and every new campaign is held until one of our principals or one of the client’s own people signs off by name. In a restaurant, it means no gesture reaches a guest until a manager says yes.</p>
+        <p>Every approval is written to a record that can only be added to. Nothing in it can be edited or removed afterward, by the client or by us. If anyone asks who changed what, and why, and when, the answer is already there.</p>
+        <p>The software we build exists to keep that rule, not to replace the person. It watches, drafts and files the paperwork. The one exception is the circuit breaker a client authorizes in advance, and all it can do is pause spend.</p>
       </div>
-      <table class="table">
-        <thead><tr><th scope="col">Monthly ad budget you approve</th><th scope="col">Monthly fee</th></tr></thead>
-        <tbody>
-          <tr><td>$1,000 to $2,499</td><td><span class="fee">$900</span></td></tr>
-          <tr><td>$2,500 to $5,999</td><td><span class="fee">$1,250</span></td></tr>
-          <tr><td>$6,000 to $14,999</td><td><span class="fee">$1,750</span></td></tr>
-          <tr><td>$15,000 to $24,999</td><td><span class="fee">$2,500</span></td></tr>
-          <tr><td>$25,000 to $49,999</td><td><span class="fee">$4,000</span></td></tr>
-          <tr><td>$50,000 and above</td><td><span class="quote">Quoted flat</span></td></tr>
-        </tbody>
-      </table>
+      <p class="note">What the record refuses, and what the spending circuit breaker cannot do, are set out on the <a href="/trust/">trust page</a>.</p>
     </div>
   </div>
 </section>
 
-<section class="block" id="people">
+<section class="sec" id="how">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">05</span><span class="label">People</span></div>
-    <h2>Two principals. Every account.</h2>
-    <div class="prose" style="margin-bottom:var(--s4)"><p>Whoever else works on the account, a named principal is accountable for it and approves what ships, and you’ll always know which one.</p></div>
-    <div class="people">
-      <div class="person">
-        <h3>Jack Tusa</h3>
-        <span class="label role">Founding Principal &middot; Growth &amp; partnerships</span>
-        <p>Jack runs growth and partnerships: the offers, the channels, and the deals. Eight years in marketing across manufacturers, franchises, and retail &mdash; much of it automotive, all of it judged on sales.</p>
-      </div>
-      <div class="person">
-        <h3>Luke Lehmann</h3>
-        <span class="label role">Founding Principal &middot; Systems &amp; engineering</span>
-        <p>Luke is the engineering half of the firm. He built the systems the firm runs on &mdash; the approval gate, the record, the budget caps and the pause-only circuit breaker, the reporting &mdash; and the rules they can’t break: nothing spends without a named human approval, and the record of those approvals can’t be edited, not even by us. He also builds the firm’s other software.</p>
-      </div>
+    <div class="sec-aside">
+      <span class="num">02</span>
+      <span class="label">How we work</span>
+      <p>Every engagement begins on paper.</p>
     </div>
-    <p class="note">We build alongside Kosign Media.</p>
-  </div>
-</section>
-
-<section class="block" id="faq">
-  <div class="wrap">
-    <div class="eyebrow"><span class="num">06</span><span class="label">Questions</span></div>
-    <h2>Cost, control, and what happens to your data.</h2>
-    <div class="faq">
-      <details>
-        <summary>Is software changing my account on its own?</summary>
-        <div class="a"><p>No. Our software watches the account and drafts proposals; a named person approves each one before it reaches your account, and that approval is kept on a record you can read. The one exception is the circuit breaker you authorize in advance, and all it can do is pause spend. Nothing ships without a name attached.</p></div>
-      </details>
-      <details>
-        <summary>What does it cost?</summary>
-        <div class="a"><p>The audit is free, and the write-up is yours whether or not we go further. If we do, the monthly fee is a flat number set by the ad budget you approve, never a percentage of it, from <span class="fig">$900</span>&nbsp;a&nbsp;month at the smallest band. The bands, the one-time setup, and the three things we never charge are published in full on the <a href="/pricing/">fee schedule</a>, and the proposal repeats them for your account before you owe anything.</p></div>
-      </details>
-      <details>
-        <summary>We already have an agency.</summary>
-        <div class="a"><p>Keep them. The audit doesn’t ask you to fire anyone &mdash; run it, read it, and decide with numbers instead of a pitch.</p></div>
-      </details>
-      <details>
-        <summary>What industries do you take?</summary>
-        <div class="a"><p>We take work where the outcome can be measured and a named person can stand behind every change. Much of Jack’s work has been in automotive.</p></div>
-      </details>
-      <details>
-        <summary>Who actually does the work?</summary>
-        <div class="a"><p>The people on this page, with a named principal on every account. Software monitors and drafts; the principal decides what ships.</p></div>
-      </details>
-      <details>
-        <summary>What happens to our data?</summary>
-        <div class="a"><p>Your ad accounts stay yours &mdash; we work inside them with access you grant and can revoke whenever you want. We keep the records our work produces (audits, reports, the log of approved changes) so you have a history, and we hold the access you grant until you revoke it. We don’t sell data, move it between clients, or feed it into model training; our software sends account data to the AI models it calls only to do your work. Details are in the <a href="/privacy.html">privacy policy</a> and on the <a href="/trust/">trust page</a>.</p></div>
-      </details>
+    <div class="sec-main">
+      <h2>A free audit, then a priced engagement.</h2>
+      <ol class="steps">
+        <li><span class="s-num">1</span><h3>The audit <span>&mdash; free</span></h3><p>Email us and grant read access. We write up what your spend is actually doing and what we would test first. The write-up is yours to keep either way.</p></li>
+        <li><span class="s-num">2</span><h3>The proposal <span>&mdash; on paper</span></h3><p>The shape of the work, the band your account sits in and why, and the one-time setup. Every number is on paper before you owe anything.</p></li>
+        <li><span class="s-num">3</span><h3>The engagement <span>&mdash; by name</span></h3><p>We run the account. A named person approves every change, the record is yours to read, and your budget cap is in force from the first day.</p></li>
+      </ol>
+      <p class="note">The full practice, including the fee bands and the record, is on the <a href="/paid-media/">paid media page</a>.</p>
     </div>
   </div>
 </section>
-</div>
 
-<section class="block deep" id="contact">
+<section class="sec last" id="people">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">07</span><span class="label">Contact</span></div>
-    <h2>Request the audit.</h2>
-    <div class="two">
-      <div>
-        <ul class="contact-line">
-          <li><span class="label">Jack Tusa &middot; Growth &amp; partnerships</span><a href="mailto:jack@thejlcollective.com?subject=Audit">jack@thejlcollective.com</a></li>
-          <li><span class="label">Luke Lehmann &middot; Systems &amp; engineering</span><a href="mailto:luke@thejlcollective.com?subject=Audit">luke@thejlcollective.com</a></li>
-        </ul>
-        <div class="prose" style="margin-top:var(--s3)"><p>Tell us what you sell, where you’re spending, and roughly how much. We’ll reply with what we’d need to see and how fast the write-up comes back. No deck and no sales call required &mdash; email is enough.</p></div>
-      </div>
-      <div>
-        <form class="entry-form" id="entryForm" novalidate>
-          <div class="ef-grid">
-            <label><span class="lab">Name &middot; required</span><input type="text" id="efName" name="name" autocomplete="name" maxlength="80" required></label>
-            <p class="ef-err" id="efErr" role="alert" hidden>Add your name, then send the request.</p>
-            <label><span class="lab">What you sell</span><input type="text" id="efSell" name="sell" maxlength="120"></label>
-            <label><span class="lab">Where you’re spending</span><input type="text" id="efWhere" name="where" maxlength="120"></label>
-            <label><span class="lab">Roughly how much</span><input type="text" id="efMuch" name="much" maxlength="60"></label>
-          </div>
-          <button type="submit" class="btn primary">Request the audit</button>
-          <p class="ef-note">This opens your mail app with the request prefilled &mdash; nothing is stored on this page.</p>
-        </form>
-        <div class="posting" id="posting" tabindex="-1">
-          <p class="pnote">Your mail app should now be open with this request, addressed to jack@thejlcollective.com and luke@thejlcollective.com. If nothing opened, copy the request below into any email.</p>
-          <textarea class="ef-copy" id="postCopy" readonly rows="4" aria-label="The audit request, ready to copy"></textarea>
-          <p class="pactions"><a id="postMail" href="mailto:jack@thejlcollective.com,luke@thejlcollective.com?subject=Audit">Open the mail app again</a> &middot; <a id="postEdit" href="#contact">edit the request</a></p>
+    <div class="sec-aside">
+      <span class="num">03</span>
+      <span class="label">People</span>
+      <p>Two principals. Every account carries one of their names.</p>
+    </div>
+    <div class="sec-main">
+      <h2>Who answers for the work.</h2>
+      <div class="people">
+        <div class="person">
+          <h3>Jack Tusa</h3>
+          <span class="label role">Founding Principal &middot; Growth &amp; partnerships</span>
+          <p>Jack runs growth and partnerships: the offers, the channels, and the deals. Eight years in marketing across manufacturers, franchises, and retail &mdash; much of it automotive, all of it judged on sales.</p>
         </div>
+        <div class="person">
+          <h3>Luke Lehmann</h3>
+          <span class="label role">Founding Principal &middot; Systems &amp; engineering</span>
+          <p>Luke is the engineering half of the firm. He built the systems the firm runs on &mdash; the approval gate, the record, the budget caps and the pause-only circuit breaker, the reporting &mdash; and the rules they can’t break. He also builds the firm’s other software, On the House among it.</p>
+        </div>
+      </div>
+      <p class="note">We build alongside Kosign Media.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band contact-band" id="contact">
+  <div class="wrap">
+    <h2>Write to us.</h2>
+    <div class="two">
+      <ul class="contact-line">
+        <li><span class="label">Jack Tusa &middot; Growth &amp; partnerships</span><a href="mailto:jack@thejlcollective.com">jack@thejlcollective.com</a></li>
+        <li><span class="label">Luke Lehmann &middot; Systems &amp; engineering</span><a href="mailto:luke@thejlcollective.com">luke@thejlcollective.com</a></li>
+      </ul>
+      <div class="prose">
+        <p>For paid media, start with the free audit: email us, grant read access, and the write-up is yours to keep whether or not we go further. Custom software is scoped and priced per project. For that, write to Luke.</p>
+        <div class="cta-row"><a class="btn primary" href="/paid-media/#contact">Request the audit</a></div>
       </div>
     </div>
   </div>
@@ -262,15 +186,15 @@
     </div>
     <div class="foot-col">
       <div class="f-lab">The firm</div>
-      <a href="/pricing/">Pricing</a>
-      <a href="/#record">The record</a>
-      <a href="/#people">People</a>
-      <a href="/#faq">FAQ</a>
+      <a href="/paid-media/">Paid media</a>
       <a href="/on-the-house/">On the House</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/#people">People</a>
+      <a href="/paid-media/#questions">Questions</a>
+      <a href="/trust/">Trust</a>
     </div>
     <div class="foot-col">
       <div class="f-lab">Documents</div>
-      <a href="/trust/">Trust</a>
       <a href="/privacy.html">Privacy <small>Effective 1&nbsp;October&nbsp;2026</small></a>
       <a href="/terms.html">Terms <small>Effective 1&nbsp;October&nbsp;2026</small></a>
       <a href="/accessibility/">Accessibility</a>
@@ -289,30 +213,13 @@
   </div>
 </footer>
 <script>
-/* shared chrome: header surface, menu, scroll-spy. hand-written; no framework */
+/* shared chrome: current-page marking and the phone menu. hand-written; no framework */
 (function () {
   var header = document.getElementById('siteHeader');
-  var cover = document.querySelector('.hero, .cover');
-  var onScroll = function () {
-    if (!header) return;
-    var onPaper = true;
-    if (cover) { onPaper = cover.getBoundingClientRect().bottom <= header.offsetHeight + 1; }
-    header.classList.toggle('on-paper', onPaper);
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
 
-  if ('IntersectionObserver' in window && location.pathname === '/') {
-    var navLinks = document.querySelectorAll('nav.site-nav a[href^="/#"]:not(.cta)');
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '/#' + entry.target.id); });
-      });
-    }, { rootMargin: '-35% 0px -55% 0px' });
-    document.querySelectorAll('section[id]').forEach(function (s) { spy.observe(s); });
-  }
+  document.querySelectorAll('nav.site-nav a:not(.cta)').forEach(function (l) {
+    if (l.getAttribute('href') === location.pathname) { l.classList.add('active'); l.setAttribute('aria-current', 'page'); }
+  });
 
   var btn = document.getElementById('menuBtn');
   var nav = document.getElementById('siteNav');
@@ -326,51 +233,8 @@
     nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menuOpen()) { setMenu(false); btn.focus(); } });
     header.addEventListener('focusout', function (e) { if (menuOpen() && e.relatedTarget && !header.contains(e.relatedTarget)) setMenu(false); });
-    document.addEventListener('pointerdown', function (e) { if (menuOpen() && !header.contains(e.target)) { e.preventDefault(); setMenu(false); } }, true);
   }
 })();
 </script>
-
-<script>
-/* the audit request: the form becomes a copyable note, and your mail app opens */
-(function () {
-  var entryForm = document.getElementById('entryForm');
-  if (!entryForm) return;
-  var efName = document.getElementById('efName'), efErr = document.getElementById('efErr');
-  efName.addEventListener('input', function () { efName.removeAttribute('aria-invalid'); efName.removeAttribute('aria-describedby'); efErr.hidden = true; });
-  entryForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name = efName.value.trim().slice(0, 80);
-    if (!name) { efName.setAttribute('aria-invalid', 'true'); efName.setAttribute('aria-describedby', 'efErr'); efErr.hidden = false; efName.focus(); return; }
-    var sell = document.getElementById('efSell').value.trim().slice(0, 120);
-    var where = document.getElementById('efWhere').value.trim().slice(0, 120);
-    var much = document.getElementById('efMuch').value.trim().slice(0, 60);
-    var body = 'Name: ' + name + '\r\n' +
-      (sell ? 'What we sell: ' + sell + '\r\n' : '') +
-      (where ? "Where we're spending: " + where + '\r\n' : '') +
-      (much ? 'Roughly how much: ' + much + '\r\n' : '') +
-      '\r\nSent from the audit form on thejlcollective.com';
-    var mailUrl = 'mailto:jack@thejlcollective.com,luke@thejlcollective.com?subject=' + encodeURIComponent('Audit') + '&body=' + encodeURIComponent(body);
-    document.getElementById('postMail').setAttribute('href', mailUrl);
-    var copy = document.getElementById('postCopy');
-    copy.value = 'To: jack@thejlcollective.com, luke@thejlcollective.com\r\nSubject: Audit\r\n\r\n' + body;
-    entryForm.style.display = 'none';
-    var posting = document.getElementById('posting');
-    posting.classList.add('show');
-    copy.style.height = '';
-    copy.style.height = (copy.scrollHeight + 2) + 'px';
-    posting.focus({ preventScroll: true });
-    posting.scrollIntoView({ block: 'nearest' });
-    location.href = mailUrl;
-  });
-  document.getElementById('postEdit').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.getElementById('posting').classList.remove('show');
-    entryForm.style.display = '';
-    efName.focus();
-  });
-})();
-</script>
-<script type="module" src="/scene.js?v=3"></script>
 </body>
 </html>

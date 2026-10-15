@@ -15,73 +15,89 @@ revised: 15 October 2026
 {{HEADER}}
 
 <main id="main" tabindex="-1">
-<section class="cover" id="top">
+<header class="page-head">
   <div class="wrap">
-    <div>
-      <div class="status">Published list prices</div>
-      <h1>One flat number, set by the budget you approve.</h1>
-      <p class="stand">The monthly fee is a flat number set by the ad budget you approve, never a percentage of it. You pay Meta directly from your own account.</p>
-    </div>
+    <span class="label">Published list prices</span>
+    <h1>One flat number, set by the budget you approve.</h1>
+    <p class="deck">The monthly fee is a flat number set by the ad budget you approve, never a percentage of it. You pay Meta directly from your own account.</p>
     <div class="aside">
       <b>Nothing is due when you sign.</b>
       The setup fee falls due in two halves: half when the written setup plan is in hand at the end of week one, half when the first approved campaign is live.
     </div>
+    <nav class="onpage" aria-label="On this page">
+      <a href="#fees">Monthly fee</a>
+      <a href="#never">Never charged</a>
+      <a href="#terms">Terms</a>
+    </nav>
   </div>
-</section>
+</header>
 
-<div class="paper">
-<section class="block" id="fees">
+<section class="sec" id="fees">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">01</span><span class="label">Monthly fee</span></div>
-    <h2>Six bands and a one-time setup.</h2>
-    <table class="table">
-      <tbody>
-        <tr class="group"><td colspan="2">Monthly fee by approved ad budget</td></tr>
-        <tr><td>$1,000 to $2,499</td><td><span class="fee">$900</span></td></tr>
-        <tr><td>$2,500 to $5,999</td><td><span class="fee">$1,250</span></td></tr>
-        <tr><td>$6,000 to $14,999</td><td><span class="fee">$1,750</span></td></tr>
-        <tr><td>$15,000 to $24,999</td><td><span class="fee">$2,500</span></td></tr>
-        <tr><td>$25,000 to $49,999</td><td><span class="fee">$4,000</span></td></tr>
-        <tr><td>$50,000 and above</td><td><span class="quote">Quoted flat</span></td></tr>
-      </tbody>
-      <tbody>
-        <tr class="group"><td colspan="2">One-time setup</td></tr>
-        <tr><td><b>Connect</b> &mdash; an account that passes the audit’s checklist: the approval record, the named approvers, the budget cap</td><td><span class="fee">$500</span></td></tr>
-        <tr><td><b>Build or rebuild</b> &mdash; tracking, conversion events, structure, first campaigns</td><td><span class="fee">$1,500</span></td></tr>
-        <tr><td><b>Two or more accounts or locations</b></td><td><span class="fee">$2,500</span></td></tr>
-      </tbody>
-    </table>
-    <div class="prose after-table">
-      <p>Every band includes the same rules: every change to your ad account is paused until a named person approves it, every approval is written to a record you can read, your written budget cap and its pause-only circuit breaker are in force, and the numbers page opens from a link, no login required. Your band changes only when you approve a budget that moves it, and the change takes effect the following month, up or down. Under about $1,000&nbsp;a&nbsp;month in ad spend we’ll usually tell you to keep it <span class="nb">in-house</span>. At $50,000&nbsp;a&nbsp;month and above, the proposal quotes one flat number.</p>
+    <div class="sec-aside">
+      <span class="num">01</span>
+      <span class="label">Monthly fee</span>
+    </div>
+    <div class="sec-main">
+      <h2>Six bands and a one-time setup.</h2>
+      <table class="table">
+        <tbody>
+          <tr class="group"><td colspan="2">Monthly fee by approved ad budget</td></tr>
+          <tr><td>$1,000 to $2,499</td><td><span class="fee">$900</span></td></tr>
+          <tr><td>$2,500 to $5,999</td><td><span class="fee">$1,250</span></td></tr>
+          <tr><td>$6,000 to $14,999</td><td><span class="fee">$1,750</span></td></tr>
+          <tr><td>$15,000 to $24,999</td><td><span class="fee">$2,500</span></td></tr>
+          <tr><td>$25,000 to $49,999</td><td><span class="fee">$4,000</span></td></tr>
+          <tr><td>$50,000 and above</td><td><span class="quote">Quoted flat</span></td></tr>
+        </tbody>
+        <tbody>
+          <tr class="group"><td colspan="2">One-time setup</td></tr>
+          <tr><td><b>Connect</b> &mdash; an account that passes the audit’s checklist: the approval record, the named approvers, the budget cap</td><td><span class="fee">$500</span></td></tr>
+          <tr><td><b>Build or rebuild</b> &mdash; tracking, conversion events, structure, first campaigns</td><td><span class="fee">$1,500</span></td></tr>
+          <tr><td><b>Two or more accounts or locations</b></td><td><span class="fee">$2,500</span></td></tr>
+        </tbody>
+      </table>
+      <div class="prose after-table">
+        <p>Every band includes the same rules: every change to your ad account is paused until a named person approves it, every approval is written to a record you can read, your written budget cap and its pause-only circuit breaker are in force, and the numbers page opens from a link, no login required. Your band changes only when you approve a budget that moves it, and the change takes effect the following month, up or down. Under about $1,000&nbsp;a&nbsp;month in ad spend we’ll usually tell you to keep it <span class="nb">in-house</span>. At $50,000&nbsp;a&nbsp;month and above, the proposal quotes one flat number.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="block" id="never">
+<section class="sec" id="never">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">02</span><span class="label">Never charged</span></div>
-    <h2>Three things we never charge.</h2>
-    <ul class="rows">
-      <li><b>A percentage of ad spend</b><span>The monthly fee is the flat number for your band, never a share of what you spend.</span></li>
-      <li><b>A markup on media</b><span>Ad dollars never appear on an invoice&nbsp;from&nbsp;us.</span></li>
-      <li><b>A fee per result</b><span>Nothing we charge is tied to a lead, a call, a booking, or a sale.</span></li>
-    </ul>
+    <div class="sec-aside">
+      <span class="num">02</span>
+      <span class="label">Never charged</span>
+    </div>
+    <div class="sec-main">
+      <h2>Three things we never charge.</h2>
+      <ul class="rows">
+        <li><b>A percentage of ad spend</b><span>The monthly fee is the flat number for your band, never a share of what you spend.</span></li>
+        <li><b>A markup on media</b><span>Ad dollars never appear on an invoice&nbsp;from&nbsp;us.</span></li>
+        <li><b>A fee per result</b><span>Nothing we charge is tied to a lead, a call, a booking, or a sale.</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<section class="block" id="terms">
+<section class="sec last" id="terms">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">03</span><span class="label">Terms</span></div>
-    <h2>Three months, then month to month.</h2>
-    <div class="prose">
-      <p>The monthly fee starts the month something is live. It runs for three months, then month to month on thirty&nbsp;days’ notice.</p>
-      <p>If you leave, you keep the account, the pixel, the creative, and the record.</p>
-      <p>The audit is free, and the write-up is yours to keep.</p>
+    <div class="sec-aside">
+      <span class="num">03</span>
+      <span class="label">Terms</span>
     </div>
-    <div class="cta-row"><a class="btn primary" href="/#contact">Request the audit</a></div>
+    <div class="sec-main">
+      <h2>Three months, then month to month.</h2>
+      <div class="prose">
+        <p>The monthly fee starts the month something is live. It runs for three months, then month to month on thirty&nbsp;days’ notice.</p>
+        <p>If you leave, you keep the account, the pixel, the creative, and the record.</p>
+        <p>The audit is free, and the write-up is yours to keep.</p>
+      </div>
+      <div class="cta-row"><a class="btn primary" href="/paid-media/#contact">Request the audit</a></div>
+    </div>
   </div>
 </section>
-</div>
 </main>
 
 {{FOOTER}}

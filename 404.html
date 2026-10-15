@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<script>(function(d){d.classList.add('js');if(matchMedia('(min-width: 960px)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('stamp');setTimeout(function(){if(!d.classList.contains('gl'))d.classList.remove('stamp')},15000)}})(document.documentElement);</script>
+<script>document.documentElement.classList.add('js');</script>
 <title>Not found · JL Collective</title>
 <meta name="description" content="The page you asked for is not on the JL Collective website.">
 <link rel="canonical" href="https://thejlcollective.com/404.html">
@@ -26,7 +26,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=2">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-<meta name="theme-color" content="#122038">
+<meta name="theme-color" content="#F6F2EA">
 <link rel="preload" href="/fonts/Newsreader-450-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/Inter-text-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts.css?v=3">
@@ -36,11 +36,11 @@
  {"@type":"Organization","name":"JL Collective","legalName":"JL Collective LLC","url":"https://thejlcollective.com/","logo":"https://thejlcollective.com/logo.png","email":"jack@thejlcollective.com","founder":[{"@type":"Person","name":"Jack Tusa","jobTitle":"Founding Principal","email":"jack@thejlcollective.com"},{"@type":"Person","name":"Luke Lehmann","jobTitle":"Founding Principal","email":"luke@thejlcollective.com"}],"address":{"@type":"PostalAddress","addressRegion":"TX","addressCountry":"US"}},
  {"@type":"WebSite","name":"JL Collective","url":"https://thejlcollective.com/"}]}
 </script>
-<script type="importmap">{"imports":{"three":"/vendor/three/three.module.min.js","three/addons/":"/vendor/three/addons/"}}</script>
 <meta name="robots" content="noindex">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="topline" aria-hidden="true"></div>
 <header class="site" id="siteHeader">
   <div class="wrap head-inner">
     <a class="mark" href="/">
@@ -49,16 +49,16 @@
     </a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menu</button>
     <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <a href="/paid-media/">Paid media</a>
+      <a href="/on-the-house/">On the House</a>
       <a href="/pricing/">Pricing</a>
-      <a href="/#record">The record</a>
-      <a href="/#people">People</a>
-      <a href="/#contact" class="cta">Request the audit</a>
+      <a href="/trust/">Trust</a>
+      <a href="/paid-media/#contact" class="cta">Request the audit</a>
     </nav>
   </div>
 </header>
 
 <main id="main" tabindex="-1">
-<div class="paper">
 <section class="notfound">
   <div class="wrap">
     <svg class="seal-small" viewBox="0 0 240 240" width="36" height="36" aria-hidden="true"><circle cx="120" cy="120" r="90" fill="none" stroke="currentColor" stroke-width="10"/><path d="M76.84 83.65 H107.75 V84.99 H97.09 V140.66 C97.09 156.66 92.09 158.66 82.09 158.66 C72.49 158.66 65.49 155.06 65.49 150.30 H67.49 C67.49 155.30 80.09 153.66 82.09 153.66 C88.09 153.66 87.49 152.26 87.49 140.66 V84.99 H76.84 Z" class="seal-j"/><path d="M116.00 150.66H126.66V84.99H116.00V83.65H146.91V84.99H136.26V150.66H153.34Q161.79 150.66 166.59 145.38Q171.39 140.10 173.60 130.98H174.66V152.00H116.00Z" fill="currentColor"/></svg>
@@ -66,12 +66,11 @@
     <p>The address may be mistyped, or the page may have moved.</p>
     <nav aria-label="Elsewhere on this site">
       <a class="link" href="/">Home</a>
-      <a class="link" href="/pricing/">Pricing</a>
-      <a class="link" href="/#contact">Request the audit</a>
+      <a class="link" href="/paid-media/">Paid media</a>
+      <a class="link" href="/paid-media/#contact">Request the audit</a>
     </nav>
   </div>
 </section>
-</div>
 </main>
 
 <footer class="site">
@@ -85,15 +84,15 @@
     </div>
     <div class="foot-col">
       <div class="f-lab">The firm</div>
-      <a href="/pricing/">Pricing</a>
-      <a href="/#record">The record</a>
-      <a href="/#people">People</a>
-      <a href="/#faq">FAQ</a>
+      <a href="/paid-media/">Paid media</a>
       <a href="/on-the-house/">On the House</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/#people">People</a>
+      <a href="/paid-media/#questions">Questions</a>
+      <a href="/trust/">Trust</a>
     </div>
     <div class="foot-col">
       <div class="f-lab">Documents</div>
-      <a href="/trust/">Trust</a>
       <a href="/privacy.html">Privacy <small>Effective 1&nbsp;October&nbsp;2026</small></a>
       <a href="/terms.html">Terms <small>Effective 1&nbsp;October&nbsp;2026</small></a>
       <a href="/accessibility/">Accessibility</a>
@@ -112,30 +111,13 @@
   </div>
 </footer>
 <script>
-/* shared chrome: header surface, menu, scroll-spy. hand-written; no framework */
+/* shared chrome: current-page marking and the phone menu. hand-written; no framework */
 (function () {
   var header = document.getElementById('siteHeader');
-  var cover = document.querySelector('.hero, .cover');
-  var onScroll = function () {
-    if (!header) return;
-    var onPaper = true;
-    if (cover) { onPaper = cover.getBoundingClientRect().bottom <= header.offsetHeight + 1; }
-    header.classList.toggle('on-paper', onPaper);
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
 
-  if ('IntersectionObserver' in window && location.pathname === '/') {
-    var navLinks = document.querySelectorAll('nav.site-nav a[href^="/#"]:not(.cta)');
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '/#' + entry.target.id); });
-      });
-    }, { rootMargin: '-35% 0px -55% 0px' });
-    document.querySelectorAll('section[id]').forEach(function (s) { spy.observe(s); });
-  }
+  document.querySelectorAll('nav.site-nav a:not(.cta)').forEach(function (l) {
+    if (l.getAttribute('href') === location.pathname) { l.classList.add('active'); l.setAttribute('aria-current', 'page'); }
+  });
 
   var btn = document.getElementById('menuBtn');
   var nav = document.getElementById('siteNav');
@@ -149,7 +131,6 @@
     nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menuOpen()) { setMenu(false); btn.focus(); } });
     header.addEventListener('focusout', function (e) { if (menuOpen() && e.relatedTarget && !header.contains(e.relatedTarget)) setMenu(false); });
-    document.addEventListener('pointerdown', function (e) { if (menuOpen() && !header.contains(e.target)) { e.preventDefault(); setMenu(false); } }, true);
   }
 })();
 </script>
