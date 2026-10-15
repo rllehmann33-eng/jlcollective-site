@@ -2,7 +2,8 @@
    JL Collective — the firm's stationery, set as a document.
    Cream page, one calm header, editorial sections with a narrow
    running-head column, navy only for the two doors and the close.
-   One serif at one weight, one sans, one mono inside the specimen.
+   One serif at one weight and one sans. Product screens are real
+   software shown with demonstration data, always captioned as such.
    Hand-written. No frameworks.
    ============================================================ */
 
@@ -135,16 +136,30 @@ html:not(.js) .menu-btn{ display:none }
 .cta-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:var(--s4) }
 
 /* ---------- home: the opening page ---------- */
-.hero{ padding:clamp(56px,9vh,112px) 0 clamp(48px,7vh,80px) }
-.hero .wrap{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:var(--gap); align-items:end }
-.hero-copy{ grid-column:1 / span 12 }
-.hero h1{ font-size:var(--fs-display); line-height:1.02; letter-spacing:-.02em; max-width:14ch; margin-bottom:var(--s4) }
-.facts{ grid-column:1 / span 12; border-top:1px solid var(--ink); font-size:var(--fs-small); line-height:1.45; margin-top:var(--s4) }
-@media (min-width:720px) and (max-width:959px){ .facts{ display:grid; grid-template-columns:1fr 1fr; column-gap:var(--s4) } }
-@media (min-width:960px){ .hero-copy{ grid-column:1 / span 8 } .facts{ grid-column:10 / span 3; max-width:none; margin-top:0 } }
+.hero{ padding:clamp(56px,9vh,112px) 0 clamp(48px,6vh,72px) }
+.hero h1{ font-size:var(--fs-display); line-height:1.04; letter-spacing:-.02em; margin-bottom:var(--s4) }
+.hero h1 span{ display:block }
+.hero h1 .h1-rule{ color:var(--brass-ink) }
+.facts{ border-top:1px solid var(--ink); font-size:var(--fs-small); line-height:1.45; margin-top:var(--s5) }
+@media (min-width:720px){ .facts{ display:grid; grid-template-columns:1fr 1fr; column-gap:var(--s4) } }
+@media (min-width:960px){ .facts{ grid-template-columns:repeat(4,minmax(0,1fr)); column-gap:var(--s3) } }
 .facts div{ display:grid; gap:2px; padding:12px 0; border-bottom:1px solid var(--rule) }
 .facts dt{ font-family:var(--sans); font-weight:500; font-size:var(--fs-label); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--ink-3) }
 .facts dd{ color:var(--ink); font-weight:500 }
+
+/* ---------- product screens: real software, demonstration data ---------- */
+.screen{ margin:0 }
+.screen picture,.screen img{ display:block; width:100% }
+.screen img{ height:auto; border:1px solid var(--rule); border-radius:4px; background:var(--paper-2) }
+.screen figcaption{ margin-top:14px; font-size:var(--fs-small); line-height:1.5; color:var(--ink-3); max-width:68ch }
+.screen figcaption b{ color:var(--ink); font-weight:500 }
+.sec-main .screen{ margin-top:var(--s4) }
+.screen + .rows{ margin-top:var(--s5) }
+.showcase{ background:linear-gradient(to bottom, var(--paper) 0 36%, var(--navy) 36% 100%); padding-bottom:var(--s5) }
+.showcase .screen img{ border-color:rgba(14,24,40,.16); box-shadow:0 32px 64px -32px rgba(10,18,32,.6) }
+.showcase figcaption{ color:var(--body-on-navy) }
+.showcase figcaption b{ color:var(--cream) }
+.showcase + .doors .wrap{ padding-top:var(--s5) }
 
 /* ---------- the two doors, on navy ---------- */
 .band{ background:var(--navy); color:var(--cream) }
@@ -180,11 +195,6 @@ html:not(.js) .menu-btn{ display:none }
 @media (min-width:720px){ .rows li{ grid-template-columns:minmax(180px,4fr) minmax(0,8fr) } }
 .rows b{ font-family:var(--serif); font-weight:var(--w-serif); font-size:var(--fs-h3); line-height:1.3; color:var(--ink) }
 .rows span{ color:var(--ink-2) }
-
-/* the specimen: our own record */
-.specimen{ border-top:1px solid var(--ink); padding:var(--s3) 0 0; margin-bottom:var(--s5) }
-.specimen .label{ margin-bottom:var(--s1); color:var(--brass-ink) }
-.specimen .states{ display:flex; flex-wrap:wrap; gap:8px 24px; font-family:var(--mono); font-weight:500; font-size:13px; color:var(--ink) }
 
 /* one table */
 .table{ width:100%; border-collapse:collapse }
@@ -340,6 +350,7 @@ footer .seal-small .seal-j{ fill:var(--brass) }
 @media print{
   :root{ --cream:var(--ink); --body-on-navy:var(--ink-2); --mute-on-navy:var(--ink-3); --brass:var(--brass-ink); --rule-on-navy:var(--rule); --rule-on-navy-hi:var(--rule) }
   header.site,.menu-btn,.skip,.entry-form,.posting,.cta-row,.onpage{ display:none !important }
-  html,body,.band,footer.site{ background:#fff }
+  html,body,.band,.showcase,footer.site{ background:#fff }
+  .showcase .screen img{ box-shadow:none }
   body{ color:#000 }
 }
