@@ -30,7 +30,8 @@
 <link rel="preload" href="/fonts/Newsreader-450-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/Inter-text-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts.css?v=3">
-<link rel="stylesheet" href="/styles.css?v=3">
+<link rel="stylesheet" href="/styles.css?v=5">
+<script src="/site.js?v=2" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"Organization","name":"JL Collective","legalName":"JL Collective LLC","url":"https://thejlcollective.com/","logo":"https://thejlcollective.com/logo.png","email":"jack@thejlcollective.com","founder":[{"@type":"Person","name":"Jack Tusa","jobTitle":"Founding Principal","email":"jack@thejlcollective.com"},{"@type":"Person","name":"Luke Lehmann","jobTitle":"Founding Principal","email":"luke@thejlcollective.com"}],"address":{"@type":"PostalAddress","addressRegion":"TX","addressCountry":"US"}},
@@ -82,66 +83,57 @@
 
 <section class="sec" id="parts">
   <div class="wrap">
-    <div class="sec-aside">
-      <span class="num">01</span>
-      <span class="label">What it does</span>
-    </div>
-    <div class="sec-main">
+    <header class="sec-head">
+      <span class="eyebrow">What it does</span>
       <h2>Three parts, one rule.</h2>
-      <div class="parts">
-        <div class="piece">
-          <span class="k">01 &middot; Review Room</span>
-          <h3>Reviews, read together</h3>
-          <p>A group’s reviews sit in one place instead of scattered across sites. Each is credited to the staff member it names, grouped into themes worth passing to the kitchen, and flagged when it looks gamed.</p>
-        </div>
-        <div class="piece">
-          <span class="k">02 &middot; The briefing</span>
-          <h3>A page before service</h3>
-          <p>Guest profiles are built from reservations and checks, and the host gets a one-page briefing before the doors open. For a specific guest, the software proposes a specific kindness, unannounced, and a manager approves it in one tap. No discounts. No points.</p>
-        </div>
-        <div class="piece">
-          <span class="k">03 &middot; The Save</span>
-          <h3>The visit behind a bad review</h3>
-          <p>A bad review is matched to the visit that caused it, and an apology is drafted. A person reads the draft and decides whether it goes. The software does not send it.</p>
-        </div>
+    </header>
+    <div class="parts">
+      <div class="piece">
+        <span class="k">01 &middot; Review Room</span>
+        <h3>Reviews, read together</h3>
+        <p>A group’s reviews sit in one place instead of scattered across sites. Each is credited to the staff member it names, grouped into themes worth passing to the kitchen, and flagged when it looks gamed.</p>
+      </div>
+      <div class="piece">
+        <span class="k">02 &middot; The briefing</span>
+        <h3>A page before service</h3>
+        <p>Guest profiles are built from reservations and checks, and the host gets a one-page briefing before the doors open. For a specific guest, the software proposes a specific kindness, unannounced, and a manager approves it in one tap. No discounts. No points.</p>
+      </div>
+      <div class="piece">
+        <span class="k">03 &middot; The Save</span>
+        <h3>The visit behind a bad review</h3>
+        <p>A bad review is matched to the visit that caused it, and an apology is drafted. A person reads the draft and decides whether it goes. The software does not send it.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="rule">
+<section class="sec alt" id="rule">
   <div class="wrap">
-    <div class="sec-aside">
-      <span class="num">02</span>
-      <span class="label">The rule</span>
-    </div>
-    <div class="sec-main">
+    <header class="sec-head">
+      <span class="eyebrow">The rule</span>
       <h2>Nothing reaches a guest without a person saying yes.</h2>
-      <ul class="rule-list">
-        <li><b>Software proposes</b><span>A kindness for a guest and an apology for a reviewer both start as drafts. Until someone acts on one, it stays a draft.</span></li>
-        <li><b>A named person approves</b><span>Each proposal is approved or declined by a named person, and the decision carries their name. The rule is enforced where the data is kept, not only on the screen.</span></li>
-        <li><b>The record only grows</b><span>Who approved what is written to a record that can only be added to, and the owner can read all of it.</span></li>
-        <li><b>Guests hear from people</b><span>The software never sends anything to a guest on its own. Reviews, reservation and point-of-sale data arrive as exports from the restaurant’s own systems, and no channel to guests is connected.</span></li>
-      </ul>
-    </div>
+    </header>
+    <ul class="rule-list">
+      <li><b>Software proposes</b><span>A kindness for a guest and an apology for a reviewer both start as drafts. Until someone acts on one, it stays a draft.</span></li>
+      <li><b>A named person approves</b><span>Each proposal is approved or declined by a named person, and the decision carries their name. The rule is enforced where the data is kept, not only on the screen.</span></li>
+      <li><b>The record only grows</b><span>Who approved what is written to a record that can only be added to, and the owner can read all of it.</span></li>
+      <li><b>Guests hear from people</b><span>The software never sends anything to a guest on its own. Reviews, reservation and point-of-sale data arrive as exports from the restaurant’s own systems, and no channel to guests is connected.</span></li>
+    </ul>
   </div>
 </section>
 
-<section class="sec last" id="access">
+<section class="sec" id="access">
   <div class="wrap">
-    <div class="sec-aside">
-      <span class="num">03</span>
-      <span class="label">Access</span>
-    </div>
-    <div class="sec-main">
+    <header class="sec-head">
+      <span class="eyebrow">Access</span>
       <h2>Built and run by JL Collective.</h2>
-      <div class="prose">
-        <p>The app lives at onthehouse.ai and opens to a sign-in screen. Access is arranged with us directly.</p>
-      </div>
-      <div class="cta-row">
-        <a class="btn primary" href="mailto:luke@thejlcollective.com?subject=On%20the%20House">Write to us</a>
-        <a class="btn ghost" href="https://onthehouse.ai/">Sign in</a>
-      </div>
+    </header>
+    <div class="prose">
+      <p>The app lives at onthehouse.ai and opens to a sign-in screen. Access is arranged with us directly.</p>
+    </div>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:luke@thejlcollective.com?subject=On%20the%20House">Write to us</a>
+      <a class="btn ghost" href="https://onthehouse.ai/">Sign in</a>
     </div>
   </div>
 </section>
@@ -185,9 +177,14 @@
   </div>
 </footer>
 <script>
-/* shared chrome: current-page marking and the phone menu. hand-written; no framework */
+/* shared chrome: current-page marking, the header once the page moves, the phone menu. hand-written; no framework */
 (function () {
   var header = document.getElementById('siteHeader');
+  if (header) {
+    var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 4); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
 
   document.querySelectorAll('nav.site-nav a:not(.cta)').forEach(function (l) {
     if (l.getAttribute('href') === location.pathname) { l.classList.add('active'); l.setAttribute('aria-current', 'page'); }

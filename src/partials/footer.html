@@ -36,9 +36,14 @@
   </div>
 </footer>
 <script>
-/* shared chrome: current-page marking and the phone menu. hand-written; no framework */
+/* shared chrome: current-page marking, the header once the page moves, the phone menu. hand-written; no framework */
 (function () {
   var header = document.getElementById('siteHeader');
+  if (header) {
+    var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 4); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
 
   document.querySelectorAll('nav.site-nav a:not(.cta)').forEach(function (l) {
     if (l.getAttribute('href') === location.pathname) { l.classList.add('active'); l.setAttribute('aria-current', 'page'); }

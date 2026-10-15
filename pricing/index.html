@@ -30,7 +30,8 @@
 <link rel="preload" href="/fonts/Newsreader-450-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/Inter-text-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts.css?v=3">
-<link rel="stylesheet" href="/styles.css?v=3">
+<link rel="stylesheet" href="/styles.css?v=5">
+<script src="/site.js?v=2" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"Organization","name":"JL Collective","legalName":"JL Collective LLC","url":"https://thejlcollective.com/","logo":"https://thejlcollective.com/logo.png","email":"jack@thejlcollective.com","founder":[{"@type":"Person","name":"Jack Tusa","jobTitle":"Founding Principal","email":"jack@thejlcollective.com"},{"@type":"Person","name":"Luke Lehmann","jobTitle":"Founding Principal","email":"luke@thejlcollective.com"}],"address":{"@type":"PostalAddress","addressRegion":"TX","addressCountry":"US"}},
@@ -77,12 +78,24 @@
 
 <section class="sec" id="fees">
   <div class="wrap">
-    <div class="sec-aside">
-      <span class="num">01</span>
-      <span class="label">Monthly fee</span>
-    </div>
-    <div class="sec-main">
+    <header class="sec-head">
+      <span class="eyebrow">Monthly fee</span>
       <h2>Six bands and a one-time setup.</h2>
+    </header>
+    <div class="fees-grid">
+      <div class="calc" data-calc>
+        <label class="eyebrow" for="calc-budget">Your monthly ad budget</label>
+        <output class="calc-budget" for="calc-budget" data-budget>$3,000<small> a month</small></output>
+        <input type="range" id="calc-budget" min="0" max="20" step="1" value="6">
+        <div class="calc-scale" aria-hidden="true"><span>$500</span><span>$100,000+</span></div>
+        <div class="calc-out" aria-live="polite">
+          <span class="label">Your monthly fee</span>
+          <span class="calc-fee" data-fee>$1,250 <small>a month</small></span>
+          <p class="calc-band" data-band>The same fee anywhere from $2,500 to $5,999 a month. Never a percentage.</p>
+        </div>
+        <p class="calc-setup">Plus a one-time setup of $500, $1,500 or $2,500, depending on the work. Nothing is due when you sign.</p>
+      </div>
+      <div class="table-card">
       <table class="table">
         <tbody>
           <tr class="group"><td colspan="2">Monthly fee by approved ad budget</td></tr>
@@ -100,45 +113,40 @@
           <tr><td><b>Two or more accounts or locations</b></td><td><span class="fee">$2,500</span></td></tr>
         </tbody>
       </table>
-      <div class="prose after-table">
-        <p>Every band includes the same rules: every change to your ad account is paused until a named person approves it, every approval is written to a record you can read, your written budget cap and its pause-only circuit breaker are in force, and the numbers page opens from a link, no login required. Your band changes only when you approve a budget that moves it, and the change takes effect the following month, up or down. Under about $1,000&nbsp;a&nbsp;month in ad spend we’ll usually tell you to keep it <span class="nb">in-house</span>. At $50,000&nbsp;a&nbsp;month and above, the proposal quotes one flat number.</p>
       </div>
+    </div>
+    <div class="prose after-table">
+      <p>Every band includes the same rules: every change to your ad account is paused until a named person approves it, every approval is written to a record you can read, your written budget cap and its pause-only circuit breaker are in force, and the numbers page opens from a link, no login required. Your band changes only when you approve a budget that moves it, and the change takes effect the following month, up or down. Under about $1,000&nbsp;a&nbsp;month in ad spend we’ll usually tell you to keep it <span class="nb">in-house</span>. At $50,000&nbsp;a&nbsp;month and above, the proposal quotes one flat number.</p>
     </div>
   </div>
 </section>
 
-<section class="sec" id="never">
+<section class="sec alt" id="never">
   <div class="wrap">
-    <div class="sec-aside">
-      <span class="num">02</span>
-      <span class="label">Never charged</span>
-    </div>
-    <div class="sec-main">
+    <header class="sec-head">
+      <span class="eyebrow">Never charged</span>
       <h2>Three things we never charge.</h2>
-      <ul class="rows">
-        <li><b>A percentage of ad spend</b><span>The monthly fee is the flat number for your band, never a share of what you spend.</span></li>
-        <li><b>A markup on media</b><span>Ad dollars never appear on an invoice&nbsp;from&nbsp;us.</span></li>
-        <li><b>A fee per result</b><span>Nothing we charge is tied to a lead, a call, a booking, or a sale.</span></li>
-      </ul>
-    </div>
+    </header>
+    <ul class="rows">
+      <li><b>A percentage of ad spend</b><span>The monthly fee is the flat number for your band, never a share of what you spend.</span></li>
+      <li><b>A markup on media</b><span>Ad dollars never appear on an invoice&nbsp;from&nbsp;us.</span></li>
+      <li><b>A fee per result</b><span>Nothing we charge is tied to a lead, a call, a booking, or a sale.</span></li>
+    </ul>
   </div>
 </section>
 
-<section class="sec last" id="terms">
+<section class="sec" id="terms">
   <div class="wrap">
-    <div class="sec-aside">
-      <span class="num">03</span>
-      <span class="label">Terms</span>
-    </div>
-    <div class="sec-main">
+    <header class="sec-head">
+      <span class="eyebrow">Terms</span>
       <h2>Three months, then month to month.</h2>
-      <div class="prose">
-        <p>The monthly fee starts the month something is live. It runs for three months, then month to month on thirty&nbsp;days’ notice.</p>
-        <p>If you leave, you keep the account, the pixel, the creative, and the record.</p>
-        <p>The audit is free, and the write-up is yours to keep.</p>
-      </div>
-      <div class="cta-row"><a class="btn primary" href="/paid-media/#contact">Request the audit</a></div>
+    </header>
+    <div class="prose">
+      <p>The monthly fee starts the month something is live. It runs for three months, then month to month on thirty&nbsp;days’ notice.</p>
+      <p>If you leave, you keep the account, the pixel, the creative, and the record.</p>
+      <p>The audit is free, and the write-up is yours to keep.</p>
     </div>
+    <div class="cta-row"><a class="btn primary" href="/paid-media/#contact">Request the audit</a></div>
   </div>
 </section>
 </main>
@@ -181,9 +189,14 @@
   </div>
 </footer>
 <script>
-/* shared chrome: current-page marking and the phone menu. hand-written; no framework */
+/* shared chrome: current-page marking, the header once the page moves, the phone menu. hand-written; no framework */
 (function () {
   var header = document.getElementById('siteHeader');
+  if (header) {
+    var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 4); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
 
   document.querySelectorAll('nav.site-nav a:not(.cta)').forEach(function (l) {
     if (l.getAttribute('href') === location.pathname) { l.classList.add('active'); l.setAttribute('aria-current', 'page'); }

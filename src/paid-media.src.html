@@ -21,131 +21,131 @@ revised: 15 October 2026
     <h1>We run your ads to bring in customers.</h1>
     <p class="deck">Meta first, for a flat monthly fee. Nothing reaches your ad account until a named person approves it, and every approval stays in a record you can read.</p>
     <div class="cta-row">
-      <a class="btn primary" href="#contact">Request the audit</a>
-      <a class="btn ghost" href="/pricing/">Read the fees</a>
+      <a class="btn primary arrow" href="#contact">Request the free audit</a>
+      <a class="btn ghost" href="#fees">Work out your fee</a>
     </div>
     <nav class="onpage" aria-label="On this page">
-      <a href="#rule">The rule</a>
-      <a href="#record">The record</a>
-      <a href="#numbers">Your numbers</a>
+      <a href="#software">The software</a>
+      <a href="#parts">What you can count on</a>
       <a href="#how">How it works</a>
       <a href="#fees">Fees</a>
       <a href="#questions">Questions</a>
-      <a href="#contact">Request the audit</a>
     </nav>
   </div>
 </header>
 
-<section class="sec" id="rule">
+<section class="sec" id="software">
   <div class="wrap">
-    <div class="sec-aside">
-      <span class="num">01</span>
-      <span class="label">The rule</span>
-      <p>One rule for every change to your ad account.</p>
-    </div>
-    <div class="sec-main">
-      <h2>Every change waits for a name.</h2>
-      <div class="prose">
-        <p>We run paid media on one rule: nothing reaches your ad account until a named person has approved it. A budget change, an ad paused or revived, a new campaign, a fresh piece of creative &mdash; each one is drafted with its reason attached and held, paused, until one of our principals or one of your people signs off on it by name.</p>
-        <p>Every approval is written to a record you can read at any time. Nothing in it can be edited or removed afterward, by you or by us.</p>
-        <p>Behind the approvals sits a budget cap you set in writing, and behind the cap a circuit breaker you authorize in advance, by name. It can do exactly one thing: pause spend. It can’t raise a budget, launch anything, or move money. Our software watches the account and drafts the paperwork; it has no other way to touch your account. The calls are made by people.</p>
+    <header class="sec-head">
+      <span class="eyebrow">The software</span>
+      <h2>See exactly what happens to your account.</h2>
+      <p class="lede">Three real screens. A change waits for a name, the decision goes on your record, and the results show in your numbers.</p>
+    </header>
+    <div class="viewer" data-tabs>
+      <div class="viewer-tabs" hidden>
+        <button type="button" id="tab-approval" aria-controls="panel-approval">The approval</button>
+        <button type="button" id="tab-record" aria-controls="panel-record">Your record</button>
+        <button type="button" id="tab-numbers" aria-controls="panel-numbers">Your numbers</button>
       </div>
-      <figure class="screen">
-        <picture>
-          <source media="(max-width: 719px)" srcset="/img/screen-approval-phone.webp" width="1170" height="2055">
-          <img src="/img/screen-approval.webp" srcset="/img/screen-approval-1040.webp 1040w, /img/screen-approval.webp 2080w" sizes="(min-width: 960px) 820px, calc(100vw - 64px)" width="2080" height="1248" loading="lazy" decoding="async" alt="The approvals console with demonstration data. A proposed change raises a fictional bookshop’s daily budget from $42 to $49, with the reason it was proposed, a note on file, and Approve and Decline buttons.">
-        </picture>
-        <figcaption><b>The approval screen.</b> A proposed change waits here, with its reason, until a named person approves or declines it. Shown with demonstration data; the business is fictional.</figcaption>
-      </figure>
+      <div class="viewer-panel" id="panel-approval">
+        <div class="viewer-text">
+          <h3>Every change waits for a name.</h3>
+          <p>A budget change, an ad paused or revived, a new campaign, a fresh piece of creative: each one is drafted with its reason attached and held until one of our principals or one of your people signs off on it by name.</p>
+          <p>Our software watches the account and drafts the paperwork. The calls are made by people.</p>
+        </div>
+        <figure class="screen">
+          <picture>
+            <source media="(max-width: 719px)" srcset="/img/screen-approval-phone.webp" width="1170" height="2055">
+            <img src="/img/screen-approval.webp" srcset="/img/screen-approval-1040.webp 1040w, /img/screen-approval.webp 2080w" sizes="(min-width: 960px) 720px, calc(100vw - 64px)" width="2080" height="1248" decoding="async" alt="The approvals console with demonstration data. A proposed change raises a fictional bookshop’s daily budget from $42 to $49, with the reason it was proposed, a note on file, and Approve and Decline buttons.">
+          </picture>
+          <figcaption><b>The approval screen.</b> A proposed change waits here, with its reason, until a named person approves or declines it. Shown with demonstration data; the business is fictional.</figcaption>
+        </figure>
+      </div>
+      <div class="viewer-panel" id="panel-record">
+        <div class="viewer-text">
+          <h3>Every decision, on a record you can read.</h3>
+          <p>Each decision is written once, with a name on it. Nothing in the record can be edited or removed afterward, by you or by us.</p>
+          <p>If you ever ask who changed what, and why, and when, the answer is already there.</p>
+        </div>
+        <figure class="screen">
+          <picture>
+            <source media="(max-width: 719px)" srcset="/img/screen-record-phone.webp" width="1440" height="2661">
+            <img src="/img/screen-record.webp" srcset="/img/screen-record-1040.webp 1040w, /img/screen-record.webp 2080w" sizes="(min-width: 960px) 720px, calc(100vw - 64px)" width="2080" height="826" loading="lazy" decoding="async" alt="Demonstration data: a table headed Every change we made, listing three changes to a fictional bookshop’s ad account with the date, the change, the detail, and who approved each one.">
+          </picture>
+          <figcaption><b>Your record.</b> Every change we made to your account, what it was, and who approved it. Shown with demonstration data; the business is fictional.</figcaption>
+        </figure>
+      </div>
+      <div class="viewer-panel" id="panel-numbers">
+        <div class="viewer-text">
+          <h3>Your numbers, without a login.</h3>
+          <p>The latest report’s figures open from a private link: what you spent, the results it produced, and what each result cost. Where a figure is compared with the period before, the change sits beside it.</p>
+        </div>
+        <figure class="screen">
+          <picture>
+            <source media="(max-width: 719px)" srcset="/img/screen-numbers-phone.webp" width="1170" height="1857">
+            <img src="/img/screen-numbers.webp" srcset="/img/screen-numbers-1040.webp 1040w, /img/screen-numbers.webp 2080w" sizes="(min-width: 960px) 720px, calc(100vw - 64px)" width="2080" height="910" loading="lazy" decoding="async" alt="Demonstration data: the numbers page for a fictional bookshop, marked demo, showing a week’s spend of $1,184.27, 41 purchases, purchase value of $2,906.35, a 2.45 times return on ad spend, and a cost per purchase of $28.88.">
+          </picture>
+          <figcaption><b>Your numbers.</b> A week’s spend, results, and what each result cost, opened from a link. Shown with demonstration data; the business is fictional.</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="record">
+<section class="sec alt" id="parts">
   <div class="wrap">
-    <div class="sec-aside">
-      <span class="num">02</span>
-      <span class="label">The record</span>
-      <p>Who approved what, with the reason, kept where it cannot be changed.</p>
-    </div>
-    <div class="sec-main">
-      <h2>One row for every decision.</h2>
-      <div class="prose"><p>If you ever ask who changed what, and why, and when, the answer is already there.</p></div>
-      <figure class="screen">
-        <picture>
-          <source media="(max-width: 719px)" srcset="/img/screen-record-phone.webp" width="1440" height="2661">
-          <img src="/img/screen-record.webp" srcset="/img/screen-record-1040.webp 1040w, /img/screen-record.webp 2080w" sizes="(min-width: 960px) 820px, calc(100vw - 64px)" width="2080" height="826" loading="lazy" decoding="async" alt="Demonstration data: a table headed Every change we made, listing three changes to a fictional bookshop’s ad account with the date, the change, the detail, and who approved each one.">
-        </picture>
-        <figcaption><b>Your record.</b> Every change we made to your account, what it was, and who approved it. Shown with demonstration data; the business is fictional.</figcaption>
-      </figure>
-      <ul class="rows">
-        <li><b>The approval gate</b><span>A proposed change is held, with its reason, until a named person approves it.</span></li>
-        <li><b>The record</b><span>Every decision is written once, with a name on it, and is never edited.</span></li>
-        <li><b>The breaker</b><span>Authorized in advance, behind your written cap. It can only pause spend.</span></li>
-        <li><b>The numbers link</b><span>Your latest figures on one page, opened from a private link, no login required.</span></li>
-      </ul>
-      <p class="note">What the record refuses, and what the breaker cannot do, are set out on the <a href="/trust/">trust page</a>.</p>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="numbers">
-  <div class="wrap">
-    <div class="sec-aside">
-      <span class="num">03</span>
-      <span class="label">Your numbers</span>
-      <p>The figures that matter, without a login.</p>
-    </div>
-    <div class="sec-main">
-      <h2>Your numbers, on one page.</h2>
-      <div class="prose">
-        <p>The latest report’s figures open from a private link, with no login and no dashboard to learn: what you spent, the results it produced, and what each result cost. Where a figure is compared with the period before, the change sits beside it.</p>
-      </div>
-      <figure class="screen">
-        <picture>
-          <source media="(max-width: 719px)" srcset="/img/screen-numbers-phone.webp" width="1170" height="1857">
-          <img src="/img/screen-numbers.webp" srcset="/img/screen-numbers-1040.webp 1040w, /img/screen-numbers.webp 2080w" sizes="(min-width: 960px) 820px, calc(100vw - 64px)" width="2080" height="910" loading="lazy" decoding="async" alt="Demonstration data: the numbers page for a fictional bookshop, marked demo, showing a week’s spend of $1,184.27, 41 purchases, purchase value of $2,906.35, a 2.45 times return on ad spend, and a cost per purchase of $28.88.">
-        </picture>
-        <figcaption><b>Your numbers.</b> A week’s spend, results, and what each result cost, opened from a link. Shown with demonstration data; the business is fictional.</figcaption>
-      </figure>
-    </div>
+    <header class="sec-head">
+      <span class="eyebrow">What you can count on</span>
+      <h2>Four parts behind every account we run.</h2>
+      <p class="lede">The approval gate, the record and the breaker work from the first day. Your numbers arrive with the first report.</p>
+    </header>
+    <ul class="rows">
+      <li><b>The approval gate</b><span>A proposed change is held, with its reason, until a named person approves it.</span></li>
+      <li><b>The record</b><span>Every decision is written once, with a name on it, and is never edited.</span></li>
+      <li><b>The breaker</b><span>Behind your written budget cap sits a circuit breaker you authorize in advance. It can only pause spend. It can’t raise a budget, launch anything, or move money.</span></li>
+      <li><b>The numbers link</b><span>Your latest figures on one page, opened from a private link, no login required.</span></li>
+    </ul>
+    <p class="note">What the record refuses, and what the breaker cannot do, are set out on the <a href="/trust/">trust page</a>.</p>
   </div>
 </section>
 
 <section class="sec" id="how">
   <div class="wrap">
-    <div class="sec-aside">
-      <span class="num">04</span>
-      <span class="label">How it works</span>
-      <p>Every number is on paper before you owe anything.</p>
-    </div>
-    <div class="sec-main">
+    <header class="sec-head">
+      <span class="eyebrow">How it works</span>
       <h2>A free audit, then a priced engagement.</h2>
-      <ol class="steps">
-        <li><span class="s-num">1</span><h3>The audit <span>&mdash; free</span></h3><p>Email us and grant read access. We write up what your spend is actually doing and what we would test first. The write-up is yours to keep either way.</p></li>
-        <li><span class="s-num">2</span><h3>The proposal <span>&mdash; on paper</span></h3><p>What we would run, what needs setting up, and what it costs: the band your account sits in, why, and the one-time setup.</p></li>
-        <li><span class="s-num">3</span><h3>The engagement <span>&mdash; by name</span></h3><p>We run the account. A named person approves every change, every approval goes on the record you can read, and your budget cap and its breaker are in force from the first day.</p></li>
-      </ol>
-      <div class="prose" style="margin-top:var(--s4)"><p>If the audit says your ads are fine, we’ll say so, and that’s the end of it. The write-up is yours to keep, even if you use it to run things without us.</p></div>
-    </div>
+      <p class="lede">Every number is on paper before you owe anything.</p>
+    </header>
+    <ol class="steps">
+      <li><span class="s-num">1</span><h3>The audit <span>&mdash; free</span></h3><p>Email us and grant read access. We write up what your spend is actually doing and what we would test first. The write-up is yours to keep either way.</p></li>
+      <li><span class="s-num">2</span><h3>The proposal <span>&mdash; on paper</span></h3><p>What we would run, what needs setting up, and what it costs: the band your account sits in, why, and the one-time setup.</p></li>
+      <li><span class="s-num">3</span><h3>The engagement <span>&mdash; by name</span></h3><p>We run the account. A named person approves every change, every approval goes on the record you can read, and your budget cap and its breaker are in force from the first day.</p></li>
+    </ol>
+    <p class="pull">If the audit says your ads are fine, we’ll say so, and that’s the end of it. <span>The write-up is yours to keep, even if you use it to run things without us.</span></p>
   </div>
 </section>
 
-<section class="sec" id="fees">
+<section class="sec alt" id="fees">
   <div class="wrap">
-    <div class="sec-aside">
-      <span class="num">05</span>
-      <span class="label">Fees</span>
-      <p>A flat number, set by the budget you approve.</p>
-    </div>
-    <div class="sec-main">
+    <header class="sec-head">
+      <span class="eyebrow">Fees</span>
       <h2>One flat number, never a percentage.</h2>
-      <div class="two">
-        <div class="prose">
-          <p>The monthly fee is a flat number set by the ad budget you approve, never a percentage of it. Your band only changes when you approve a budget that moves it, and the change takes effect the following month, up or down. Under about $1,000&nbsp;a&nbsp;month in ad spend we’ll usually tell you to keep it in-house.</p>
-          <p>Nothing is due when you sign.</p>
-          <p><a href="/pricing/">Read the full fee schedule</a>, including the one-time setup and the three things we never charge.</p>
+      <p class="lede">Set by the ad budget you approve. The fee stays the same anywhere in your band.</p>
+    </header>
+    <div class="fees-grid">
+      <div class="calc" data-calc>
+        <label class="eyebrow" for="calc-budget">Your monthly ad budget</label>
+        <output class="calc-budget" for="calc-budget" data-budget>$3,000<small> a month</small></output>
+        <input type="range" id="calc-budget" min="0" max="20" step="1" value="6">
+        <div class="calc-scale" aria-hidden="true"><span>$500</span><span>$100,000+</span></div>
+        <div class="calc-out" aria-live="polite">
+          <span class="label">Your monthly fee</span>
+          <span class="calc-fee" data-fee>$1,250 <small>a month</small></span>
+          <p class="calc-band" data-band>The same fee anywhere from $2,500 to $5,999 a month. Never a percentage.</p>
         </div>
+        <p class="calc-setup">Plus a one-time setup of $500, $1,500 or $2,500, depending on the work. Nothing is due when you sign.</p>
+      </div>
+        <div class="table-card">
         <table class="table">
           <thead><tr><th scope="col">Monthly ad budget you approve</th><th scope="col">Monthly fee</th></tr></thead>
           <tbody>
@@ -157,46 +157,47 @@ revised: 15 October 2026
             <tr><td>$50,000 and above</td><td><span class="quote">Quoted flat</span></td></tr>
           </tbody>
         </table>
-      </div>
+        </div>
+    </div>
+    <div class="prose after-table">
+      <p>Your band only changes when you approve a budget that moves it, and the change takes effect the following month, up or down. Under about $1,000&nbsp;a&nbsp;month in ad spend we’ll usually tell you to keep it in-house. Nothing is due when you sign.</p>
+      <p><a href="/pricing/">Read the full fee schedule</a>, including the one-time setup and the three things we never charge.</p>
     </div>
   </div>
 </section>
 
-<section class="sec last" id="questions">
+<section class="sec" id="questions">
   <div class="wrap">
-    <div class="sec-aside">
-      <span class="num">06</span>
-      <span class="label">Questions</span>
-      <p>Cost, control, and what happens to your data.</p>
-    </div>
-    <div class="sec-main">
+    <header class="sec-head">
+      <span class="eyebrow">Questions</span>
       <h2>What people ask before they write.</h2>
-      <div class="faq">
-        <details>
-          <summary>Is software changing my account on its own?</summary>
-          <div class="a"><p>No. Our software watches the account and drafts proposals; a named person approves each one before it reaches your account, and that approval is kept on a record you can read. The one exception is the circuit breaker you authorize in advance, and all it can do is pause spend. Nothing ships without a name attached.</p></div>
-        </details>
-        <details>
-          <summary>What does it cost?</summary>
-          <div class="a"><p>The audit is free, and the write-up is yours whether or not we go further. If we do, the monthly fee is a flat number set by the ad budget you approve, never a percentage of it, from <span class="fig">$900</span>&nbsp;a&nbsp;month at the smallest band. The bands, the one-time setup, and the three things we never charge are published in full on the <a href="/pricing/">fee schedule</a>, and the proposal repeats them for your account before you owe anything.</p></div>
-        </details>
-        <details>
-          <summary>We already have an agency.</summary>
-          <div class="a"><p>Keep them. The audit doesn’t ask you to fire anyone &mdash; run it, read it, and decide with numbers instead of a pitch.</p></div>
-        </details>
-        <details>
-          <summary>What industries do you take?</summary>
-          <div class="a"><p>We take work where the outcome can be measured and a named person can stand behind every change. Much of Jack’s work has been in automotive.</p></div>
-        </details>
-        <details>
-          <summary>Who actually does the work?</summary>
-          <div class="a"><p>The two principals, with a named principal on every account. Software monitors and drafts; the principal decides what ships.</p></div>
-        </details>
-        <details>
-          <summary>What happens to our data?</summary>
-          <div class="a"><p>Your ad accounts stay yours &mdash; we work inside them with access you grant and can revoke whenever you want. We keep the records our work produces (audits, reports, the log of approved changes) so you have a history, and we hold the access you grant until you revoke it. We don’t sell data, move it between clients, or feed it into model training; our software sends account data to the AI models it calls only to do your work. Details are in the <a href="/privacy.html">privacy policy</a> and on the <a href="/trust/">trust page</a>.</p></div>
-        </details>
-      </div>
+      <p class="lede">Cost, control, and what happens to your data.</p>
+    </header>
+  <div class="faq">
+      <details>
+        <summary>Is software changing my account on its own?</summary>
+        <div class="a"><p>No. Our software watches the account and drafts proposals; a named person approves each one before it reaches your account, and that approval is kept on a record you can read. The one exception is the circuit breaker you authorize in advance, and all it can do is pause spend. Nothing ships without a name attached.</p></div>
+      </details>
+      <details>
+        <summary>What does it cost?</summary>
+        <div class="a"><p>The audit is free, and the write-up is yours whether or not we go further. If we do, the monthly fee is a flat number set by the ad budget you approve, never a percentage of it, from <span class="fig">$900</span>&nbsp;a&nbsp;month at the smallest band. The bands, the one-time setup, and the three things we never charge are published in full on the <a href="/pricing/">fee schedule</a>, and the proposal repeats them for your account before you owe anything.</p></div>
+      </details>
+      <details>
+        <summary>We already have an agency.</summary>
+        <div class="a"><p>Keep them. The audit doesn’t ask you to fire anyone &mdash; run it, read it, and decide with numbers instead of a pitch.</p></div>
+      </details>
+      <details>
+        <summary>What industries do you take?</summary>
+        <div class="a"><p>We take work where the outcome can be measured and a named person can stand behind every change. Much of Jack’s work has been in automotive.</p></div>
+      </details>
+      <details>
+        <summary>Who actually does the work?</summary>
+        <div class="a"><p>The two principals, with a named principal on every account. Software monitors and drafts; the principal decides what ships.</p></div>
+      </details>
+      <details>
+        <summary>What happens to our data?</summary>
+        <div class="a"><p>Your ad accounts stay yours &mdash; we work inside them with access you grant and can revoke whenever you want. We keep the records our work produces (audits, reports, the log of approved changes) so you have a history, and we hold the access you grant until you revoke it. We don’t sell data, move it between clients, or feed it into model training; our software sends account data to the AI models it calls only to do your work. Details are in the <a href="/privacy.html">privacy policy</a> and on the <a href="/trust/">trust page</a>.</p></div>
+      </details>
     </div>
   </div>
 </section>
