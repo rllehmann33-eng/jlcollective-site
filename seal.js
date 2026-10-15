@@ -78,6 +78,9 @@ function guillocheNormalMap(size = 512) {
     const dx = (h(x + 1, y) - h(x - 1, y)) * k, dy = (h(x, y + 1) - h(x, y - 1)) * k, inv = 1 / Math.hypot(dx, dy, 1), i = (y * size + x) * 4;
     out[i] = (-dx * inv * 0.5 + 0.5) * 255; out[i + 1] = (dy * inv * 0.5 + 0.5) * 255; out[i + 2] = (inv * 0.5 + 0.5) * 255; out[i + 3] = 255;
   }
+  /* the rosette's centre is a singularity: flatten it so no bright pixel sits at the enamel's heart */
+  const rc = size * 0.035, c0 = size / 2;
+  for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) { if (Math.hypot(x - c0, y - c0) < rc) { const i = (y * size + x) * 4; out[i] = 128; out[i + 1] = 128; out[i + 2] = 255; } }
   const tex = new THREE.DataTexture(out, size, size, THREE.RGBAFormat);
   tex.needsUpdate = true; tex.anisotropy = 8; tex.minFilter = THREE.LinearMipmapLinearFilter; tex.magFilter = THREE.LinearFilter; tex.generateMipmaps = true;
   return tex;
@@ -138,8 +141,8 @@ const lerp = (a, b, t) => a + (b - a) * t;
   const pmrem = new THREE.PMREMGenerator(renderer);
   const buildEnv = () => { scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture; };
   buildEnv();
-  scene.environmentIntensity = 0.6;
-  scene.environmentRotation.set(0, Math.PI * 0.35, 0);
+  scene.environmentIntensity = 0.9;
+  scene.environmentRotation.set(0, Math.PI * 1.75, 0);
 
   const matBrass = new THREE.MeshPhysicalMaterial({ color: 0xC9A768, metalness: 1, roughness: 1, roughnessMap: brushedRoughness(256, 0.26, 0.10), anisotropy: 0.7, anisotropyRotation: Math.PI / 2, clearcoat: 0.12, clearcoatRoughness: 0.4 });
   const matCream = new THREE.MeshPhysicalMaterial({ color: 0xEDE7DA, metalness: 0.95, roughness: 1, roughnessMap: brushedRoughness(256, 0.22, 0.08), anisotropy: 0.4, clearcoat: 0.08, clearcoatRoughness: 0.35 });
@@ -151,7 +154,7 @@ const lerp = (a, b, t) => a + (b - a) * t;
   metal.add(new THREE.Mesh(ex(ringShape(), 0.09, 0.024), matCream));
   metal.add(new THREE.Mesh(ex(shapeFromPath(J_PATH), 0.085, 0.01, 3), matBrass));
   metal.add(new THREE.Mesh(ex(shapeFromPath(L_PATH), 0.085, 0.01, 3), matCream));
-  tickShapes().forEach(s => metal.add(new THREE.Mesh(ex(s, 0.07, 0.009, 3), matBrass)));
+  tickShapes().forEach(s => metal.add(new THREE.Mesh(ex(s, 0.12, 0.009, 3), matBrass)));
   metal.children.forEach(m => { m.castShadow = true; });
   const face = new THREE.Mesh(new THREE.CylinderGeometry(RING_R - RING_W / 2 + 0.004, RING_R - RING_W / 2 + 0.004, 0.03, 160), matEnamel);
   face.rotation.x = Math.PI / 2; face.position.z = -0.011; face.receiveShadow = true;
@@ -187,9 +190,10 @@ const lerp = (a, b, t) => a + (b - a) * t;
   function measure() {
     const hr = box.getBoundingClientRect(), ir = imp.getBoundingClientRect();
     const impDocCenter = ir.top + scrollY + ir.height / 2;
-    const s1 = Math.max(innerHeight * 0.25, impDocCenter - innerHeight * 0.38);   /* lands as the impression reaches the upper third; never a jump */
+    const heroDocCenter = hr.top + scrollY + hr.height / 2;
+    const s1 = Math.max(innerHeight * 0.25, impDocCenter - heroDocCenter);   /* the journey is the distance between the two marks; never a jump */
     J.p = clamp01(scrollY / s1);
-    const e = smooth(J.p);
+    const e = smooth(Math.min(1, J.p / 0.76));   /* at its mark by 0.76, then it presses in place */
     J.cx = lerp(hr.left + hr.width / 2, ir.left + ir.width / 2, e);
     J.cy = lerp(hr.top + hr.height / 2, ir.top + ir.height / 2, e);
     J.diam = lerp(hr.width, ir.width, e) * (93 / 120);
@@ -220,34 +224,34 @@ const lerp = (a, b, t) => a + (b - a) * t;
       }
       const p = J.p, e = J.e;
       /* descent: the seal leans back as it leaves the cover and settles flat as it lands */
-      seal.rotation.x = 0.10 * (1 - e) - 0.30 * Math.sin(Math.PI * e);
+      seal.rotation.x = 0.10 * (1 - e) - 0.12 * Math.sin(Math.PI * e);
       seal.rotation.y = -0.16 * (1 - e);
       /* the press into the paper over the last stretch, then the hand-off to the impression */
-      const q = clamp01((p - 0.84) / 0.12);
+      const q = clamp01((p - 0.76) / 0.16);
       const sink = Math.max(q, press.v);
       metal.position.z = -DEPTH * sink;
-      rig.position.z = -0.35 * q;
+      rig.position.z = -0.10 * q;
       const scale = J.diam / (OUTER * 2 * pxPerUnit());
       rig.scale.setScalar(scale);
       key.intensity = 10 * scale * scale * (1 + 0.22 * sink);
-      const shade = clamp01((p - 0.78) / 0.14);
-      const land = clamp01((p - 0.86) / 0.10);
-      const gone = clamp01((p - 0.94) / 0.06);
-      imp.style.setProperty('--press', shade.toFixed(3));
+      const shade = clamp01((p - 0.70) / 0.14);
+      const land = clamp01((p - 0.84) / 0.10);
+      const gone = clamp01((p - 0.92) / 0.08);
+      imp.style.setProperty('--press', (shade * (1 - gone)).toFixed(3));
       imp.style.setProperty('--imp', land.toFixed(3));
       canvas.style.transform = 'translate3d(' + Math.round(J.cx - WIN / 2) + 'px,' + Math.round(J.cy - WIN / 2) + 'px,0)';
       canvas.style.opacity = (1 - gone).toFixed(3);
       if (gone < 1 || J.lastP !== p) renderer.render(scene, camera);
       J.lastP = p;
       if (lost) return;
-      if (!painted) { painted = true; root.classList.add('gl'); setTimeout(() => { if (!lost) root.classList.add('gl-seal'); }, 60); }
+      if (!painted) { painted = true; root.classList.add('gl', 'stamp'); setTimeout(() => { if (!lost) root.classList.add('gl-seal'); }, 60); setTimeout(() => { if (!lost) root.classList.add('gl-live'); }, 500); }
       if (busy) raf = requestAnimationFrame(frame);
     } catch (e) { shutdown(); }
   }
   function shutdown() {
     lost = true;
     if (raf) cancelAnimationFrame(raf); raf = 0;
-    root.classList.remove('gl', 'gl-seal', 'stamp');
+    root.classList.remove('gl', 'gl-seal', 'gl-live', 'stamp');
     canvas.remove();
     imp.style.removeProperty('--imp'); imp.style.removeProperty('--press');
     box.removeAttribute('tabindex');

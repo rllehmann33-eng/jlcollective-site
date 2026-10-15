@@ -26,7 +26,7 @@
   --body-on-navy:#C6C0B3;
   --mute-on-navy:#8E99AD;
   --rule-on-navy:rgba(200,169,106,.22);
-  --rule-on-navy-hi:rgba(200,169,106,.5);
+  --rule-on-navy-hi:rgba(200,169,106,.56);
 
   /* brass: #C8A96A lives on navy only; #7A5A24 is the label colour on paper */
   --brass:#C8A96A;
@@ -44,7 +44,7 @@
   --fs-h1:clamp(30px,.95vw + 26.3px,40px);      --lh-h1:1.1;         --ls-h1:-.015em;       --m-h1:24ch;
   --fs-h2:clamp(26px,.57vw + 23.8px,32px);      --lh-h2:1.125;       --ls-h2:-.01em;        --m-h2:28ch;
   --fs-h3:clamp(20px,.19vw + 19.3px,22px);      --lh-h3:1.27;        --ls-h3:-.005em;       --m-h3:36ch;
-  --fs-body:clamp(16px,.095vw + 15.6px,17px);   --lh-body:1.53;      --m-body:64ch;
+  --fs-body:clamp(16px,.095vw + 15.6px,17px);   --lh-body:1.53;      --m-body:50ch;
   --fs-small:14px;                              --lh-small:1.43;     --m-small:68ch;
   --fs-label:11px;                              --lh-label:1.45;     --ls-label:.12em;
   --fs-fee:clamp(22px,.57vw + 19.8px,28px);
@@ -173,19 +173,21 @@ html.gl-seal .hero-seal > svg{ opacity:0 }
 /* the seal's canvas: a small fixed window that rides the object from the cover down onto the paper */
 .seal-gl{ position:fixed; left:0; top:0; pointer-events:none; z-index:10; opacity:0; will-change:transform }
 html.gl .seal-gl{ transition:opacity 400ms var(--ease) }
+html.gl-live .seal-gl{ transition:none }
 
 /* where the seal lands: an embossed impression in the paper, with the one caption beneath it */
 .impression-strip{ padding:var(--s3) 0 0 }
 .impression-strip .wrap{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:var(--gap); align-items:center }
-.impression-cap{ grid-column:1 / span 7; font-size:var(--fs-small); line-height:var(--lh-small); color:var(--ink-3); max-width:46ch }
-.impression{ grid-column:8 / span 5; justify-self:center; position:relative; width:128px; height:128px }
-.impression::before{ content:""; position:absolute; inset:-16%; border-radius:50%; background:radial-gradient(closest-side, rgba(14,24,40,.16), rgba(14,24,40,0) 72%) }
+.impression-cap{ grid-column:8 / span 5; grid-row:2; justify-self:center; text-align:center; max-width:34ch; font-size:var(--fs-small); line-height:var(--lh-small); color:var(--ink-3) }
+.impression{ grid-column:8 / span 5; grid-row:1; justify-self:center; position:relative; width:128px; height:128px }
+.impression::before{ content:""; opacity:0; position:absolute; inset:-16%; border-radius:50%; background:radial-gradient(closest-side, rgba(14,24,40,.16), rgba(14,24,40,0) 72%) }
 .impression svg{ position:relative; width:100%; height:100% }
 html.stamp .impression svg{ opacity:var(--imp,0) }
 html.stamp .impression::before{ opacity:var(--press,0) }
 @media (max-width:959px){
   .impression-strip .wrap{ display:flex; flex-direction:column-reverse; align-items:flex-start; gap:var(--s2) }
   .impression{ width:104px; height:104px }
+  .impression-cap{ text-align:left; max-width:46ch }
 }
 
 /* ---------- paper sections ---------- */
@@ -232,7 +234,7 @@ section h2{ margin-bottom:var(--s3) }
 .rows a:hover{ border-bottom-color:var(--ink) }
 
 /* the specimen: one sentence from our own account */
-.specimen{ border-top:1px solid var(--ink); border-bottom:1px solid var(--rule); padding:var(--s3) 0; margin-bottom:var(--s4) }
+.specimen{ border-top:1px solid var(--ink); padding:var(--s3) 0 0; margin-bottom:var(--s5) }
 .specimen .label{ margin-bottom:var(--s1) }
 .specimen .row{ font-family:var(--mono); font-weight:500; font-size:13px; line-height:1.6; color:var(--ink); letter-spacing:0; overflow-wrap:anywhere }
 .specimen .row i{ font-style:normal; color:var(--ink-3) }
@@ -277,6 +279,7 @@ section h2{ margin-bottom:var(--s3) }
 .faq .a a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--rule) }
 .faq .a a:hover{ border-bottom-color:var(--ink) }
 .fig{ font-variant-numeric:lining-nums tabular-nums; white-space:nowrap }
+.nb{ white-space:nowrap }
 
 /* ---------- the close, on navy ---------- */
 section.block.deep{ background:var(--navy); color:var(--cream); padding:var(--section) 0 }
@@ -294,14 +297,17 @@ section.block.deep{ background:var(--navy); color:var(--cream); padding:var(--se
 .entry-form label{ display:block }
 .entry-form .lab{ display:block; font-family:var(--sans); font-weight:500; font-size:var(--fs-label); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--mute-on-navy); margin-bottom:4px }
 .entry-form input{ width:100%; background:transparent; border:0; border-bottom:1px solid var(--rule-on-navy-hi); color:var(--cream); font:inherit; padding:8px 0; border-radius:0; transition:border-color var(--t-button) var(--ease) }
-.entry-form input:focus{ outline:none; border-bottom-color:var(--brass) }
+.entry-form input:focus{ border-bottom-color:transparent }
 .entry-form button{ width:100%; margin-top:var(--s3) }
 .ef-note,.pnote,.pactions{ margin-top:12px; font-size:var(--fs-small); line-height:var(--lh-small); color:var(--mute-on-navy) }
 .posting{ display:none; margin-top:var(--s3) }
 .posting.show{ display:block }
-.posting .pline{ display:flex; flex-wrap:wrap; gap:8px 16px; font-family:var(--sans); font-weight:500; font-size:13px; color:var(--body-on-navy); padding-bottom:12px; border-bottom:1px solid var(--rule-on-navy-hi) }
-.posting .pstate{ color:var(--brass) }
+.posting > :first-child{ margin-top:0 }
+.posting:focus{ outline:none }
+.ef-copy{ display:block; width:100%; margin-top:12px; padding:12px; background:transparent; border:1px solid var(--rule-on-navy); border-radius:var(--r); color:var(--body-on-navy); font:400 var(--fs-small)/var(--lh-small) var(--sans); white-space:pre-wrap; resize:none }
 .pactions a{ color:var(--brass); text-decoration:none; border-bottom:1px solid var(--rule-on-navy-hi) }
+.ef-err{ margin-top:-8px; font-size:var(--fs-small); line-height:var(--lh-small); color:var(--cream) }
+.entry-form input[aria-invalid="true"]{ border-bottom-color:var(--brass-bright) }
 
 /* ---------- footer: four columns ---------- */
 footer.site{ background:var(--navy-deep); color:var(--cream); border-top:1px solid var(--rule-on-navy); position:relative; z-index:1 }
@@ -333,9 +339,8 @@ footer .mark .name{ color:var(--cream) }
 @media (min-width:960px){ .cover .aside{ justify-self:end } }
 .cover .aside b{ display:block; color:var(--cream); font-weight:500; margin-bottom:4px }
 .cover .aside a{ color:var(--brass); text-decoration:none; border-bottom:1px solid var(--rule-on-navy-hi) }
-.status{ display:inline-flex; align-items:center; gap:10px; font-family:var(--sans); font-weight:500; font-size:var(--fs-label); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--ink-3) }
-.status::before{ content:""; width:7px; height:7px; border-radius:50%; background:#1D7A54 }
-.cover .status{ color:var(--mute-on-navy) }
+.status{ display:block; font-family:var(--sans); font-weight:500; font-size:var(--fs-label); line-height:var(--lh-label); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--ink-3) }
+.cover .status{ color:var(--brass) }
 .parts{ display:grid; gap:var(--s2) }
 @media (min-width:880px){ .parts{ grid-template-columns:repeat(3,minmax(0,1fr)) } }
 .piece{ padding:var(--s3); border:1px solid var(--rule); border-radius:var(--r); background:var(--paper-2); display:flex; flex-direction:column; gap:8px }
@@ -348,7 +353,6 @@ footer .mark .name{ color:var(--cream) }
 .rule-list b{ font-family:var(--serif); font-weight:var(--w-serif); font-size:var(--fs-h3); line-height:var(--lh-h3); color:var(--ink) }
 .rule-list span{ color:var(--ink-2) }
 .doc,.legal{ padding:var(--section) 0 }
-.doc .wrap,.legal .wrap{ max-width:800px }
 .doc h1,.legal h1{ font-size:var(--fs-h1); line-height:var(--lh-h1); letter-spacing:var(--ls-h1); margin-bottom:var(--s1) }
 .doc .updated,.doc .meta,.legal .updated{ display:block; margin-bottom:var(--s4) }
 .doc h2,.legal h2{ font-size:var(--fs-h3); line-height:var(--lh-h3); margin:var(--s4) 0 var(--s1); max-width:none }
@@ -377,19 +381,22 @@ footer .mark .name{ color:var(--cream) }
   nav.site-nav a.active{ border-bottom-color:var(--brass-ink) }
   nav.site-nav a.cta{ margin:12px 0 0; text-align:center; justify-content:center; display:flex; border-color:var(--ink) }
   header.site:not(.on-paper) nav.site-nav a{ color:var(--ink) }
+  .cta-row .btn{ flex:1 1 200px }
+  .cover .aside{ max-width:52ch }
   html:not(.js) nav.site-nav{ display:flex; position:static; flex-direction:row; flex-wrap:wrap; gap:4px 14px; padding:0; background:transparent; color:inherit; border:0; margin-left:auto }
   html:not(.js) nav.site-nav a{ font-size:13px; padding:4px 0; border:0 }
   html:not(.js) nav.site-nav a.cta{ display:none }
-  .hero .cta-row .btn{ flex:1 1 200px }
 }
 @media (pointer:coarse){
-  nav.site-nav a,.btn,.faq summary,.foot-col a{ min-height:44px; display:inline-flex; align-items:center }
+  nav.site-nav a,.foot-col a{ min-height:44px; display:inline-flex; align-items:center }
   .menu-btn{ min-height:44px; min-width:44px }
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{ transition:none !important; animation:none !important }
 }
 @media print{
-  header.site,.seal-gl,.menu-btn,.skip,.entry-form,.impression-strip{ display:none }
-  body,.paper{ background:#fff; color:#000 }
+  :root{ --cream:var(--ink); --body-on-navy:var(--ink-2); --mute-on-navy:var(--ink-3); --brass:var(--brass-ink); --rule-on-navy:var(--rule); --rule-on-navy-hi:var(--rule) }
+  header.site,.seal-gl,.menu-btn,.skip,.entry-form,.posting,.impression-strip,.hero-figure,.cta-row{ display:none !important }
+  html,body,.paper,.cover,section.block.deep,footer.site{ background:#fff }
+  body,.paper{ color:#000 }
 }
