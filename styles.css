@@ -71,7 +71,6 @@
   --header-h:68px;
   --r:8px;
   --r-card:14px;
-  --overlap:clamp(150px,20vw,280px);
 
   /* depth: soft, low, warm */
   --shadow-1:0 1px 2px rgba(14,24,40,.04), 0 6px 18px -10px rgba(14,24,40,.14);
@@ -125,7 +124,7 @@ strong,b{ font-weight:500 }
 /* ---------- header: cream, a brass rule on top, frosted once the page moves ---------- */
 .topline{ height:3px; background:var(--brass) }
 header.site{ position:sticky; top:0; z-index:20; height:var(--header-h); background:var(--paper); color:var(--ink); border-bottom:1px solid var(--rule); transition:background var(--t2) var(--ease), box-shadow var(--t2) var(--ease), border-color var(--t2) var(--ease) }
-header.site.scrolled{ background:rgba(246,242,234,.86); -webkit-backdrop-filter:saturate(1.4) blur(14px); backdrop-filter:saturate(1.4) blur(14px); border-bottom-color:rgba(216,208,192,.7); box-shadow:0 12px 32px -22px rgba(14,24,40,.4) }
+header.site.scrolled{ background:rgba(246,242,234,.95); -webkit-backdrop-filter:saturate(1.4) blur(14px); backdrop-filter:saturate(1.4) blur(14px); border-bottom-color:rgba(216,208,192,.7); box-shadow:0 12px 32px -22px rgba(14,24,40,.4) }
 .head-inner{ display:flex; align-items:center; gap:28px; height:100% }
 .mark{ display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit }
 .mark .mono{ display:flex; width:32px; height:32px; flex:none }
@@ -276,18 +275,22 @@ html:not(.js) .demo-actions,html:not(.js) .demo-record,html:not(.js) .demo-label
 .screen img{ height:auto; border:1px solid var(--line); border-radius:12px; background:var(--paper-2); box-shadow:var(--shadow-2) }
 .screen figcaption{ margin-top:14px; font-size:var(--fs-small); line-height:1.5; color:var(--ink-3); max-width:68ch }
 .screen figcaption b{ color:var(--ink); font-weight:500 }
-.showcase{ padding-top:var(--section) }
-.showcase .screen{ position:relative; z-index:2; margin-bottom:calc(-1 * var(--overlap)) }
-.showcase .screen img{ border-color:rgba(14,24,40,.14); box-shadow:0 36px 72px -32px rgba(10,18,32,.6) }
-.showcase figcaption{ color:var(--body-on-navy) }
-.showcase figcaption b{ color:var(--cream) }
-.showcase + .band{ padding-top:calc(var(--overlap) + var(--s6)) }
+.showcase{ padding:var(--section) 0 }
+/* real screens on navy: cream software reads cleanly against a dark field */
+.band .screen img{ border-color:rgba(246,242,234,.16); box-shadow:0 40px 80px -36px rgba(0,0,0,.6) }
+.band .screen figcaption{ color:var(--body-on-navy) }
+.band .screen figcaption b{ color:var(--cream) }
 
 /* three screens behind tabs */
 .viewer-tabs{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:var(--s4) }
 .viewer-tabs button{ font-size:15px; font-weight:500; color:var(--ink-2); background:var(--card); border:1px solid var(--line); border-radius:999px; padding:10px 20px; min-height:44px; cursor:pointer; transition:background var(--t) var(--ease), color var(--t) var(--ease), border-color var(--t) var(--ease) }
 .viewer-tabs button:hover{ border-color:var(--ink-3); color:var(--ink) }
 .viewer-tabs button[aria-selected="true"]{ background:var(--navy); border-color:var(--navy); color:var(--cream) }
+.band .viewer-tabs button{ background:transparent; border-color:rgba(246,242,234,.28); color:var(--body-on-navy) }
+.band .viewer-tabs button:hover{ border-color:var(--cream); color:var(--cream) }
+.band .viewer-tabs button[aria-selected="true"]{ background:var(--brass); border-color:var(--brass); color:var(--navy-deep) }
+.band .viewer-text h3{ color:var(--cream) }
+.band .viewer-text p{ color:var(--body-on-navy) }
 .viewer-panel{ display:grid; gap:var(--s4); align-items:start }
 .viewer-panel + .viewer-panel{ margin-top:var(--s6) }
 .js .viewer-panel + .viewer-panel{ margin-top:0 }
@@ -299,18 +302,17 @@ html:not(.js) .demo-actions,html:not(.js) .demo-record,html:not(.js) .demo-label
 .viewer-text p{ color:var(--ink-2); margin-bottom:12px }
 @keyframes panel-in{ from{ opacity:0; transform:translateY(6px) } to{ opacity:1; transform:none } }
 
-/* ---------- the two practices, on navy ---------- */
+/* ---------- the two practices ---------- */
 .band{ background:var(--navy); color:var(--cream) }
-.doors{ padding-top:var(--section); padding-bottom:var(--section) }
 .doors-grid{ display:grid; gap:var(--gap) }
 @media (min-width:880px){ .doors-grid{ grid-template-columns:1fr 1fr } }
-.door{ display:flex; flex-direction:column; gap:14px; padding:34px 34px 30px; border-radius:var(--r-card); border:1px solid rgba(200,169,106,.26); background:rgba(255,255,255,.035); color:inherit; text-decoration:none; transition:transform var(--t2) var(--ease), border-color var(--t2) var(--ease), background var(--t2) var(--ease) }
-.door:hover{ transform:translateY(-3px); border-color:rgba(200,169,106,.7); background:rgba(255,255,255,.06) }
-.door .k{ font-family:var(--sans); font-weight:500; font-size:var(--fs-label); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--brass) }
-.door h3{ font-size:clamp(26px,2.6vw,34px); line-height:1.12; color:var(--cream) }
-.door p{ color:var(--body-on-navy); max-width:46ch; flex:1 }
-.door .more{ display:inline-flex; align-items:center; gap:10px; font-weight:500; color:var(--cream); align-self:flex-start; margin-top:6px }
-.door .more::after{ content:""; width:7px; height:7px; border-top:1.6px solid var(--brass); border-right:1.6px solid var(--brass); transform:rotate(45deg); transition:transform var(--t) var(--ease) }
+.door{ display:flex; flex-direction:column; gap:14px; padding:34px 34px 30px; border-radius:var(--r-card); border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow-1); color:var(--ink); text-decoration:none; transition:transform var(--t2) var(--ease), box-shadow var(--t2) var(--ease), border-color var(--t2) var(--ease) }
+.door:hover{ transform:translateY(-3px); box-shadow:var(--shadow-2); border-color:rgba(14,24,40,.2) }
+.door .k{ font-family:var(--sans); font-weight:500; font-size:var(--fs-label); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--brass-ink) }
+.door h3{ font-size:clamp(26px,2.6vw,34px); line-height:1.12; color:var(--ink) }
+.door p{ color:var(--ink-2); max-width:46ch; flex:1 }
+.door .more{ display:inline-flex; align-items:center; gap:10px; font-weight:500; color:var(--ink); align-self:flex-start; margin-top:6px }
+.door .more::after{ content:""; width:7px; height:7px; border-top:1.6px solid var(--brass-ink); border-right:1.6px solid var(--brass-ink); transform:rotate(45deg); transition:transform var(--t) var(--ease) }
 .door:hover .more::after{ transform:translateX(4px) rotate(45deg) }
 
 /* steps: three cards, joined */
@@ -493,6 +495,6 @@ footer .seal-small .seal-j{ fill:var(--brass) }
   .screen img,.card,.rows li,.rule-list li,.steps li,.person,.faq details,.demo-card,.demo-record,.table-card,.piece{ box-shadow:none }
   .viewer-panel[hidden]{ display:grid !important }
   .steps .s-num,.mini-btns span.on,.faq details[open] summary::after,.person .avatar,.mini-switch i{ background:#fff !important; color:var(--ink) !important; box-shadow:inset 0 0 0 1px var(--ink) }
-  .showcase .screen img{ box-shadow:none }
+  .band .screen img{ box-shadow:none }
   body{ color:#000 }
 }
