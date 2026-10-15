@@ -1,9 +1,9 @@
 <!--meta
 out: index.html
 title: JL Collective · Paid media with a name on every change
-description: JL Collective runs paid media. Every change waits for a named person's approval, every approval is kept on a record you can read, and the fee is flat, never a percentage. Free audit first.
+description: JL Collective runs paid media, Meta first. Nothing reaches the account until a named person approves it, and that approval stays in a record you can read. Flat fees, published. Free audit first.
 url: https://thejlcollective.com/
-ogalt: JL Collective. Paid media management. A name on every change. A record of every approval.
+ogalt: JL Collective. Paid media management. A name on every change.
 revised: 14 October 2026
 -->
 <!doctype html>
@@ -12,334 +12,188 @@ revised: 14 October 2026
 {{HEAD}}
 </head>
 <body>
-
-<canvas class="scene-gl" id="sceneGL" aria-hidden="true"></canvas>
 {{HEADER}}
 
 <main id="main" tabindex="-1">
 <section class="hero" id="top">
-  <div class="wrap">
+  <div class="wrap grid">
     <div class="copy">
       <div class="kicker">Paid media management</div>
-      <h1><span class="ln">A name on every change.</span> <span class="ln ln-2">A record of every approval.</span></h1>
-      <p class="stand">We plan, launch, and run your paid media. Every change is paused until a named person approves it &mdash; one of ours, or one of yours &mdash; and every approval is written to a record you can read and no one can edit, not even us. Your budget is capped in writing, with a circuit breaker behind it that can only ever pause spend. The fee is one flat monthly number, set by the ad budget you approve. Never a percentage.</p>
+      <h1>A name on<br>every change.</h1>
+      <p class="stand">Paid media, Meta first. Nothing reaches the account until a named person approves it. That approval stays in a record you can read.</p>
       <div class="cta-row">
-        <a class="btn primary" href="#contact">Get the free audit</a>
-        <a class="btn ghost" href="#start">How an engagement starts</a>
-      </div>
-      <div class="cred-row">
-        <span>The audit &mdash; free</span>
-        <span>The proposal &mdash; on paper</span>
-        <span>The engagement &mdash; a name on every change</span>
+        <a class="btn primary" href="#contact">Request the audit</a>
+        <a class="btn ghost" href="/pricing/">Read the fees</a>
       </div>
     </div>
-    <div class="hero-seal" id="heroSeal" aria-hidden="true">{{SEAL}}</div>
+    <div class="hero-figure">
+      <div class="hero-seal" id="heroSeal" role="img" aria-label="The JL Collective seal">{{SEAL}}<canvas class="hero-gl" id="heroGL" aria-hidden="true"></canvas></div>
+      <p class="press-note" id="pressNote">A named person approves it. The approval is written to the record.</p>
+    </div>
   </div>
 </section>
 
 <div class="paper">
-<section class="block" id="rules">
-  <div class="wrap sec">
-    <div class="sec-label reveal">
-      <span class="num">01</span>
-      <h2>The rules</h2>
-    </div>
-    <div class="sec-body reveal d1">
-      <h3>Every change waits for a name.</h3>
-      <div class="split">
-        <div class="prose">
-          <p>We run paid media on one rule: nothing reaches your ad account until a named person has approved it. A budget change, an ad paused or revived, a new campaign, a fresh piece of creative &mdash; each one is drafted with its reason attached and held, paused, until one of our principals or one of your people signs off on it by name.</p>
-          <p>Every approval is written to a record you can read at any time. Nothing in it can be edited or removed afterward, by you or by us. If you ever ask who changed what, and why, and when, the answer is already there.</p>
-          <p>Behind the approvals sits a budget cap you set in writing, and behind the cap a circuit breaker you authorize in advance, by name. It can do exactly one thing: pause spend. It can't raise a budget, launch anything, or move money. Our software watches the account and drafts the paperwork; it has no other way to touch your account. The calls are made by people.</p>
-        </div>
-        <div class="card reveal d2" role="img" aria-label="How a change ships: a proposed change pauses, held with its reason attached until a person signs off; a named person approves it by name or it never runs; the record appends, write-once, with no edit path even for us.">
-          <div class="card-title">How a change ships</div>
-          <ol class="flow">
-            <li><span class="k">A proposed change</span><strong>Pauses</strong><em>Held, with its reason attached, until a person signs off</em></li>
-            <li><span class="k">A named person</span><strong>Approves</strong><em>By name &mdash; or it never runs</em></li>
-            <li><span class="k">The record</span><strong>Appends</strong><em>Write-once. No edit path, even for us.</em></li>
-          </ol>
-        </div>
-      </div>
+<section class="block" id="rule">
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">01</span><span class="label">The rule</span></div>
+    <h2>Every change waits for a name.</h2>
+    <div class="prose">
+      <p>We run paid media on one rule: nothing reaches your ad account until a named person has approved it. A budget change, an ad paused or revived, a new campaign, a fresh piece of creative &mdash; each one is drafted with its reason attached and held, paused, until one of our principals or one of your people signs off on it by name.</p>
+      <p>Every approval is written to a record you can read at any time. Nothing in it can be edited or removed afterward, by you or by us. If you ever ask who changed what, and why, and when, the answer is already there.</p>
+      <p>Behind the approvals sits a budget cap you set in writing, and behind the cap a circuit breaker you authorize in advance, by name. It can do exactly one thing: pause spend. It can't raise a budget, launch anything, or move money. Our software watches the account and drafts the paperwork; it has no other way to touch your account. The calls are made by people.</p>
     </div>
   </div>
 </section>
 
-<div id="services" aria-hidden="true"></div>
-<section class="block" id="paid-media">
-  <div class="wrap sec">
-    <div class="sec-label reveal">
-      <span class="num">02</span>
-      <h2>What we do</h2>
+<section class="block" id="record">
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">02</span><span class="label">The record</span></div>
+    <h2>One row for every decision.</h2>
+    <div class="specimen">
+      <div class="label brass-label">Our own account. The only three things a decision can be.</div>
+      <div class="states"><span>approved</span><span>rejected</span><span>withdrawn</span></div>
     </div>
-    <div class="sec-body reveal d1">
-      <h3>Paid media, creative, and the systems underneath.</h3>
-      <div class="rows">
-        <div class="row reveal">
-          <span class="vi" aria-hidden="true">02.1</span>
-          <h4>Paid media</h4>
-          <p>Planning, launch, and week-to-week management of your campaigns &mdash; Meta and beyond. Every change is paused until a named person approves it, every approval goes on a record you can read, and a written budget cap with a pause-only circuit breaker stands behind the spend. One of us answers for the account by name.</p>
-        </div>
-        <div class="row reveal">
-          <span class="vi" aria-hidden="true">02.2</span>
-          <h4>Creative</h4>
-          <p>Every ad, offer, and headline is built to be tested. We track what is working and draft the move to scale it; a named person approves before anything in your account changes.</p>
-        </div>
-        <div class="row reveal">
-          <span class="vi" aria-hidden="true">02.3</span>
-          <h4>Software</h4>
-          <div>
-            <p>The approval gate, the record, the circuit breaker, and the numbers page are ours, built in-house and run in-house. If the system your business needs doesn't exist, we build it &mdash; scoped and priced per project, and we'll tell you upfront if it isn't worth building.</p>
-            <a class="more" href="#software">See what's built</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ul class="rows">
+      <li><b>The approval gate</b><span>A proposed change is held, with its reason, until a named person approves it.</span></li>
+      <li><b>The record</b><span>Every decision is written once, with a name on it, and is never edited.</span></li>
+      <li><b>The breaker</b><span>A spend cap you authorize in advance. When it trips, it can only pause.</span></li>
+      <li><b>The numbers link</b><span>The month's figures on one page, opened from a link, no account required.</span></li>
+      <li><b>On the House</b><span>Guest and review intelligence for independent restaurant groups, built and run here. <a href="/on-the-house/">About On the House</a></span></li>
+    </ul>
+    <p class="note">Custom systems are scoped and priced per project. Write to <a href="mailto:luke@thejlcollective.com?subject=Software">luke@thejlcollective.com</a>.</p>
   </div>
 </section>
 
 <section class="block" id="start">
-  <div class="wrap sec">
-    <div class="sec-label reveal">
-      <span class="num">03</span>
-      <h2>How it works</h2>
-    </div>
-    <div class="sec-body reveal d1">
-      <h3>A free audit, then a priced engagement.</h3>
-      <div class="steps">
-        <div class="step reveal">
-          <span class="s-num">1</span>
-          <h4>The audit <span>&mdash; free</span></h4>
-          <p>Email us and grant read access. We'll write up what your spend is actually doing and what we'd test first. The write-up is yours to keep either way.</p>
-        </div>
-        <div class="step reveal d1">
-          <span class="s-num">2</span>
-          <h4>The proposal <span>&mdash; on paper</span></h4>
-          <p>From the audit we propose the shape &mdash; what we'd run, what needs setting up, and what it costs. The monthly fee is a flat number set by the ad budget you approve, from the published bands; the proposal says which band your account is in, why, and what the one-time setup will be. Every number is on paper before you owe anything.</p>
-        </div>
-        <div class="step reveal d2">
-          <span class="s-num">3</span>
-          <h4>The engagement <span>&mdash; a name on every change</span></h4>
-          <p>We run the account. Every change is paused until a named person &mdash; one of ours, or one of yours &mdash; approves it, every approval goes on the record you can read, and your budget cap and its pause-only circuit breaker are in force from the first day.</p>
-        </div>
-      </div>
-    </div>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">03</span><span class="label">How it works</span></div>
+    <h2>A free audit, then a priced engagement.</h2>
+    <ol class="steps">
+      <li>
+        <h3><small>1</small>The audit <span>&mdash; free</span></h3>
+        <p>Email us and grant read access. We'll write up what your spend is actually doing and what we'd test first. The write-up is yours to keep either way.</p>
+      </li>
+      <li>
+        <h3><small>2</small>The proposal <span>&mdash; on paper</span></h3>
+        <p>From the audit we propose the shape &mdash; what we'd run, what needs setting up, and what it costs. The monthly fee is a flat number set by the ad budget you approve, from the published bands; the proposal says which band your account is in, why, and what the one-time setup will be. Every number is on paper before you owe anything.</p>
+      </li>
+      <li>
+        <h3><small>3</small>The engagement <span>&mdash; a name on every change</span></h3>
+        <p>We run the account. Every change is paused until a named person &mdash; one of ours, or one of yours &mdash; approves it, every approval goes on the record you can read, and your budget cap and its pause-only circuit breaker are in force from the first day.</p>
+      </li>
+    </ol>
+    <div class="prose" style="margin-top:var(--s3)"><p>If the audit says your ads are fine, we'll say so, and that's the end of it. The write-up is yours to keep, even if you use it to run things without us.</p></div>
   </div>
 </section>
 
 <section class="block" id="pricing">
-  <div class="wrap sec">
-    <div class="sec-label reveal">
-      <span class="num">04</span>
-      <h2>Pricing</h2>
-    </div>
-    <div class="sec-body reveal d1">
-      <h3>One flat number, set by the budget you approve.</h3>
-      <div class="price-grid">
-        <div>
-          <table class="bands">
-            <caption>Monthly fee by approved ad budget</caption>
-            <thead><tr><th scope="col">Monthly ad budget you approve</th><th scope="col">Monthly fee</th></tr></thead>
-            <tbody>
-              <tr><td>$1,000 to $2,499</td><td><span class="fee">$900</span></td></tr>
-              <tr><td>$2,500 to $5,999</td><td><span class="fee">$1,250</span></td></tr>
-              <tr><td>$6,000 to $14,999</td><td><span class="fee">$1,750</span></td></tr>
-              <tr><td>$15,000 to $24,999</td><td><span class="fee">$2,500</span></td></tr>
-              <tr><td>$25,000 to $49,999</td><td><span class="fee">$4,000</span></td></tr>
-              <tr><td>$50,000 and above</td><td><span class="quote">A flat number, quoted in the proposal</span></td></tr>
-            </tbody>
-          </table>
-          <p class="incl">Every band includes the same things: a named person approving each change before it reaches your account, the record of every approval, a written budget cap with a pause-only circuit breaker, weekly and monthly reports, and ad-health monitoring. Your band only changes when you approve a budget that moves it, and the change takes effect the following month &mdash; up or down. Under about $1,000 a month in ad spend we'll usually tell you to keep it in-house.</p>
-        </div>
-        <div>
-          <ul class="setup">
-            <li><span class="what"><b>Connect</b>If your account passes the audit's checklist: the approval record, your named approvers, the budget cap.</span><span class="fee">$500</span></li>
-            <li><span class="what"><b>Build or rebuild</b>Tracking, conversion events, structure, first campaigns.</span><span class="fee">$1,500</span></li>
-            <li><span class="what"><b>Two or more accounts or locations</b>The same build, across the estate.</span><span class="fee">$2,500</span></li>
-          </ul>
-          <p class="fine">One-time, sized by what the audit finds. Nothing is due when you sign: half when you're holding the written setup plan at the end of week one, half when the first approved campaign is live. These are our list prices, and the proposal repeats them for your account before you owe anything. The monthly fee starts the month something is live, runs three months, then month to month on thirty days' notice. If you leave, you keep the account, the pixel, the creative, and the record.</p>
-          <div class="never">
-            <div class="card-title">Three things we never charge</div>
-            <ul>
-              <li>A percentage of your ad spend.</li>
-              <li>A markup on media. You pay Meta directly from your own account, and ad dollars never appear on an invoice from us.</li>
-              <li>Any fee tied to a lead, a call, a booking, or a sale.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="block" id="software">
-  <div class="wrap sec">
-    <div class="sec-label reveal">
-      <span class="num">05</span>
-      <h2>Built here</h2>
-    </div>
-    <div class="sec-body reveal d1">
-      <h3>The practice runs on software we built for it.</h3>
-      <div class="prose">
-        <p>Four pieces matter to a client, and all four exist today rather than on a roadmap. They are the reason the promises on this page can be kept the same way on the first account and the fiftieth.</p>
-      </div>
-      <div class="pieces" style="margin-top:28px">
-        <div class="piece reveal">
-          <span class="k">01 &middot; The approval gate</span>
-          <h4>Every change waits</h4>
-          <p>A proposed change is held, with its reason, until a named person approves it. There is no path around the gate, for software or for us.</p>
-        </div>
-        <div class="piece reveal d1">
-          <span class="k">02 &middot; The record</span>
-          <h4>Append-only</h4>
-          <p>Every approval, rejection, and withdrawal is written once and never edited. The database refuses the edit, whoever asks.</p>
-        </div>
-        <div class="piece reveal d2">
-          <span class="k">03 &middot; The breaker</span>
-          <h4>Pause-only</h4>
-          <p>A spend cap you authorize in advance, by name. When it trips, it pauses. It cannot raise a budget or launch anything.</p>
-        </div>
-        <div class="piece reveal d2">
-          <span class="k">04 &middot; The numbers page</span>
-          <h4>No login</h4>
-          <p>The month's figures on one page, opened from a link, no account required. They come straight from the ad platform's own reporting.</p>
-        </div>
-      </div>
-      <div class="product reveal d1">
-        {{SEAL_SMALL}}
-        <div>
-          <span class="k">Also built here</span>
-          <h4>On the House</h4>
-          <p>Guest and review intelligence for independent restaurant groups. The host gets a one-page briefing before service, a manager approves every gesture a guest ever sees, and the record of decisions can only be added to. Built and run by JL Collective, live at onthehouse.ai.</p>
-        </div>
-        <a class="btn primary" href="/on-the-house/">About On the House</a>
-      </div>
-      <p class="note">Custom systems &mdash; booking flows, internal tools, review intelligence &mdash; are scoped and priced per project. We'll tell you upfront if it isn't worth building.</p>
-    </div>
-  </div>
-</section>
-</div>
-
-<section class="band">
   <div class="wrap">
-    <div class="kicker reveal">Our promise</div>
-    <blockquote class="reveal d1">If the audit says your ads are fine, we'll say so, and that's the end of it.</blockquote>
-    <p class="attr reveal d2">The audit costs nothing and the write-up is yours to keep &mdash; even if you use it to run things without us.</p>
+    <div class="eyebrow"><span class="num">04</span><span class="label">Pricing</span></div>
+    <h2>One flat number, set by the budget you approve.</h2>
+    <div class="two">
+      <div class="prose">
+        <p>The monthly fee is a flat number set by the ad budget you approve, never a percentage of it. Your band only changes when you approve a budget that moves it, and the change takes effect the following month, up or down. Under about $1,000 a month in ad spend we'll usually tell you to keep it in-house.</p>
+        <p>Nothing is due when you sign.</p>
+        <p><a href="/pricing/">Read the full fee schedule</a>, including the one-time setup and the three things we never charge.</p>
+      </div>
+      <table class="table">
+        <thead><tr><th scope="col">Monthly ad budget you approve</th><th scope="col">Monthly fee</th></tr></thead>
+        <tbody>
+          <tr><td>$1,000 to $2,499</td><td><span class="fee">$900</span></td></tr>
+          <tr><td>$2,500 to $5,999</td><td><span class="fee">$1,250</span></td></tr>
+          <tr><td>$6,000 to $14,999</td><td><span class="fee">$1,750</span></td></tr>
+          <tr><td>$15,000 to $24,999</td><td><span class="fee">$2,500</span></td></tr>
+          <tr><td>$25,000 to $49,999</td><td><span class="fee">$4,000</span></td></tr>
+          <tr><td>$50,000 and above</td><td><span class="quote">Quoted flat</span></td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
-<div class="paper">
 <section class="block" id="people">
-  <div class="wrap sec">
-    <div class="sec-label reveal">
-      <span class="num">06</span>
-      <h2>The people</h2>
-    </div>
-    <div class="sec-body reveal d1">
-      <h3>Two principals. Every account.</h3>
-      <div class="prose"><p>Whoever else works on the account, a named principal is accountable for it and approves what ships, and you'll always know which one.</p></div>
-      <div class="people" style="margin-top:28px">
-        <div class="person reveal">
-          <span class="plate">JT</span>
-          <h4>Jack Tusa</h4>
-          <div class="role">Founding Principal &middot; Growth &amp; partnerships</div>
-          <p>Jack runs growth and partnerships: the offers, the channels, the deals that move the number. Eight years in marketing across manufacturers, franchises, and retail &mdash; much of it automotive, all of it judged on sales. If a metric doesn't connect to revenue, he doesn't track it.</p>
-        </div>
-        <div class="person reveal d1">
-          <span class="plate">LL</span>
-          <h4>Luke Lehmann</h4>
-          <div class="role">Founding Principal &middot; Systems &amp; engineering</div>
-          <p>Luke is the engineering half of the firm. He built the systems the firm runs on &mdash; the approval gate, the record, the budget caps and the pause-only circuit breaker, the reporting &mdash; and the rules they can't break: nothing spends without a named human approval, and the record of those approvals can't be edited, not even by us. He also builds the firm's other software.</p>
-        </div>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">05</span><span class="label">People</span></div>
+    <h2>Two principals. Every account.</h2>
+    <div class="prose" style="margin-bottom:var(--s4)"><p>Whoever else works on the account, a named principal is accountable for it and approves what ships, and you'll always know which one.</p></div>
+    <div class="people">
+      <div class="person">
+        <h3>Jack Tusa</h3>
+        <span class="label role">Founding Principal &middot; Growth &amp; partnerships</span>
+        <p>Jack runs growth and partnerships: the offers, the channels, the deals that move the number. Eight years in marketing across manufacturers, franchises, and retail &mdash; much of it automotive, all of it judged on sales. If a metric doesn't connect to revenue, he doesn't track it.</p>
       </div>
-      <p class="vert-note">We build alongside Kosign Media.</p>
+      <div class="person">
+        <h3>Luke Lehmann</h3>
+        <span class="label role">Founding Principal &middot; Systems &amp; engineering</span>
+        <p>Luke is the engineering half of the firm. He built the systems the firm runs on &mdash; the approval gate, the record, the budget caps and the pause-only circuit breaker, the reporting &mdash; and the rules they can't break: nothing spends without a named human approval, and the record of those approvals can't be edited, not even by us. He also builds the firm's other software.</p>
+      </div>
     </div>
+    <p class="note">We build alongside Kosign Media.</p>
   </div>
 </section>
 
 <section class="block" id="faq">
-  <div class="wrap sec">
-    <div class="sec-label reveal">
-      <span class="num">07</span>
-      <h2>FAQ</h2>
-    </div>
-    <div class="sec-body reveal d1">
-      <h3>Cost, control, and what happens to your data.</h3>
-      <div class="faq">
-        <details>
-          <summary>Is software changing my account on its own?</summary>
-          <div class="a">
-            <p>No. Our software watches the account and drafts proposals; a named person approves each one before it reaches your account, and that approval is kept on a record you can read. The one exception is the circuit breaker you authorize in advance, and all it can do is pause spend. Nothing ships without a name attached.</p>
-          </div>
-        </details>
-        <details>
-          <summary>What does it cost?</summary>
-          <div class="a">
-            <p>The audit is free, and the write-up is yours whether or not we go further. If we do, the monthly fee is a flat number set by the ad budget you approve &mdash; never a percentage of it &mdash; from <span class="fig fee">$900</span> a month at the smallest band. The bands, the one-time setup fee, and the three things we never charge are published in full under <a href="#pricing">Pricing</a>, and the proposal repeats them for your account before you owe anything.</p>
-          </div>
-        </details>
-        <details>
-          <summary>We already have an agency.</summary>
-          <div class="a">
-            <p>Keep them. The audit doesn't ask you to fire anyone &mdash; run it, read it, and decide with numbers instead of a pitch.</p>
-          </div>
-        </details>
-        <details>
-          <summary>What industries do you take?</summary>
-          <div class="a">
-            <p>Jack goes deepest in automotive. We take work where the outcome can be measured and a named person can stand behind every change.</p>
-          </div>
-        </details>
-        <details>
-          <summary>Who actually does the work?</summary>
-          <div class="a">
-            <p>The people on this page, with a named principal on every account. Software monitors and drafts; the principal decides what ships.</p>
-          </div>
-        </details>
-        <details>
-          <summary>What happens to our data?</summary>
-          <div class="a">
-            <p>Your ad accounts stay yours &mdash; we work inside them with access you grant and can revoke whenever you want. We keep the records our work produces (audits, reports, the log of approved changes) so you have a history, and we hold the access you grant until you revoke it. We don't sell data, move it between clients, or feed it into model training; our software sends account data to the AI models it calls only to do your work. Details are in the <a href="/privacy.html">privacy policy</a>.</p>
-          </div>
-        </details>
-      </div>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">06</span><span class="label">Questions</span></div>
+    <h2>Cost, control, and what happens to your data.</h2>
+    <div class="faq">
+      <details>
+        <summary>Is software changing my account on its own?</summary>
+        <div class="a"><p>No. Our software watches the account and drafts proposals; a named person approves each one before it reaches your account, and that approval is kept on a record you can read. The one exception is the circuit breaker you authorize in advance, and all it can do is pause spend. Nothing ships without a name attached.</p></div>
+      </details>
+      <details>
+        <summary>What does it cost?</summary>
+        <div class="a"><p>The audit is free, and the write-up is yours whether or not we go further. If we do, the monthly fee is a flat number set by the ad budget you approve, never a percentage of it, from <span class="fig">$900</span> a month at the smallest band. The bands, the one-time setup, and the three things we never charge are published in full on the <a href="/pricing/">fee schedule</a>, and the proposal repeats them for your account before you owe anything.</p></div>
+      </details>
+      <details>
+        <summary>We already have an agency.</summary>
+        <div class="a"><p>Keep them. The audit doesn't ask you to fire anyone &mdash; run it, read it, and decide with numbers instead of a pitch.</p></div>
+      </details>
+      <details>
+        <summary>What industries do you take?</summary>
+        <div class="a"><p>Jack goes deepest in automotive. We take work where the outcome can be measured and a named person can stand behind every change.</p></div>
+      </details>
+      <details>
+        <summary>Who actually does the work?</summary>
+        <div class="a"><p>The people on this page, with a named principal on every account. Software monitors and drafts; the principal decides what ships.</p></div>
+      </details>
+      <details>
+        <summary>What happens to our data?</summary>
+        <div class="a"><p>Your ad accounts stay yours &mdash; we work inside them with access you grant and can revoke whenever you want. We keep the records our work produces (audits, reports, the log of approved changes) so you have a history, and we hold the access you grant until you revoke it. We don't sell data, move it between clients, or feed it into model training; our software sends account data to the AI models it calls only to do your work. Details are in the <a href="/privacy.html">privacy policy</a> and on the <a href="/trust/">trust page</a>.</p></div>
+      </details>
     </div>
   </div>
 </section>
 </div>
 
 <section class="block deep" id="contact">
-  <div class="wrap sec">
-    <div class="sec-label reveal">
-      <span class="num">08</span>
-      <h2>Contact</h2>
-    </div>
-    <div class="sec-body reveal d1">
-      <h3>Get the audit.</h3>
-      <div class="contact-grid">
-        <div>
-          <ul class="contact-line">
-            <li><span class="cp-who">Jack Tusa &middot; Growth &amp; partnerships</span><a href="mailto:jack@thejlcollective.com?subject=Audit">jack@thejlcollective.com</a></li>
-            <li><span class="cp-who">Luke Lehmann &middot; Systems &amp; engineering</span><a href="mailto:luke@thejlcollective.com?subject=Audit">luke@thejlcollective.com</a></li>
-          </ul>
-          <p class="contact-note">Tell us what you sell, where you're spending, and roughly how much. We'll reply with what we'd need to see and how fast the write-up comes back. No deck and no sales call required &mdash; email is enough.</p>
-        </div>
-        <div>
-          <form class="entry-form" id="entryForm" novalidate>
-            <div class="ef-grid">
-              <label><span class="lab">Name</span><input type="text" id="efName" name="name" autocomplete="name" maxlength="80" required></label>
-              <label><span class="lab">What you sell</span><input type="text" id="efSell" name="sell" maxlength="120"></label>
-              <label><span class="lab">Where you're spending</span><input type="text" id="efWhere" name="where" maxlength="120"></label>
-              <label><span class="lab">Roughly how much</span><input type="text" id="efMuch" name="much" maxlength="60"></label>
-            </div>
-            <button type="submit" class="btn primary">Request the audit</button>
-            <p class="ef-note">This opens your mail app with the request prefilled &mdash; nothing is stored on this page.</p>
-          </form>
-          <div class="posting" id="posting" aria-live="polite">
-            <div class="pline"><span id="postedName"></span><span class="pstate"><time id="postedTime" datetime=""></time> &middot; Request &mdash; sent to your mail app</span></div>
-            <p class="pnote">Your mail app is opening with this request. Nothing is stored on this page.</p>
-            <p class="pactions"><a id="postMail" href="mailto:jack@thejlcollective.com,luke@thejlcollective.com?subject=Audit">If your mail app didn't open, send the request yourself</a> &middot; <a id="postEdit" href="#contact">edit the request</a></p>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">07</span><span class="label">Contact</span></div>
+    <h2>Request the audit.</h2>
+    <div class="two">
+      <div>
+        <ul class="contact-line">
+          <li><span class="label">Jack Tusa &middot; Growth &amp; partnerships</span><a href="mailto:jack@thejlcollective.com?subject=Audit">jack@thejlcollective.com</a></li>
+          <li><span class="label">Luke Lehmann &middot; Systems &amp; engineering</span><a href="mailto:luke@thejlcollective.com?subject=Audit">luke@thejlcollective.com</a></li>
+        </ul>
+        <div class="prose" style="margin-top:var(--s3)"><p>Tell us what you sell, where you're spending, and roughly how much. We'll reply with what we'd need to see and how fast the write-up comes back. No deck and no sales call required &mdash; email is enough.</p></div>
+      </div>
+      <div>
+        <form class="entry-form" id="entryForm" novalidate>
+          <div class="ef-grid">
+            <label><span class="lab">Name</span><input type="text" id="efName" name="name" autocomplete="name" maxlength="80" required></label>
+            <label><span class="lab">What you sell</span><input type="text" id="efSell" name="sell" maxlength="120"></label>
+            <label><span class="lab">Where you're spending</span><input type="text" id="efWhere" name="where" maxlength="120"></label>
+            <label><span class="lab">Roughly how much</span><input type="text" id="efMuch" name="much" maxlength="60"></label>
           </div>
+          <button type="submit" class="btn primary">Request the audit</button>
+          <p class="ef-note">This opens your mail app with the request prefilled &mdash; nothing is stored on this page.</p>
+        </form>
+        <div class="posting" id="posting" aria-live="polite">
+          <div class="pline"><span id="postedName"></span><span class="pstate"><time id="postedTime" datetime=""></time> &middot; sent to your mail app</span></div>
+          <p class="pnote">Your mail app is opening with this request. Nothing is stored on this page.</p>
+          <p class="pactions"><a id="postMail" href="mailto:jack@thejlcollective.com,luke@thejlcollective.com?subject=Audit">If your mail app didn't open, send the request yourself</a> &middot; <a id="postEdit" href="#contact">edit the request</a></p>
         </div>
       </div>
     </div>
@@ -351,7 +205,7 @@ revised: 14 October 2026
 
 <script>
 console.log('%cJL COLLECTIVE%c\n\nHand-written HTML and CSS. No frameworks, no trackers — the privacy page means it.\nIf you read source for fun, we should talk: luke@thejlcollective.com',
-  'font-family:JetBrains Mono,ui-monospace,monospace;color:#C8A96A;letter-spacing:.3em;font-size:12px',
+  'font-family:ui-monospace,monospace;color:#C8A96A;letter-spacing:.3em;font-size:12px',
   'font-family:ui-monospace,monospace;color:#8E99AD;font-size:11px');
 
 /* the audit request: the form becomes a note, then your mail app opens */
@@ -398,6 +252,6 @@ console.log('%cJL COLLECTIVE%c\n\nHand-written HTML and CSS. No frameworks, no t
   });
 })();
 </script>
-<script type="module" src="/scene.js?v=2"></script>
+<script type="module" src="/scene.js?v=3"></script>
 </body>
 </html>
