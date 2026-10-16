@@ -157,6 +157,10 @@ html:not(.js) .menu-btn{ display:none }
 .band .btn.ghost{ border-color:rgba(246,242,234,.4); color:var(--cream); background:transparent }
 .band .btn.ghost:hover{ border-color:var(--cream) }
 .cta-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:var(--s4) }
+.cta-note{ margin-top:14px; font-size:15px; line-height:1.5; color:var(--ink-2) }
+.cta-note b{ font-weight:500; color:var(--ink) }
+.band .cta-note{ color:var(--body-on-navy) }
+.band .cta-note b{ color:var(--cream) }
 
 /* ---------- sections: a heading block, then the matter ---------- */
 .sec{ padding:var(--section) 0 }
@@ -181,7 +185,6 @@ html:not(.js) .menu-btn{ display:none }
 @media (min-width:960px){ .two{ grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:var(--s5) } }
 
 /* ---------- cards ---------- */
-.card{ background:var(--card); border:1px solid var(--line); border-radius:var(--r-card); box-shadow:var(--shadow-1) }
 .rows,.rule-list{ list-style:none; display:grid; gap:var(--gap) }
 @media (min-width:720px){
   .rows,.rule-list{ grid-template-columns:repeat(2,minmax(0,1fr)) }
@@ -195,7 +198,7 @@ html:not(.js) .menu-btn{ display:none }
 .hero{ padding:clamp(48px,7vh,88px) 0 clamp(64px,9vh,104px) }
 .hero h1{ font-size:var(--fs-display); line-height:1.03; letter-spacing:-.022em; margin-bottom:var(--s5) }
 .hero h1 span{ display:block }
-.hero h1 .h1-rule{ color:var(--brass-ink) }
+.hero h1 .h1-soft{ color:var(--ink-2) }
 .hero-grid{ display:grid; gap:48px; align-items:start }
 @media (min-width:960px){ .hero-grid{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:64px } }
 .hero-copy .deck{ max-width:46ch }
@@ -240,42 +243,12 @@ html:not(.js) .demo-actions,html:not(.js) .demo-record,html:not(.js) .demo-label
 .stat b{ display:block; font-family:var(--serif); font-weight:var(--w-serif); font-size:clamp(44px,4.6vw,64px); line-height:1; letter-spacing:-.02em; color:var(--cream) }
 .stat span{ display:block; margin-top:14px; font-size:15px; line-height:1.45; color:var(--body-on-navy); max-width:26ch }
 
-/* four promises, each with a small drawing of the part */
-.bento{ display:grid; gap:var(--gap) }
-@media (min-width:880px){ .bento{ grid-template-columns:repeat(2,minmax(0,1fr)) } }
-.bento .card{ padding:28px; display:flex; flex-direction:column; gap:12px }
-.bento h3{ font-size:clamp(22px,2vw,27px); margin-top:8px }
-.bento p{ color:var(--ink-2); font-size:16px; max-width:46ch }
-.mini{ background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:16px 18px; min-height:128px; font-size:13.5px; line-height:1.4; color:var(--ink-2) }
-.mini-row{ display:flex; align-items:center; gap:9px; font-weight:500; color:var(--ink) }
-.dot{ width:8px; height:8px; border-radius:50%; flex:none; background:var(--wait); box-shadow:0 0 0 4px rgba(194,134,30,.16) }
-.dot.ok{ background:var(--ok); box-shadow:0 0 0 4px rgba(46,122,78,.14) }
-.dot.no{ background:var(--no); box-shadow:0 0 0 4px rgba(161,57,43,.14) }
-.mini-sub{ margin:6px 0 14px 17px; color:var(--ink-3) }
-.mini-btns{ display:flex; gap:8px }
-.mini-btns span{ padding:7px 14px; border-radius:6px; border:1px solid rgba(14,24,40,.22); font-weight:500; font-size:12.5px; color:var(--ink) }
-.mini-btns span.on{ background:var(--navy); border-color:var(--navy); color:var(--cream) }
-.mini-line{ display:flex; justify-content:space-between; gap:12px; align-items:center; padding:7px 0; border-bottom:1px solid var(--line) }
-.mini-line:first-child{ padding-top:0 }
-.mini-line em{ font-style:normal; display:inline-flex; align-items:center; gap:7px; color:var(--ink-3) }
-.mini-foot{ margin-top:10px; font-weight:500; font-size:var(--fs-label); letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--brass-ink) }
-.mini-switch{ display:flex; align-items:center; gap:12px; font-weight:500; color:var(--ink); margin-bottom:12px }
-.mini-switch i{ position:relative; width:40px; height:22px; border-radius:11px; background:var(--navy); flex:none }
-.mini-switch i::after{ content:""; position:absolute; top:3px; right:3px; width:16px; height:16px; border-radius:50%; background:var(--brass) }
-.mini-cant{ list-style:none; display:grid; gap:5px; color:var(--ink-3) }
-.mini-cant li{ display:flex; gap:9px; align-items:center }
-.mini-cant li::before{ content:""; width:14px; height:2px; border-radius:1px; background:var(--no); opacity:.7; flex:none }
-.mini-fee b{ display:block; font-family:var(--serif); font-weight:var(--w-serif); font-size:40px; line-height:1; color:var(--navy); letter-spacing:-.01em }
-.mini-fee span{ display:block; margin-top:6px; color:var(--ink) }
-.mini-fee small{ display:block; margin-top:10px; font-size:12.5px; color:var(--ink-3) }
-
 /* ---------- product screens: real software, demonstration data ---------- */
 .screen{ margin:0 }
 .screen picture,.screen img{ display:block; width:100% }
 .screen img{ height:auto; border:1px solid var(--line); border-radius:12px; background:var(--paper-2); box-shadow:var(--shadow-2) }
 .screen figcaption{ margin-top:14px; font-size:var(--fs-small); line-height:1.5; color:var(--ink-3); max-width:68ch }
 .screen figcaption b{ color:var(--ink); font-weight:500 }
-.showcase{ padding:var(--section) 0 }
 /* real screens on navy: cream software reads cleanly against a dark field */
 .band .screen img{ border-color:rgba(246,242,234,.16); box-shadow:0 40px 80px -36px rgba(0,0,0,.6) }
 .band .screen figcaption{ color:var(--body-on-navy) }
@@ -492,9 +465,9 @@ footer .seal-small .seal-j{ fill:var(--brass) }
   :root{ --cream:var(--ink); --body-on-navy:var(--ink-2); --mute-on-navy:var(--ink-3); --brass:var(--brass-ink); --rule-on-navy:var(--rule); --rule-on-navy-hi:var(--rule) }
   header.site,.menu-btn,.skip,.entry-form,.posting,.cta-row,.onpage,.demo-actions,.demo-label,.viewer-tabs,.calc{ display:none !important }
   html,body,.band,.sec.alt,footer.site{ background:#fff }
-  .screen img,.card,.rows li,.rule-list li,.steps li,.person,.faq details,.demo-card,.demo-record,.table-card,.piece{ box-shadow:none }
+  .screen img,.rows li,.rule-list li,.steps li,.person,.faq details,.demo-card,.demo-record,.table-card,.piece{ box-shadow:none }
   .viewer-panel[hidden]{ display:grid !important }
-  .steps .s-num,.mini-btns span.on,.faq details[open] summary::after,.person .avatar,.mini-switch i{ background:#fff !important; color:var(--ink) !important; box-shadow:inset 0 0 0 1px var(--ink) }
+  .steps .s-num,.faq details[open] summary::after,.person .avatar{ background:#fff !important; color:var(--ink) !important; box-shadow:inset 0 0 0 1px var(--ink) }
   .band .screen img{ box-shadow:none }
   body{ color:#000 }
 }
