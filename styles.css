@@ -196,9 +196,7 @@ html:not(.js) .menu-btn{ display:none }
 
 /* ---------- home: the opening ---------- */
 .hero{ padding:clamp(48px,7vh,88px) 0 clamp(64px,9vh,104px) }
-.hero h1{ font-size:var(--fs-display); line-height:1.03; letter-spacing:-.022em; margin-bottom:var(--s5) }
-.hero h1 span{ display:block }
-.hero h1 .h1-soft{ color:var(--ink-2) }
+.hero h1{ font-size:var(--fs-display); line-height:1.03; letter-spacing:-.022em; margin-bottom:var(--s5); max-width:14ch }
 .hero-grid{ display:grid; gap:48px; align-items:start }
 @media (min-width:960px){ .hero-grid{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:64px } }
 .hero-copy .deck{ max-width:46ch }
